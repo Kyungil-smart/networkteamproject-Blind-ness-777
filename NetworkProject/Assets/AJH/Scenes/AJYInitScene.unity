@@ -254,17 +254,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 253290823321291508, guid: ef7e9c267e3e636418bd2d956bd57795, type: 3}
+      propertyPath: NetworkConfig.PlayerPrefab
+      value: 
+      objectReference: {fileID: 8577999087619759744, guid: f64811193a2bd3d44997779da05eff83, type: 3}
     - target: {fileID: 545986577490616043, guid: ef7e9c267e3e636418bd2d956bd57795, type: 3}
       propertyPath: m_Name
       value: NetworkManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5465258064870055487, guid: ef7e9c267e3e636418bd2d956bd57795, type: 3}
+      propertyPath: m_MaxPacketQueueSize
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 8996900406782397182, guid: ef7e9c267e3e636418bd2d956bd57795, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 943.63446
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8996900406782397182, guid: ef7e9c267e3e636418bd2d956bd57795, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 498.1259
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8996900406782397182, guid: ef7e9c267e3e636418bd2d956bd57795, type: 3}
       propertyPath: m_LocalPosition.z

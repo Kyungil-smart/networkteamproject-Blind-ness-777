@@ -4,6 +4,10 @@ using Unity.Netcode;
 
 public class NetworkBootstrap : MonoBehaviour
 {
+    /*
+     * 내용 요약 : 호스트, 클라이언트 접속, 연결해제 관리
+     * 작성자 : 안정연
+     */
     [SerializeField] private Button _startHostButton;
     [SerializeField] private Button _startClientButton;
     [SerializeField] private Button _disconnectButton;
@@ -22,6 +26,7 @@ public class NetworkBootstrap : MonoBehaviour
         UnbindButtonEvents();
     }
 
+    // 버튼 이벤트 구독
     private void BindButtonEvents()
     {
         _startHostButton.onClick.AddListener(StartHost);
@@ -29,6 +34,7 @@ public class NetworkBootstrap : MonoBehaviour
         _disconnectButton.onClick.AddListener(Disconnect);
     }
 
+    // 버튼 이벤트 구독해제
     private void UnbindButtonEvents()
     {
         _startHostButton.onClick.RemoveListener(StartHost);
@@ -36,6 +42,7 @@ public class NetworkBootstrap : MonoBehaviour
         _disconnectButton.onClick.RemoveListener(Disconnect);
     }
 
+    // 클라이언트 접속/해제, 서버 호스트 콜백이벤트 구독
     private void BindNetworkCallbacks()
     {
         if (_isCallbacksBound) return;
@@ -46,7 +53,8 @@ public class NetworkBootstrap : MonoBehaviour
         NetworkManager.Singleton.OnServerStarted            += OnServerStarted;
         _isCallbacksBound = true;
     }
-
+    
+    // 클라이언트 접속/해제, 서버 호스트 콜백이벤트 구독해제
     private void UnbindNetworkCallbacks()
     {
         if (!_isCallbacksBound) return;
