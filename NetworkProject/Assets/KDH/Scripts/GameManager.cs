@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using UnityEngine.SceneManagement;
 
 public class GameManager : NetworkBehaviour
 {
@@ -31,18 +33,15 @@ public class GameManager : NetworkBehaviour
         StartCoroutine(GamePlay());
     }
 
-    // 플레이어 죽을때마다 인원 수 감소
+    // 플레이어가 총 맞았을 때 호출
     public void OnPlayerDead()
     {
         if (!IsServer) return;
         
         AlivePlayer.Value--;
-        
-        if (AlivePlayer.Value <= 1)
-            CurrentPhase.Value = GamePhase.GameOver;
     }
 
-    // 숨는 페이즈에서 총쏘는 페이즈로 갔을 시 호출
+    // 총 쏘고 난뒤에 호출
     public void ShootingPhase()
     {
         if (!IsServer) return;
@@ -54,9 +53,9 @@ public class GameManager : NetworkBehaviour
     // 게임 플레이 루틴
     public IEnumerator GamePlay()
     {
+        CurrentPhase.Value = GamePhase.HideAndSeek;
         while (AlivePlayer.Value > 1)
         {
-            CurrentPhase.Value = GamePhase.HideAndSeek;
             yield return new WaitForSeconds(_movingTime);
             
             CurrentPhase.Value = GamePhase.Shooting;
