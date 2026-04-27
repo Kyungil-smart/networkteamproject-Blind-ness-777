@@ -1,0 +1,22 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class OptionUI : MonoBehaviour
+{
+    [SerializeField] private Button _closeButton;
+
+    private void Awake()
+    {
+        _closeButton.onClick.AddListener(OnCloseClicked);
+    }
+
+    private void OnDestroy()
+    {
+        _closeButton.onClick.RemoveListener(OnCloseClicked);
+    }
+    
+    private void OnCloseClicked()
+    {
+        gameObject.SetActive(false);
+    }
+}
