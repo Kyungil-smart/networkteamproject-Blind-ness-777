@@ -11,7 +11,8 @@ using Unity.Netcode;
 public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
 {
     [Header("Movement")]
-    [SerializeField] private float _moveSpeed     = 5f;
+    [SerializeField] private float _moveSpeed   = 5f;
+    [SerializeField] private float _sprintSpeed = 10f;
     [SerializeField] private float _rotationSpeed = 10f;
 
     [Header("Camera")]
@@ -34,6 +35,8 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
 
     [Header("Animator")]
     [SerializeField] private Animator _animator;
+    [SerializeField] private float _walkAnimSpeed   = 0.5f;
+    [SerializeField] private float _runAnimSpeed    = 1f;
 
     private CharacterController _characterController;
     private Vector3 _aimDirection = Vector3.forward;
@@ -45,6 +48,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
 
     private Vector2 _moveInput;
     private bool    _shootInput;
+    private bool    _isSprinting;
     
     private static readonly int _hashSpeed   = Animator.StringToHash("Speed");
     private static readonly int _hashDrawGun = Animator.StringToHash("DrawGun");
@@ -90,6 +94,11 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     {
         _moveInput = value.Get<Vector2>();
     }
+    
+    private void OnSprint(InputValue value)
+    {
+        _isSprinting = value.isPressed;
+    }
 
     private void OnFire(InputValue value)
     {
@@ -112,10 +121,12 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
                 transform.rotation, targetRot, _rotationSpeed * Time.deltaTime);
         }
 
-        _characterController.SimpleMove(moveDir * _moveSpeed);
+        float speed = _isSprinting ? _sprintSpeed : _moveSpeed;
+        _characterController.SimpleMove(moveDir * speed);
 
+        float animSpeed = moveDir.magnitude > 0.1f ? (_isSprinting ? _runAnimSpeed : _walkAnimSpeed) : 0f;
         if (_animator != null)
-            _animator.SetFloat(_hashSpeed, moveDir.magnitude);
+            _animator.SetFloat(_hashSpeed, animSpeed);
     }
 
     private void HandleAimDirection()
