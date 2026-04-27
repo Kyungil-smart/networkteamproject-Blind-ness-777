@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Unity.Netcode;
 
 /// <summary>
@@ -24,10 +25,6 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     [SerializeField] private LineRenderer _guideLine;
     [SerializeField] private float        _guideLength   = 2f; // 1페이즈 짧은 길이
     [SerializeField] private float        _aimLineLength = 30f; // 탑뷰 전환 후 긴 조준선
-    [SerializeField] private Color        _guideColorStart = new Color(1, 1, 1, 0.5f);
-    [SerializeField] private Color        _guideColorEnd   = new Color(1, 1, 1, 0f);
-    [SerializeField] private Color        _aimColorStart   = new Color(1, 0.2f, 0.2f, 1f);
-    [SerializeField] private Color        _aimColorEnd     = new Color(1, 0.2f, 0.2f, 0f);
     
     [Header("Raycast")]
     [SerializeField] private LayerMask _shootLayerMask; // Player 레이어만
@@ -46,6 +43,9 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     private bool _canShoot  = false;
     private bool _isDead    = false;
 
+    private Vector2 _moveInput;
+    private bool    _shootInput;
+    
     private static readonly int _hashSpeed   = Animator.StringToHash("Speed");
     private static readonly int _hashDrawGun = Animator.StringToHash("DrawGun");
     private static readonly int _hashShoot   = Animator.StringToHash("Shoot");
@@ -56,6 +56,8 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         {
             // 다른 플레이어 캐릭터 — 카메라, 가이드라인 비활성화
             _virtualCamera.SetActive(false);
+            PlayerInput playerInput = GetComponent<PlayerInput>();
+            if (playerInput != null) playerInput.enabled = false;
             if (_guideLine != null) _guideLine.enabled = false;
             return;
         }
@@ -77,21 +79,31 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         HandleAimDirection();
         UpdateGuideLine();
 
-        if (_canShoot && Input.GetMouseButtonDown(0))
+        if (_canShoot && _shootInput)
+        {
+            _shootInput = false;
             ShootServerRpc(_aimDirection);
+        }
+    }
+    
+    private void OnMove(InputValue value)
+    {
+        _moveInput = value.Get<Vector2>();
+    }
+
+    private void OnFire(InputValue value)
+    {
+        if (value.isPressed) _shootInput = true;
     }
 
     private void HandleMovement()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-
         Vector3 camForward = Vector3.ProjectOnPlane(
             Camera.main.transform.forward, Vector3.up).normalized;
         Vector3 camRight = Vector3.ProjectOnPlane(
             Camera.main.transform.right, Vector3.up).normalized;
 
-        Vector3 moveDir = (camForward * v + camRight * h).normalized;
+        Vector3 moveDir = (camForward * _moveInput.y + camRight * _moveInput.x).normalized;
 
         if (moveDir != Vector3.zero)
         {
@@ -108,18 +120,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
 
     private void HandleAimDirection()
     {
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-        Vector3 targetPoint;
-
-        if (Physics.Raycast(ray, out RaycastHit hit, _aimRayLength, _shootLayerMask))
-            targetPoint = hit.point;
-        else
-            targetPoint = ray.origin + ray.direction * _aimRayLength;
-
-        if (_fireOrigin != null)
-            _aimDirection = (targetPoint - _fireOrigin.position).normalized;
-        else
-            _aimDirection = ray.direction;
+        _aimDirection = transform.forward;
     }
 
     private void InitGuideLine()
@@ -130,10 +131,24 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         _guideLine.useWorldSpace = true;
         
         // 1페이즈 초기 상태 — 흐릿하고 짧은 막대
-        _guideLine.startColor    = _guideColorStart;
-        _guideLine.endColor      = _guideColorEnd;
         _guideLine.startWidth    = 0.03f;
         _guideLine.endWidth      = 0.01f;
+        
+        // Gradient로 알파 처리
+        Gradient gradient = new Gradient();
+        gradient.SetKeys(
+            new GradientColorKey[]
+            {
+                new GradientColorKey(Color.white, 0f),
+                new GradientColorKey(Color.white, 1f)
+            },
+            new GradientAlphaKey[]
+            {
+                new GradientAlphaKey(0.5f, 0f), // 시작 반투명
+                new GradientAlphaKey(0f,   1f)  // 끝 투명
+            }
+        );
+        _guideLine.colorGradient = gradient;
     }
 
     private void UpdateGuideLine()
@@ -161,14 +176,23 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         // 권총 활성화 + 꺼내는 애니메이션
         if (_gunObject != null) _gunObject.SetActive(true);
         if (_animator  != null) _animator.SetTrigger(_hashDrawGun);
-
+        
         // 오너에게만 조준선 스타일 변경
         if (!IsOwner || _guideLine == null) return;
-
-        _guideLine.startColor = _aimColorStart;
-        _guideLine.endColor   = _aimColorEnd;
-        _guideLine.startWidth = 0.04f;
-        _guideLine.endWidth   = 0.01f;
+        Gradient aimGradient = new Gradient();
+        aimGradient.SetKeys(
+            new GradientColorKey[]
+            {
+                new GradientColorKey(new Color(1f, 0.2f, 0.2f), 0f),
+                new GradientColorKey(new Color(1f, 0.2f, 0.2f), 1f)
+            },
+            new GradientAlphaKey[]
+            {
+                new GradientAlphaKey(1f, 0f), // 시작 선명
+                new GradientAlphaKey(0f, 1f)  // 끝 투명
+            }
+        );
+        _guideLine.colorGradient = aimGradient;
     }
 
     /// <summary>
