@@ -55,7 +55,7 @@ public class SceneLoader : NetworkBehaviour
         GameManager.Instance.CurrentPhase.OnValueChanged -= Result;
     }
 
-    // 클라이언트들 전부 로딩 됬는지 확인하는 함수 씬전환까지 한번에 함
+    // 클라이언트들 전부 로딩 됬는지 확인하는 함수
     private void OnAllClientsLoaded(string sceneName, LoadSceneMode _, 
         List<ulong> clientCompletes, List<ulong> clientTimeouts)
     {
