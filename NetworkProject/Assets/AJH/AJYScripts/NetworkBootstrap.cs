@@ -10,7 +10,7 @@ public class NetworkBootstrap : MonoBehaviour
      */
     [SerializeField] private Button _startHostButton;
     [SerializeField] private Button _startClientButton;
-    [SerializeField] private Button _disconnectButton;
+    //[SerializeField] private Button _disconnectButton;
 
     private bool _isCallbacksBound;
 
@@ -31,7 +31,7 @@ public class NetworkBootstrap : MonoBehaviour
     {
         _startHostButton.onClick.AddListener(StartHost);
         _startClientButton.onClick.AddListener(StartClient);
-        _disconnectButton.onClick.AddListener(Disconnect);
+        //_disconnectButton.onClick.AddListener(Disconnect);
     }
 
     // 버튼 이벤트 구독해제
@@ -39,7 +39,7 @@ public class NetworkBootstrap : MonoBehaviour
     {
         _startHostButton.onClick.RemoveListener(StartHost);
         _startClientButton.onClick.RemoveListener(StartClient);
-        _disconnectButton.onClick.RemoveListener(Disconnect);
+        //_disconnectButton.onClick.RemoveListener(Disconnect);
     }
 
     // 클라이언트 접속/해제, 서버 호스트 콜백이벤트 구독
