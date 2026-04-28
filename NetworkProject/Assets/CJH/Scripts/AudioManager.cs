@@ -69,6 +69,19 @@ public class AudioManager : MonoBehaviour, IPhaseChangeable
 
         GUILayout.EndArea();
     }
+    
+    public float GetBGMVolume() => _bgmSource.volume;
+    public float GetSFXVolume() => _sfxSource.volume;
+
+    public void SetBGMVolume(float value)
+    {
+        _bgmVolume = value; _bgmSource.volume = value;
+    }
+
+    public void SetSFXVolume(float value)
+    {
+        _sfxVolume = value; _sfxSource.volume = value;
+    }
 
     /// <summary>
     /// GameSystem 담당자 — 타이머가 8초 이하로 떨어지는 시점에 한 번만 호출할 것.
