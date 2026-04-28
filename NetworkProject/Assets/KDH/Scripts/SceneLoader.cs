@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
@@ -21,7 +22,12 @@ public class SceneLoader : NetworkBehaviour
             return;
         }
     }
-    
+
+    private void Start()
+    {
+        SceneManager.LoadScene("KDH/Scene/TitleScene");
+    }
+
     // 게임 시작 씬
     public void LoadGameScene()
     {
@@ -44,7 +50,7 @@ public class SceneLoader : NetworkBehaviour
     }
     
     // 개인 로비 이동 씬
-    public void individualLobby()
+    public void IndividualLobby()
     {
         if (!IsOwner) return;
         SceneManager.LoadScene("LobbyScene");

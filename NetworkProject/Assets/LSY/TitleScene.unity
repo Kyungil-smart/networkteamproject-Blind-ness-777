@@ -556,8 +556,8 @@ MonoBehaviour:
   _sfxSource: {fileID: 313533305}
   _tickTockClip: {fileID: 8300000, guid: a1d11fac02c73284f94f5c039ff78ecc, type: 3}
   _transitionClip: {fileID: 8300000, guid: 43ce5913a863a8d4a95fe172c7ee3d91, type: 3}
-  _bgmVolume: 0.5
-  _sfxVolume: 0.5
+  _bgmVolume: 0.187
+  _sfxVolume: 0.198
   _fadeOutDuration: 2
   _fadeInDuration: 1
 --- !u!4 &313533308

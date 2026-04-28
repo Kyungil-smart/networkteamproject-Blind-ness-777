@@ -4,6 +4,7 @@ using UnityEngine;
 public class MapLoader : NetworkBehaviour
 {
     [SerializeField] private GameObject[] _mapPrefabs;
+    private NetworkObject _currentMap;
 
     public void LoadMap()
     {
@@ -11,6 +12,15 @@ public class MapLoader : NetworkBehaviour
         
         int _random = Random.Range(0, _mapPrefabs.Length);
         GameObject _mapPrefab = Instantiate(_mapPrefabs[_random]);
-        _mapPrefab.GetComponent<NetworkObject>().Spawn();
+        _currentMap = _mapPrefab.GetComponent<NetworkObject>();
+        _currentMap.Spawn();
+    }
+    
+    public void DestroyMap()
+    {
+        if (!IsServer) return;
+        if (_currentMap == null) return;
+        _currentMap.Despawn(true); 
+        _currentMap = null;
     }
 }
