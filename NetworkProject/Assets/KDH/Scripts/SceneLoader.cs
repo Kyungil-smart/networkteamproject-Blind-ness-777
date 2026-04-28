@@ -43,6 +43,13 @@ public class SceneLoader : NetworkBehaviour
         NetworkManager.Singleton.SceneManager.LoadScene("LobbyScene", LoadSceneMode.Single);
     }
     
+    // 개인 로비 이동 씬
+    public void individualLobby()
+    {
+        if (!IsOwner) return;
+        SceneManager.LoadScene("LobbyScene");
+    }
+    
     public override void OnNetworkSpawn()
     {
         NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += OnAllClientsLoaded;
@@ -72,7 +79,6 @@ public class SceneLoader : NetworkBehaviour
             foreach (ulong clentid in clientTimeouts) NetworkManager.Singleton.DisconnectClient(clentid);
             _retryCount = 0;
         }
-        
         switch (sceneName)
         {
             case "GameScene":
