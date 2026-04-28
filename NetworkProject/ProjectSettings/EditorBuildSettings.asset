@@ -14,6 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/KDH/Scene/ResultScene.unity
     guid: e3054ad1e35e7b8449c32bcee3a8cdf8
+  - enabled: 1
+    path: Assets/AJH/Scenes/AJYInitScene.unity
+    guid: 4eed35276c0e0494fb85d790bb24fed8
+  - enabled: 1
+    path: Assets/AJH/Scenes/AJYTestScene.unity
+    guid: 816cd2915eb0f2b46af100ba760c9ec0
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 99f9c9493070a9d4c979a8fec7c5a8d3, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
