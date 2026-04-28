@@ -102,7 +102,6 @@ public class SceneLoader : NetworkBehaviour
     private void Result(GamePhase prev, GamePhase next)
     {
         if (!IsServer) return;
-        FindObjectOfType<MapLoader>()?.gameObject.GetComponent<NetworkObject>().Despawn(true);
         if (next == GamePhase.GameOver) LoadResultScene();
     }
 }

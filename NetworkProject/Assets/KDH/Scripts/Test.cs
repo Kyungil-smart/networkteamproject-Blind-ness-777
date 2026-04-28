@@ -19,6 +19,8 @@ public class Test : NetworkBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
+            MapLoader mapLoader = FindObjectOfType<MapLoader>();
+            mapLoader.DestroyMap();
             SceneLoader.Instance.LoadResultScene();
             Debug.Log("결과창으로 전환");
         }
