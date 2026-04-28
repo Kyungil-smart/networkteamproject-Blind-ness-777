@@ -10,7 +10,9 @@ public class GameManager : NetworkBehaviour
     public static GameManager Instance {get; private set;}
     public NetworkVariable<GamePhase> CurrentPhase = new(GamePhase.Waiting);    // 게임 페이즈 변수
     public NetworkVariable<int> AlivePlayer = new(0);                           // 플레이 인원수 변수
+    public MapLoader _mapSpawn;
     [SerializeField] public float _movingTime = 10f;                            // 숨는 시간 변수
+    
     private void Awake()
     {
         if (Instance == null)
@@ -24,12 +26,14 @@ public class GameManager : NetworkBehaviour
             return;
         }
     }
-
+    
     // 게임 시작 함수
     public void StartGame()
     {
         if (!IsServer) return;
         AlivePlayer.Value = NetworkManager.Singleton.ConnectedClientsIds.Count;
+        _mapSpawn = FindObjectOfType<MapLoader>();
+        if (_mapSpawn != null) _mapSpawn.LoadMap();
         StartCoroutine(GamePlay());
     }
 

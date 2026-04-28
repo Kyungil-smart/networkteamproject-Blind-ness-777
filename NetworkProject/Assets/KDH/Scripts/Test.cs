@@ -31,7 +31,6 @@ public class Test : NetworkBehaviour
         if (Input.GetKeyDown(KeyCode.G))
         {
             SceneLoader.Instance.LoadGameScene();
-            GameManager.Instance.StartGame();
             Debug.Log("[Test] 게임 시작");
             Debug.Log($"{GameManager.Instance.CurrentPhase.Value}");
         }
