@@ -303,6 +303,34 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6471361635811955210, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471361635811955210, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471361635811955210, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471361635811955210, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471361635811955210, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: individualLobby
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471361635811955210, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471361635811955210, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6581202150329982615, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -310,6 +338,34 @@ PrefabInstance:
     - target: {fileID: 6581202150329982615, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212451068801280035, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212451068801280035, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212451068801280035, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212451068801280035, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212451068801280035, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: individualLobby
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212451068801280035, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212451068801280035, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8573998378184797840, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
       propertyPath: m_Name

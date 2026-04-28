@@ -66,8 +66,18 @@ public class NetworkBootstrap : MonoBehaviour
         _isCallbacksBound = false;
     }
 
-    private void StartHost()   => NetworkManager.Singleton.StartHost();
-    private void StartClient() => NetworkManager.Singleton.StartClient();
+    private void StartHost()
+    {
+        NetworkManager.Singleton.StartHost();
+        SceneLoader.Instance.IndividualLobby();
+    }
+
+    private void StartClient()
+    {
+        NetworkManager.Singleton.StartClient();
+        SceneLoader.Instance.IndividualLobby();
+    }
+
     private void Disconnect()  => NetworkManager.Singleton.Shutdown();
 
     private void OnClientConnected(ulong clientId)  => Debug.Log($"<color=green>[Network] 접속: {clientId}</color>");
