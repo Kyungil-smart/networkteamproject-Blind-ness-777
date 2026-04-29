@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
@@ -98,11 +99,17 @@ public class SceneLoader : NetworkBehaviour
                 GameManager.Instance.StartGame();
                 break;
             case "LoadingScene":
-                NetworkManager.Singleton.SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+                FindObjectOfType<LoadingUI>()?.SetReady();
+                StartCoroutine(Loading());
                 break;
         }
     }
-    
+
+    private IEnumerator Loading()
+    {
+        yield return new WaitForSeconds(1f);
+        NetworkManager.Singleton.SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+    }
     // 결과창으로 이동
     private void Result(GamePhase prev, GamePhase next)
     {
