@@ -17,32 +17,24 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     [SerializeField] private float     _aimRayLength = 30f;
     [SerializeField] private LayerMask _shootLayerMask;
 
-    [Header("Gun")]
-    [SerializeField] private GameObject _gunObject;
-
-    [Header("Animator")]
-    [SerializeField] private Animator _animator;
-    [SerializeField] private float    _walkAnimSpeed = 0.5f;
-    [SerializeField] private float    _runAnimSpeed  = 1f;
-
     private CharacterController _characterController;
     private PlayerAim           _playerAim;
+    private PlayerRagdoll       _playerRagdoll;
+    private PlayerAnimator      _playerAnimator;
 
-    private bool _canShoot  = false;
-    private bool _isDead    = false;
+    private bool _canShoot = false;
+    private bool _isDead   = false;
 
     private Vector2 _moveInput;
     private bool    _shootInput;
     private bool    _isSprinting;
 
-    private static readonly int _hashSpeed   = Animator.StringToHash("Speed");
-    private static readonly int _hashDrawGun = Animator.StringToHash("DrawGun");
-    private static readonly int _hashShoot   = Animator.StringToHash("Shoot");
-
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
         _playerAim           = GetComponent<PlayerAim>();
+        _playerRagdoll       = GetComponent<PlayerRagdoll>();
+        _playerAnimator      = GetComponent<PlayerAnimator>();
     }
 
     public override void OnNetworkSpawn()
@@ -54,8 +46,6 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
             if (playerInput != null) playerInput.enabled = false;
             return;
         }
-
-        if (_gunObject != null) _gunObject.SetActive(false);
     }
 
     private void Update()
@@ -67,7 +57,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         if (_canShoot && _shootInput)
         {
             _shootInput = false;
-            ShootServerRpc(_playerAim.AimDirection);
+            ShootServerRpc(_playerAim.AimDirection, _fireOrigin.position);
         }
     }
 
@@ -91,9 +81,13 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         float speed = _isSprinting ? _sprintSpeed : _moveSpeed;
         _characterController.SimpleMove(moveDir * speed);
 
-        float animSpeed = moveDir.magnitude > 0.1f ? (_isSprinting ? _runAnimSpeed : _walkAnimSpeed) : 0f;
-        if (_animator != null)
-            _animator.SetFloat(_hashSpeed, animSpeed);
+        if (_playerAnimator != null)
+        {
+            float animSpeed = moveDir.magnitude > 0.1f
+                ? (_isSprinting ? _playerAnimator.RunAnimSpeed : _playerAnimator.WalkAnimSpeed)
+                : 0f;
+            _playerAnimator.SetMoveSpeed(animSpeed);
+        }
     }
 
     /// <summary>
@@ -101,7 +95,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     /// 여기서는 서버에 발사 의도 + 방향을 전달하는 것까지만 구현.
     /// </summary>
     [ServerRpc]
-    private void ShootServerRpc(Vector3 aimDir)
+    private void ShootServerRpc(Vector3 aimDir, Vector3 attackerPosition)
     {
         if (_fireOrigin == null) return;
 
@@ -111,7 +105,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         {
             IDamageable target = hit.collider.GetComponent<IDamageable>();
             if (target != null)
-                target.Die();
+                target.Die(attackerPosition);
         }
 
         // 총구 이펙트는 확장 기능 — 여기에 추가 예정
@@ -120,27 +114,25 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     [ClientRpc]
     private void PlayShootAnimClientRpc()
     {
-        if (_animator != null)
-            _animator.SetTrigger(_hashShoot);
+        _playerAnimator?.PlayShoot();
     }
 
     /// <summary>
     /// 안정연님 — ClientRpc로 모든 클라이언트에 동시 호출할 것.
+    /// attackerPosition은 공격자 위치, 래그돌 방향 계산에 사용.
     /// </summary>
     [ClientRpc]
-    public void DieClientRpc()
+    public void DieClientRpc(Vector3 attackerPosition)
     {
         _isDead   = true;
         _canShoot = false;
 
-        if (_animator != null)
-            _animator.SetFloat(_hashSpeed, 0f);
-        // _animator.SetTrigger("Die"); // 사망 애니메이션 추가 시 활성화
+        _playerRagdoll?.ActivateRagdoll(attackerPosition);
 
         Debug.Log($"[PlayerController] {OwnerClientId}번 플레이어 사망");
     }
 
-    public void Die() => DieClientRpc();
+    public void Die(Vector3 attackerPosition) => DieClientRpc(attackerPosition);
 
     public void OnPhaseChanged(GamePhase phase)
     {
@@ -148,8 +140,6 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         {
             case GamePhase.Shooting:
                 _canShoot = true;
-                if (_gunObject != null) _gunObject.SetActive(true);
-                if (_animator  != null) _animator.SetTrigger(_hashDrawGun);
                 break;
 
             case GamePhase.GameOver:

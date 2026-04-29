@@ -47,12 +47,12 @@ public class ThirdPersonCamera : MonoBehaviour
     private void LateUpdate()
     {
         if (_target == null) return;
-
+        
         HandleRotation();
         HandleOcclusion();
         ApplyTransform();
     }
-
+    
     private void HandleRotation()
     {
         float mouseX = Input.GetAxis("Mouse X") * _sensitivityX;
