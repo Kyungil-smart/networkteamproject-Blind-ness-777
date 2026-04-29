@@ -22,7 +22,6 @@ public partial class SetRandomDestinationAction : Action
         if (NavMesh.SamplePosition(randomDirection, out hit, Radius.Value, NavMesh.AllAreas))
         {
             Destination.Value = hit.position;
-            //Debug.Log($"Destination.Value {Destination.Value}");
             return Status.Success;
         }
 
