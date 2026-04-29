@@ -7,20 +7,9 @@ public class Test : NetworkBehaviour
 {
     private void Update()
     {
-        if (!IsServer) return;
-        
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            NetworkManager.Singleton.StartHost();
-            Debug.Log("호스트접속");
-        }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            NetworkManager.Singleton.StartClient();
-            Debug.Log("클라이언트 접속");
-        }
         if (Input.GetKeyDown(KeyCode.R))
         {
+            if (!NetworkManager.Singleton.IsServer) return;
             MapLoader mapLoader = FindObjectOfType<MapLoader>();
             mapLoader.DestroyMap();
             SceneLoader.Instance.LoadResultScene();
@@ -28,12 +17,14 @@ public class Test : NetworkBehaviour
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
+            if (!NetworkManager.Singleton.IsServer) return;
             SceneLoader.Instance.LoadLobbyScene();
             Debug.Log("로비씬으로 전환");
         }
         
         if (Input.GetKeyDown(KeyCode.G))
         {
+            if (!NetworkManager.Singleton.IsServer) return;
             SceneLoader.Instance.LoadGameScene();
             Debug.Log("[Test] 게임 시작");
             Debug.Log($"{GameManager.Instance.CurrentPhase.Value}");
@@ -47,6 +38,7 @@ public class Test : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.O))
         {
+            if (!IsServer) return;
             GameManager.Instance.CurrentPhase.Value = GamePhase.GameOver;
         }
     }
