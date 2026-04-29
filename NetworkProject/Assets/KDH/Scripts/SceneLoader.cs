@@ -32,13 +32,15 @@ public class SceneLoader : NetworkBehaviour
     public void LoadGameScene()
     {
         if (!IsServer) return;
-        NetworkManager.Singleton.SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+        NetworkManager.Singleton.SceneManager.LoadScene("LoadingScene", LoadSceneMode.Single);
     }
     
     // 결과 씬 전환
     public void LoadResultScene()
     {
         if (!IsServer) return;
+        MapLoader mapLoader = FindObjectOfType<MapLoader>();
+        mapLoader.DestroyMap();
         NetworkManager.Singleton.SceneManager.LoadScene("ResultScene", LoadSceneMode.Single);
     }
     
@@ -94,6 +96,9 @@ public class SceneLoader : NetworkBehaviour
                     return;
                 }
                 GameManager.Instance.StartGame();
+                break;
+            case "LoadingScene":
+                NetworkManager.Singleton.SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
                 break;
         }
     }
