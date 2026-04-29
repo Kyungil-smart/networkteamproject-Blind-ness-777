@@ -47,24 +47,12 @@ public class ThirdPersonCamera : MonoBehaviour
     private void LateUpdate()
     {
         if (_target == null) return;
-
-        HandleCursorToggle();   // 임시
+        
         HandleRotation();
         HandleOcclusion();
         ApplyTransform();
     }
-
-    // 임시
-    private void HandleCursorToggle()
-    {
-        if (!Input.GetKeyDown(KeyCode.Escape)) return;
-
-        Cursor.lockState = Cursor.lockState == CursorLockMode.Locked
-            ? CursorLockMode.None
-            : CursorLockMode.Locked;
-        Cursor.visible = Cursor.lockState == CursorLockMode.None;
-    }
-
+    
     private void HandleRotation()
     {
         float mouseX = Input.GetAxis("Mouse X") * _sensitivityX;

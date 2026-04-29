@@ -123,10 +123,10 @@ MonoBehaviour:
   _fireOrigin: {fileID: 4625535079725082712}
   _guideLength: 2
   _aimLineLength: 30
-  _guideStartWidth: 0.02
-  _guideEndWidth: 0.01
-  _aimStartWidth: 0.02
-  _aimEndWidth: 0.01
+  _guideStartWidth: 0.5
+  _guideEndWidth: 0.45
+  _aimStartWidth: 0.5
+  _aimEndWidth: 0.45
   _guideColor: {r: 1, g: 1, b: 1, a: 1}
   _aimColor: {r: 1, g: 0.2, b: 0.2, a: 1}
 --- !u!143 &4540099175534360465
@@ -258,6 +258,7 @@ MonoBehaviour:
   _walkAnimSpeed: 0.5
   _runAnimSpeed: 1
   _gunObject: {fileID: 6309262738307996431}
+  _drawGunDelay: 1
 --- !u!114 &2275230286785747013
 MonoBehaviour:
   m_ObjectHideFlags: 0
