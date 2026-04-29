@@ -14,7 +14,8 @@ public partial class MoveToDestinationAction : Action
     public float Speed = 3.5f;
     public float DistanceThreshold = 0.2f;
 
-    private Animator m_Animator;
+    private Animator _animator;
+
     public string     SpeedParameter = "Speed";
     public string IsTalkingParameter = "IsTalking";
 
@@ -26,9 +27,17 @@ public partial class MoveToDestinationAction : Action
             return Status.Failure;
         }
 
-        m_Animator = Agent.Value.GetComponentInChildren<Animator>();
+        if(_animator == null)
+        {
+            _animator = Agent.Value.GetComponentInChildren<Animator>();
+        }
 
-        Debug.Log($"도착지 {Location.Value}");
+        if (_animator != null)
+        {
+            _animator.SetBool(IsTalkingParameter, false); // 이동 시작 시 인사 중단
+        }
+
+        //Debug.Log($"도착지 {Location.Value}");
 
         return Status.Running;
     }   
@@ -54,11 +63,10 @@ public partial class MoveToDestinationAction : Action
         
         //Debug.Log("이동중");
 
-        if (m_Animator != null)
+        if (_animator != null)
         {
-            // 실제 이동 속도(Speed)를 파라미터로 전달합니다. 
-            // 애니메이터에서는 이 값이 0보다 크면 걷기/뛰기 애니메이션으로 전환됩니다.
-            m_Animator.SetFloat(SpeedParameter, Speed);
+            _animator.SetFloat(SpeedParameter, Speed);
+            _animator.SetBool(IsTalkingParameter, false);
         }
 
         return Status.Running;
@@ -66,9 +74,9 @@ public partial class MoveToDestinationAction : Action
 
     protected override void OnEnd()
     {
-        if (m_Animator != null)
+        if (_animator != null)
         {
-            m_Animator.SetFloat(SpeedParameter, 0f); // 속도를 0으로 설정
+            _animator.SetFloat(SpeedParameter, 0f);
         }
     }
 }

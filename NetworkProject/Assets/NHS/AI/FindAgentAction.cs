@@ -5,13 +5,14 @@ using Action = Unity.Behavior.Action;
 using Unity.Properties;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "FindAgent", story: "Find other [Agent] [around] [Self]", category: "Action", id: "1537f8aa0bca68973cf0c0b81b271268")]
+[NodeDescription(name: "FindAgent", story: "Find [Other] [around] [Self]", category: "Action", id: "1537f8aa0bca68973cf0c0b81b271268")]
 public partial class FindAgentAction : Action
 {
-    [SerializeReference] public BlackboardVariable<GameObject> Agent;
+    [SerializeReference] public BlackboardVariable<GameObject> Other;
     [SerializeReference] public BlackboardVariable<float> Around;
     [SerializeReference] public BlackboardVariable<GameObject> Self;
 
+    private Animator _animator;
     public string TalkParam = "IsTalking";
 
     protected override Status OnStart()
@@ -19,37 +20,45 @@ public partial class FindAgentAction : Action
         if (Self.Value == null) 
             return Status.Failure;
 
+        if (_animator == null)
+        {
+            _animator = Self.Value.GetComponentInChildren<Animator>();
+        }
+
         return Status.Running;
     }
 
     protected override Status OnUpdate()
     {
+        Agent myAgent = Self.Value.GetComponentInChildren<Agent>();
+
+        if (myAgent.IsGreeting) 
+            return Status.Running;
+
+        if (myAgent.IsOnCooltime) 
+            return Status.Failure;
+
         Vector3 currentPos = Self.Value.transform.position;
-        Animator animator = Self.Value.GetComponentInChildren<Animator>();
+        int layerMask = LayerMask.GetMask("Agent");
+        Collider[] hitColliders = Physics.OverlapSphere(currentPos, Around.Value, layerMask);
 
-        Collider[] hitColliders = Physics.OverlapSphere(currentPos, Around.Value);
-
-        foreach(var hitCollider in hitColliders)
+        foreach (var hitCollider in hitColliders)
         {
-            if(hitCollider.gameObject != Self.Value && hitCollider.GetComponentInChildren<Animator>())
+            GameObject targetObj = hitCollider.transform.root.gameObject;
+            if (targetObj == Self.Value.transform.root.gameObject) continue;
+
+            Agent otherAgent = hitCollider.GetComponentInParent<Agent>();
+
+            if (otherAgent != null && !otherAgent.IsOnCooltime && otherAgent.GetSpeed() < 0.1f)
             {
-                Vector3 targetPos = hitCollider.transform.position;
-                Self.Value.transform.LookAt(new Vector3(targetPos.x, currentPos.y, targetPos.z));
+                if (Other != null) Other.Value = targetObj;
 
-                if (animator != null)
-                {
-                    animator.SetBool(TalkParam, true);
-                }
+                myAgent.StartGreeting(otherAgent);
+                otherAgent.StartGreeting(myAgent);
 
-                return Status.Success;
+                return Status.Running;
             }
         }
-
-        if (animator != null)
-        {
-            animator.SetBool(TalkParam, false);
-        }
-
         return Status.Failure;
     }
 
@@ -57,4 +66,3 @@ public partial class FindAgentAction : Action
     {
     }
 }
-
