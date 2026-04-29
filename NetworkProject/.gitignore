@@ -104,3 +104,6 @@ Assets/Imports/**
 # TextMesh Pro 자동 생성 폰트 에셋
 Assets/TextMesh Pro/Resources/Fonts & Materials/__UI__GalmuriMono SDF.asset
 Assets/TextMesh Pro/Resources/Fonts & Materials/__UI__GalmuriMono SDF.asset.meta
+
+# 개인 테스트 씬
+Assets/Personal/**
