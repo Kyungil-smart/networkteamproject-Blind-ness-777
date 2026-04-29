@@ -17,6 +17,9 @@ GameObject:
   - component: {fileID: 6962940994877081805}
   - component: {fileID: 6414965545659969266}
   - component: {fileID: 6578016809709158680}
+  - component: {fileID: 3260691076160639298}
+  - component: {fileID: 7501476291627891907}
+  - component: {fileID: 2275230286785747013}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -55,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 1766936043
+  GlobalObjectIdHash: 653964866
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -90,10 +93,6 @@ MonoBehaviour:
   _shootLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  _gunObject: {fileID: 6309262738307996431}
-  _animator: {fileID: 6414965545659969266}
-  _walkAnimSpeed: 0.5
-  _runAnimSpeed: 1
 --- !u!114 &3246896117602993162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +227,49 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &3260691076160639298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690921060548546625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 352352b3d735dc046bc4abc7760be602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRagdoll
+  _hitForce: 10
+  _upwardForce: 3
+--- !u!114 &7501476291627891907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690921060548546625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3273cdfd2497b224d97d9f609e8b6929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimator
+  ShowTopMostFoldoutHeaderGroup: 1
+  _animator: {fileID: 6414965545659969266}
+  _walkAnimSpeed: 0.5
+  _runAnimSpeed: 1
+  _gunObject: {fileID: 6309262738307996431}
+--- !u!114 &2275230286785747013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690921060548546625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c93ad1aeeea7d4b96fe8769f856865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTest
 --- !u!1 &2634359906139194350
 GameObject:
   m_ObjectHideFlags: 0

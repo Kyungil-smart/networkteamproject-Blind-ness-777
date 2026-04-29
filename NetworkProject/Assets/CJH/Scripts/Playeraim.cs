@@ -5,6 +5,11 @@ public class PlayerAim : NetworkBehaviour, IPhaseChangeable
 {
     private bool _isTopView = false;
 
+    private void Start()
+    {
+        AimDirection = new Vector3(transform.forward.x, 0f, transform.forward.z).normalized;
+    }
+
     private void Update()
     {
         if (!IsOwner) return;
@@ -30,6 +35,6 @@ public class PlayerAim : NetworkBehaviour, IPhaseChangeable
             _isTopView = true;
     }
 
-    public Vector3 AimDirection { get; private set; } = Vector3.forward;
+    public Vector3 AimDirection { get; private set; }
     public bool    IsTopView    => _isTopView;
 }
