@@ -99,12 +99,18 @@ public class SceneLoader : NetworkBehaviour
                 GameManager.Instance.StartGame();
                 break;
             case "LoadingScene":
-                FindObjectOfType<LoadingUI>()?.SetReady();
+                SetReadyClientRPC();
                 StartCoroutine(Loading());
                 break;
         }
     }
 
+    [ClientRpc]
+    private void SetReadyClientRPC()
+    {
+        FindObjectOfType<LoadingUI>()?.SetReady();
+    }
+    
     private IEnumerator Loading()
     {
         yield return new WaitForSeconds(1f);

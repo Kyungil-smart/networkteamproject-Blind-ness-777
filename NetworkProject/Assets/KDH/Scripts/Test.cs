@@ -7,6 +7,8 @@ public class Test : NetworkBehaviour
 {
     private void Update()
     {
+        if (!IsServer) return;
+        
         if (Input.GetKeyDown(KeyCode.H))
         {
             NetworkManager.Singleton.StartHost();
