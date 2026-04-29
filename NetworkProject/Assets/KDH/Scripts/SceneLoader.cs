@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
@@ -32,13 +33,15 @@ public class SceneLoader : NetworkBehaviour
     public void LoadGameScene()
     {
         if (!IsServer) return;
-        NetworkManager.Singleton.SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+        NetworkManager.Singleton.SceneManager.LoadScene("LoadingScene", LoadSceneMode.Single);
     }
     
     // 결과 씬 전환
     public void LoadResultScene()
     {
         if (!IsServer) return;
+        MapLoader mapLoader = FindObjectOfType<MapLoader>();
+        mapLoader.DestroyMap();
         NetworkManager.Singleton.SceneManager.LoadScene("ResultScene", LoadSceneMode.Single);
     }
     
@@ -95,9 +98,18 @@ public class SceneLoader : NetworkBehaviour
                 }
                 GameManager.Instance.StartGame();
                 break;
+            case "LoadingScene":
+                FindObjectOfType<LoadingUI>()?.SetReady();
+                StartCoroutine(Loading());
+                break;
         }
     }
-    
+
+    private IEnumerator Loading()
+    {
+        yield return new WaitForSeconds(1f);
+        NetworkManager.Singleton.SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+    }
     // 결과창으로 이동
     private void Result(GamePhase prev, GamePhase next)
     {

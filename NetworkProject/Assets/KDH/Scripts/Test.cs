@@ -43,10 +43,9 @@ public class Test : NetworkBehaviour
             Debug.Log($"[Test] 플레이어 사망 → 생존자 {GameManager.Instance.AlivePlayer.Value}명");
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.O))
         {
-            GameManager.Instance.ShootingPhase();
-            Debug.Log("[Test] 사격 완료");
+            GameManager.Instance.CurrentPhase.Value = GamePhase.GameOver;
         }
     }
 }
