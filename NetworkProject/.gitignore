@@ -106,4 +106,5 @@ Assets/TextMesh Pro/Resources/Fonts & Materials/__UI__GalmuriMono SDF.asset
 Assets/TextMesh Pro/Resources/Fonts & Materials/__UI__GalmuriMono SDF.asset.meta
 
 # 개인 테스트 씬
-Assets/Personal/**
+Assets/Personal/**/*.unity
+Assets/Personal/**/*.unity.meta

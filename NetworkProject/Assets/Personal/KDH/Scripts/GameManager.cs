@@ -1,0 +1,70 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Unity.Netcode;
+using UnityEngine.SceneManagement;
+
+public class GameManager : NetworkBehaviour
+{
+    public static GameManager Instance {get; private set;}
+    public NetworkVariable<GamePhase> CurrentPhase = new(GamePhase.Waiting);    // 게임 페이즈 변수
+    public NetworkVariable<int> AlivePlayer = new(0);                           // 플레이 인원수 변수
+    public MapLoader _mapSpawn;
+    [SerializeField] public float _movingTime = 10f;                            // 숨는 시간 변수
+    
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+    
+    // 게임 시작 함수
+    public void StartGame()
+    {
+        if (!IsServer) return;
+        AlivePlayer.Value = NetworkManager.Singleton.ConnectedClientsIds.Count;
+        _mapSpawn = FindObjectOfType<MapLoader>();
+        if (_mapSpawn != null) _mapSpawn.LoadMap();
+        StartCoroutine(GamePlay());
+    }
+
+    // 플레이어가 총 맞았을 때 호출
+    public void OnPlayerDead()
+    {
+        if (!IsServer) return;
+        
+        AlivePlayer.Value--;
+    }
+
+    // 총 쏘고 난뒤에 호출
+    public void ShootingPhase()
+    {
+        if (!IsServer) return;
+        if (CurrentPhase.Value != GamePhase.Shooting) return;
+
+        CurrentPhase.Value = GamePhase.HideAndSeek;
+    }
+
+    // 게임 플레이 루틴
+    public IEnumerator GamePlay()
+    {
+        CurrentPhase.Value = GamePhase.HideAndSeek;
+        while (AlivePlayer.Value > 1)
+        {
+            yield return new WaitForSeconds(_movingTime);
+            
+            CurrentPhase.Value = GamePhase.Shooting;
+            yield return new WaitUntil(() => CurrentPhase.Value != GamePhase.Shooting);
+        }
+        CurrentPhase.Value = GamePhase.GameOver;
+    }
+}
