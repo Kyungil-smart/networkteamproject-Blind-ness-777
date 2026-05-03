@@ -3,7 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Unity.Netcode;
-using Unity.Services.Authentication;
 
 public class NetworkBootstrap : MonoBehaviour
 {

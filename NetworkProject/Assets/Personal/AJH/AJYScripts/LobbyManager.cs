@@ -1,10 +1,8 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using Unity.Netcode;
-using Unity.Netcode.Transports.UTP;
-using Unity.Networking.Transport.Relay;
 using Unity.Services.Authentication;
-using Unity.Services.Relay;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,12 +13,21 @@ public class LobbyManager : MonoBehaviour
      */
     [SerializeField] public Button copybutton;
     [SerializeField] private TMP_InputField _joinCode;
+    
+    [SerializeField] public List<TextMeshProUGUI> lobbyslots;
 
     private void Start()
     {
         if (NetworkManager.Singleton.IsHost)
+        {
             _joinCode.text = HostManager.Instance.JoinCodes[AuthenticationService.Instance.PlayerId];
-        
+            lobbyslots[0].text = HostManager.Instance.HostStorages[_joinCode.text].Hostname;
+        }
+
+        if (NetworkManager.Singleton.IsClient)
+        {
+            
+        }
     }
 
     private void OnEnable()

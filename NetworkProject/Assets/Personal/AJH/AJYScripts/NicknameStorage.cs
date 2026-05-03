@@ -3,12 +3,12 @@ using System.Collections.Generic;
 public struct NicknameStorage
 {
     public string Hostname;
-    public List<string> Nicknames;
+    public Dictionary<string,string> Nicknames;
 
     public NicknameStorage Initialize(string hostname)
     {
         Hostname = hostname;
-        Nicknames = new List<string>();
+        Nicknames = new Dictionary<string,string>();
         return this;
     }
 }

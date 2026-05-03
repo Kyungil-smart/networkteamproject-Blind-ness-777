@@ -26,7 +26,7 @@ public class SceneLoader : NetworkBehaviour
 
     private void Start()
     {
-        SceneManager.LoadScene("KDH/Scene/TitleScene");
+        SceneManager.LoadScene("Mains/Scenes/TitleScene");
     }
 
     // 게임 시작 씬
