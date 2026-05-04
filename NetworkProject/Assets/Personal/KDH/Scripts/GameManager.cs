@@ -12,6 +12,7 @@ public class GameManager : NetworkBehaviour
     public NetworkVariable<int> AlivePlayer = new(0);                           // 플레이 인원수 변수
     public MapLoader _mapSpawn;
     [SerializeField] public float _movingTime = 10f;                            // 숨는 시간 변수
+    private AISetActive[] _aiList;
     
     private void Awake()
     {
@@ -34,6 +35,10 @@ public class GameManager : NetworkBehaviour
         AlivePlayer.Value = NetworkManager.Singleton.ConnectedClientsIds.Count;
         _mapSpawn = FindObjectOfType<MapLoader>();
         if (_mapSpawn != null) _mapSpawn.LoadMap();
+        // ai소환
+        
+        // ai저장
+        _aiList = FindObjectsOfType<AISetActive>();
         StartCoroutine(GamePlay());
     }
 
@@ -45,13 +50,19 @@ public class GameManager : NetworkBehaviour
         AlivePlayer.Value--;
     }
 
-    // 총 쏘고 난뒤에 호출
-    public void ShootingPhase()
+    // 슈팅 페이즈
+    public IEnumerator ShootingPhase()
     {
-        if (!IsServer) return;
-        if (CurrentPhase.Value != GamePhase.Shooting) return;
-
+        if (!IsServer) yield break;
+        if (CurrentPhase.Value != GamePhase.Shooting) yield break;
+        
+        // ai비활성화
+        foreach (var ai in _aiList) ai.Hide();
+        yield return null;
+        // 애니메이션 재생
         CurrentPhase.Value = GamePhase.HideAndSeek;
+        // ai활성화
+        foreach (var ai in _aiList) ai.Show();
     }
 
     // 게임 플레이 루틴
@@ -63,6 +74,7 @@ public class GameManager : NetworkBehaviour
             yield return new WaitForSeconds(_movingTime);
             
             CurrentPhase.Value = GamePhase.Shooting;
+            StartCoroutine(ShootingPhase());
             yield return new WaitUntil(() => CurrentPhase.Value != GamePhase.Shooting);
         }
         CurrentPhase.Value = GamePhase.GameOver;
