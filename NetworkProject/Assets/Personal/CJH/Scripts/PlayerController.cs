@@ -21,6 +21,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     private PlayerAim           _playerAim;
     private PlayerRagdoll       _playerRagdoll;
     private PlayerAnimator      _playerAnimator;
+    private PlayerGuideLine     _playerGuideLine;
 
     private bool _canShoot = false;
     private bool _isDead   = false;
@@ -35,6 +36,10 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         _playerAim           = GetComponent<PlayerAim>();
         _playerRagdoll       = GetComponent<PlayerRagdoll>();
         _playerAnimator      = GetComponent<PlayerAnimator>();
+        _playerGuideLine     = GetComponent<PlayerGuideLine>();
+        
+        if (_fireOrigin == null)
+            Debug.LogWarning($"[PlayerController] _fireOrigin이 연결되지 않았습니다.", this);
     }
 
     public override void OnNetworkSpawn()
@@ -127,6 +132,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         _isDead   = true;
         _canShoot = false;
 
+        _playerGuideLine?.DisableGuideLine();
         _playerRagdoll?.ActivateRagdoll(attackerPosition);
 
         Debug.Log($"[PlayerController] {OwnerClientId}번 플레이어 사망");

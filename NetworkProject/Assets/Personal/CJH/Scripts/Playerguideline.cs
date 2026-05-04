@@ -66,11 +66,15 @@ public class PlayerGuideLine : NetworkBehaviour, IPhaseChangeable
         _guideLine.SetPosition(0, start);
         _guideLine.SetPosition(1, end);
 
-        Debug.Log(_guideLine.startWidth);
-        
         // Inspector 수정값 실시간 반영
         _guideLine.startWidth = _isTopView ? _aimStartWidth : _guideStartWidth;
         _guideLine.endWidth   = _isTopView ? _aimEndWidth   : _guideEndWidth;
+    }
+
+    public void DisableGuideLine()
+    {
+        if (_guideLine != null)
+            _guideLine.enabled = false;
     }
 
     public void OnPhaseChanged(GamePhase phase)
