@@ -50,7 +50,7 @@ public class GameManager : NetworkBehaviour
     {
         if (!IsServer) return;
         if (CurrentPhase.Value != GamePhase.Shooting) return;
-
+        
         CurrentPhase.Value = GamePhase.HideAndSeek;
     }
 
