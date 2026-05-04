@@ -13,6 +13,7 @@ public class GameManager : NetworkBehaviour
     public MapLoader _mapSpawn;
     [SerializeField] public float _movingTime = 10f;                            // 숨는 시간 변수
     private AISetActive[] _aiList;
+    public GameObject _aiPrefab;
     
     private void Awake()
     {
@@ -36,12 +37,22 @@ public class GameManager : NetworkBehaviour
         _mapSpawn = FindObjectOfType<MapLoader>();
         if (_mapSpawn != null) _mapSpawn.LoadMap();
         // ai소환
-        
+        SpawnAI();
         // ai저장
         _aiList = FindObjectsOfType<AISetActive>();
         StartCoroutine(GamePlay());
     }
 
+    public void SpawnAI()
+    {
+        Transform[] spawnPoints = _mapSpawn.AISpawnPoints;
+        for (int i = 0; i < 10; i++)
+        {
+            Transform _aiSpawn = spawnPoints[i % spawnPoints.Length];
+            Instantiate(_aiPrefab, _aiSpawn.position, _aiSpawn.rotation);
+        }
+    }
+    
     // 플레이어가 총 맞았을 때 호출
     public void OnPlayerDead()
     {
@@ -77,6 +88,8 @@ public class GameManager : NetworkBehaviour
             StartCoroutine(ShootingPhase());
             yield return new WaitUntil(() => CurrentPhase.Value != GamePhase.Shooting);
         }
+        foreach (var ai in _aiList) ai.AIDestroy();
+        _aiList = null;
         CurrentPhase.Value = GamePhase.GameOver;
     }
 }

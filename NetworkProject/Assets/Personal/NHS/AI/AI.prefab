@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2346326754409521810}
   - component: {fileID: 4090573299006066214}
   - component: {fileID: 3176866685512011731}
+  - component: {fileID: 5450658455626331220}
   m_Layer: 7
   m_Name: AI
   m_TagString: Untagged
@@ -142,6 +143,18 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &5450658455626331220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644231057869415932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28fa9987a946604784f11436cb0cce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AISetActive
 --- !u!1001 &4114445435210802770
 PrefabInstance:
   m_ObjectHideFlags: 0
