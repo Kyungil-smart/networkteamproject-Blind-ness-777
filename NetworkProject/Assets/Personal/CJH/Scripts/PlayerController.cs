@@ -26,7 +26,6 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     private bool _isDead   = false;
 
     private Vector2 _moveInput;
-    private bool    _shootInput;
     private bool    _isSprinting;
 
     private void Awake()
@@ -53,17 +52,10 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         if (!IsOwner || _isDead) return;
 
         HandleMovement();
-
-        if (_canShoot && _shootInput)
-        {
-            _shootInput = false;
-            ShootServerRpc(_playerAim.AimDirection, _fireOrigin.position);
-        }
     }
 
     private void OnMove(InputValue value)   => _moveInput   = value.Get<Vector2>();
     private void OnSprint(InputValue value) => _isSprinting = value.isPressed;
-    private void OnFire(InputValue value)   { if (value.isPressed) _shootInput = true; }
 
     private void HandleMovement()
     {
@@ -95,7 +87,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     /// 여기서는 서버에 발사 의도 + 방향을 전달하는 것까지만 구현.
     /// </summary>
     [ServerRpc]
-    private void ShootServerRpc(Vector3 aimDir, Vector3 attackerPosition)
+    public void ShootServerRpc(Vector3 aimDir, Vector3 attackerPosition)
     {
         if (_fireOrigin == null) return;
 
@@ -149,5 +141,6 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         }
     }
 
-    public bool IsDead => _isDead;
+    public bool IsDead     => _isDead;
+    public Transform FireOrigin => _fireOrigin;
 }
