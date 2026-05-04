@@ -1047,6 +1047,7 @@ MonoBehaviour:
     m_InternalValue: 0
   _mapSpawn: {fileID: 0}
   _movingTime: 10
+  _aiPrefab: {fileID: 4644231057869415932, guid: 271da764b1591794d9a63591b1c5be1a, type: 3}
 --- !u!4 &2008424385
 Transform:
   m_ObjectHideFlags: 0
