@@ -679,7 +679,7 @@ MonoBehaviour:
   _startClientButton: {fileID: 7212451068801280035}
   _nicknameSubmitButton: {fileID: 5220386426506126117}
   _nicknameInput: {fileID: 628293683585508450}
-  _joincodeInput: {fileID: 0}
+  _joincodeInput: {fileID: 4758707118478558008}
 --- !u!1 &1885814260238318318
 GameObject:
   m_ObjectHideFlags: 0

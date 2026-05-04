@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.Collections;
 using Unity.Services.Authentication;
 using UnityEngine;
 
@@ -53,6 +51,6 @@ public class HostManager : MonoBehaviour
 
     public void AddName(string clientName, string joincode)
     {
-        HostStorages[joincode].Nicknames.Add(clientName);
+        HostStorages[joincode].Nicknames.Add(AuthenticationService.Instance.PlayerId ,clientName);
     }
 }
