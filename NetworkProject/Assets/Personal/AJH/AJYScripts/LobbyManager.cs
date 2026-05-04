@@ -1,47 +1,268 @@
 using System;
 using System.Collections.Generic;
-using TMPro;
+using System.Threading.Tasks;
 using Unity.Netcode;
-using Unity.Services.Authentication;
+using Unity.Services.Multiplayer;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class LobbyManager : MonoBehaviour
 {
     /*
      * 내용 : 로비에서 이루어지는 로직 관리
      */
-    [SerializeField] public Button copybutton;
-    [SerializeField] private TMP_InputField _joinCode;
+    public static LobbyManager Instance { get; private set; }
     
-    [SerializeField] public List<TextMeshProUGUI> lobbyslots;
+    private ISession _session;
+    
+    private string _playerName = "Player";
+    
+    private bool _isQuitting;
+    
+    private const int JOIN_MAX_RETRY = 1;
+    private const int JOIN_RETRY_DELAY_MS = 500;
+    
+    [SerializeField] private LobbySettings _settings;
+    
+    public LobbySettings Settings => _settings;
+    
+    public string PlayerName => _playerName;
 
-    private void Start()
+    public bool IsHost => _session != null && _session.IsHost;
+    
+    public ISession CurrentSession => _session;
+    
+    public event Action<ISession> OnSessionUpdated;
+    public event Action OnSessionLeft;
+    public event Action OnGameStarting;
+    
+    private void Awake()
     {
-        if (NetworkManager.Singleton.IsHost)
+        SetSingleton();
+        Application.wantsToQuit += OnWantsToQuit;
+    }
+
+    private void OnDestroy()
+    {
+        Application.wantsToQuit -= OnWantsToQuit;
+    }
+    
+    private void BindSessionEvents(ISession session)
+    {
+        if (session == null) return;
+        session.Changed += RaiseSessionUpdated;
+        session.PlayerJoined += RaiseSessionUpdated;
+        session.PlayerHasLeft += RaiseSessionUpdated;
+        session.PlayerPropertiesChanged += RaiseSessionUpdated;
+        session.RemovedFromSession += HandleSessionGone;
+        session.Deleted += HandleSessionGone;
+    }
+
+    private void UnbindSessionEvents(ISession session)
+    {
+        if (session == null) return;
+        session.Changed -= RaiseSessionUpdated;
+        session.PlayerJoined -= RaiseSessionUpdated;
+        session.PlayerHasLeft -= RaiseSessionUpdated;
+        session.PlayerPropertiesChanged -= RaiseSessionUpdated;
+        session.RemovedFromSession -= HandleSessionGone;
+        session.Deleted -= HandleSessionGone;
+    }
+    
+    private void RaiseSessionUpdated()
+    {
+        OnSessionUpdated?.Invoke(_session);
+    }
+
+    private void RaiseSessionUpdated(string _)
+    {
+        OnSessionUpdated?.Invoke(_session);
+    }
+    
+    private void HandleSessionGone()
+    {
+        UnbindSessionEvents(_session);
+        _session = null;
+        OnSessionLeft?.Invoke();
+    }
+    
+    public async Task<bool> CreateSessionAsync(string sessionName)
+    {
+        _playerName = sessionName;
+        
+        for (int attempt = 0; attempt <= JOIN_MAX_RETRY; attempt++)
         {
-            _joinCode.text = HostManager.Instance.JoinCodes[AuthenticationService.Instance.PlayerId];
-            lobbyslots[0].text = HostManager.Instance.HostStorages[_joinCode.text].Hostname;
+            await EnsureCleanNetworkStateAsync();
+            try
+            {
+                string region = string.IsNullOrWhiteSpace(_settings.RelayRegion) ? null : _settings.RelayRegion;
+                SessionOptions options = new SessionOptions
+                {
+                    Name = sessionName,
+                    MaxPlayers = _settings.MaxPlayers,
+                    IsPrivate = false,
+                    PlayerProperties = BuildLocalPlayerProperties()
+                }.WithRelayNetwork(region);
+                _session = await MultiplayerService.Instance.CreateSessionAsync(options);
+                if (!await VerifyNgoStartedOrCleanupAsync())
+                {
+                    if (attempt < JOIN_MAX_RETRY) continue;
+                    return false;
+                }
+                BindSessionEvents(_session);
+                OnSessionUpdated?.Invoke(_session);
+                return true;
+            }
+            catch (Exception e) when (attempt < JOIN_MAX_RETRY && IsTransientNgoError(e))
+            {
+                Debug.LogWarning($"LobbyManager: 생성 일시 실패 - 자동 재시도: {e.Message}");
+                await Task.Delay(JOIN_RETRY_DELAY_MS);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"LobbyManager: 생성 실패: {e.Message}");
+                return false;
+            }
+        }
+        return false;
+    }
+    
+    public async Task<bool> JoinSessionByCodeAsync(string sessionCode, string playerName)
+    {
+        _playerName = playerName;
+        
+        for (int attempt = 0; attempt <= JOIN_MAX_RETRY; attempt++)
+        {
+            await EnsureCleanNetworkStateAsync();
+            try
+            {
+                JoinSessionOptions options = new JoinSessionOptions
+                {
+                    PlayerProperties = BuildLocalPlayerProperties()
+                };
+                _session = await MultiplayerService.Instance.JoinSessionByCodeAsync(sessionCode, options);
+                if (!await VerifyNgoStartedOrCleanupAsync())
+                {
+                    if (attempt < JOIN_MAX_RETRY) continue;
+                    return false;
+                }
+                BindSessionEvents(_session);
+                OnSessionUpdated?.Invoke(_session);
+                return true;
+            }
+            catch (Exception e) when (attempt < JOIN_MAX_RETRY && IsTransientNgoError(e))
+            {
+                Debug.LogWarning($"LobbyManager: 코드 참여 일시 실패 - 자동 재시도: {e.Message}");
+                await Task.Delay(JOIN_RETRY_DELAY_MS);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"LobbyManager: 코드 참여 실패: {e.Message}");
+                return false;
+            }
+        }
+        return false;
+    }
+    
+
+    public async Task SetReadyAsync(bool isReady)
+    {
+        string value = isReady ? LobbyConstants.VALUE_TRUE : LobbyConstants.VALUE_FALSE;
+        _session.CurrentPlayer.SetProperty(
+            LobbyConstants.KEY_PLAYER_READY,
+            new PlayerProperty(value, VisibilityPropertyOptions.Member));
+        await _session.SaveCurrentPlayerDataAsync();
+    }
+    
+    private bool OnWantsToQuit()
+    {
+        if (_session == null || _isQuitting) return true;
+        _isQuitting = true;
+        _ = LeaveAndQuitAsync();
+        return false;   
+    }
+
+    private async Task LeaveAndQuitAsync()
+    {
+        try
+        {
+            await _session.LeaveAsync();
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"LobbyManager: quit-leave 실패: {e.Message}");
+        }
+        Application.Quit();
+    }
+    
+    // 재시도로 해결되는 transient 실패인지 판별 (메시지 문자열 매칭).
+    private static bool IsTransientNgoError(Exception e)
+    {
+        if (e == null || e.Message == null) return false;
+        return e.Message.Contains("Failed to start NetworkManager")
+               || e.Message.Contains("task was canceled")
+               || e.Message.Contains("A task was canceled");
+    }
+    
+    // 세션 진입 직후 NGO Network.State 가 Started 인지 검증. 비정상이면 강제 leave 후 false.
+    // 클라이언트 race로 즉시 체크 시 Stopped 로 보이는 false negative 사유는
+    private const float NGO_START_WAIT_SEC = 6f;
+    private async Task<bool> VerifyNgoStartedOrCleanupAsync()
+    {
+        if (_session == null) return false;
+
+        float deadline = Time.realtimeSinceStartup + NGO_START_WAIT_SEC;
+        while (Time.realtimeSinceStartup < deadline)
+        {
+            if (_session == null) return false;
+            if (_session.Network.State == NetworkState.Started) return true;
+            await Task.Yield();
         }
 
-        if (NetworkManager.Singleton.IsClient)
+        Debug.LogError($"LobbyManager: 세션 진입 후 NGO 비정상 상태: {_session?.Network.State} - 강제 leave");
+        ISession failed = _session;
+        _session = null;
+        if (failed != null)
         {
-            
+            try { await failed.LeaveAsync(); }
+            catch (Exception e) { Debug.LogWarning($"LobbyManager: 비정상 정리 중 예외: {e.Message}"); }
+        }
+        return false;
+    }
+    
+    private Dictionary<string, PlayerProperty> BuildLocalPlayerProperties()
+    {
+        return new Dictionary<string, PlayerProperty>
+        {
+            { LobbyConstants.KEY_PLAYER_NAME, new PlayerProperty(_playerName, VisibilityPropertyOptions.Member) },
+            { LobbyConstants.KEY_PLAYER_READY, new PlayerProperty(LobbyConstants.VALUE_FALSE, VisibilityPropertyOptions.Member) }
+        };
+    }
+    
+    // 진입 전 NGO 잔재 정리 (이전 시도 흔적이 남으면 다음 StartHost/StartClient 가 깨질 수 있음).
+    private async Task EnsureCleanNetworkStateAsync()
+    {
+        NetworkManager networkManager = NetworkManager.Singleton;
+        if (networkManager == null) return;
+        if (!networkManager.IsListening && !networkManager.IsClient && !networkManager.IsServer) return;
+
+        Debug.LogWarning("LobbyManager: 이전 NGO 잔재 감지 - Shutdown 후 진행");
+        networkManager.Shutdown();
+
+        for (int i = 0; i < 30; i++)
+        {
+            await Task.Yield();
+            if (!networkManager.IsListening && !networkManager.IsClient && !networkManager.IsServer) break;
         }
     }
 
-    private void OnEnable()
+    private void SetSingleton()
     {
-        copybutton.onClick.AddListener(OnCopyClick);
-    }
-
-    private void OnDisable()
-    {
-        copybutton.onClick.RemoveListener(OnCopyClick);
-    }
-
-    private void OnCopyClick()
-    {
-        GUIUtility.systemCopyBuffer = _joinCode.text;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 }

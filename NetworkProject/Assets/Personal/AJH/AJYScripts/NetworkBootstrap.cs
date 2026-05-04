@@ -1,8 +1,13 @@
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Unity.Netcode;
+using Unity.Services.Authentication;
+using Unity.Services.Core;
+using Unity.Services.Multiplayer;
 
 public class NetworkBootstrap : MonoBehaviour
 {
@@ -12,7 +17,6 @@ public class NetworkBootstrap : MonoBehaviour
      */
     [SerializeField] private Button _startHostButton;
     [SerializeField] private Button _startClientButton;
-    //[SerializeField] private Button _disconnectButton;
     [SerializeField] private Button _nicknameSubmitButton;
 
     [SerializeField] private TMP_InputField _nicknameInput;
@@ -20,7 +24,6 @@ public class NetworkBootstrap : MonoBehaviour
     
     private bool _isCallbacksBound;
     private bool _isNaming;
-    private bool _itHasCode;
 
     private void Start()
     {
@@ -39,13 +42,13 @@ public class NetworkBootstrap : MonoBehaviour
         UnbindButtonEvents();
     }
 
+    
     // 버튼 이벤트 구독
     private void BindButtonEvents()
     {
         _startHostButton.onClick.AddListener(StartHost);
         _startClientButton.onClick.AddListener(StartClient);
         _nicknameSubmitButton.onClick.AddListener(OnNaming);
-        //_disconnectButton.onClick.AddListener(Disconnect);
     }
 
     // 버튼 이벤트 구독해제
@@ -54,7 +57,6 @@ public class NetworkBootstrap : MonoBehaviour
         _startHostButton.onClick.RemoveListener(StartHost);
         _startClientButton.onClick.RemoveListener(StartClient);
         _nicknameSubmitButton.onClick.RemoveListener(OnNaming);
-        //_disconnectButton.onClick.RemoveListener(Disconnect);
     }
 
     // 클라이언트 접속/해제, 서버 호스트 콜백이벤트 구독
@@ -83,71 +85,60 @@ public class NetworkBootstrap : MonoBehaviour
 
     private async void StartHost()
     {
-        try
+        // 닉네임이 있어야만 넘어가게
+        if (_isNaming)
         {
-            // 닉네임이 있어야만 넘어가게
-            if (_isNaming)
-            {
-                await AuthService.Instance.InitializeAsync();
-                string joinCode = await RelayNetworkService.Instance.StartHostWithRelayAsync();
-                HostManager.Instance.GenerateHostStorage(_nicknameInput.text, joinCode);
-
-                SceneLoader.Instance.IndividualLobby();
-            }
-
-            else
-            {
-                Debug.LogError("닉네임을 정해주세요");
-            }
+            await LobbyManager.Instance.CreateSessionAsync(_nicknameInput.text);
+            
+            SceneLoader.Instance.IndividualLobby();
         }
 
-        catch (Exception e)
+        else
         {
-            Debug.LogError($"[Bootstrap] Host 시작 오류 : {e.Message}");
+            Debug.LogError("닉네임을 정해주세요");
         }
     }
 
     private async void StartClient()
     {
-        try
+        string joincode = _joincodeInput.text.Trim();
+        if (_isNaming && !string.IsNullOrEmpty(joincode))
         {
-            string joincode = _joincodeInput.text.Trim();
-            if (_isNaming && !string.IsNullOrEmpty(joincode))
-            {
-                await AuthService.Instance.InitializeAsync();
-                
-                await RelayNetworkService.Instance.StartClientWithRelayAsync(joincode);
-                // 호스트 저장소에 조인코드로 접근 
-                HostManager.Instance.AddName(_nicknameInput.text, joincode);
-                
-                SceneLoader.Instance.IndividualLobby();
-            }
+            await LobbyManager.Instance.JoinSessionByCodeAsync(joincode, _nicknameInput.text);
 
-            else
-            {
-                Debug.LogError("닉네임을 정해주세요");
-            }
+            SceneLoader.Instance.IndividualLobby();
         }
-        catch (Exception e)
+
+        else
         {
-            Debug.LogError($"연결 실패 : {e.Message}");
-            throw;
+            Debug.LogError("닉네임을 정해주세요");
         }
     }
-
-    // private void Disconnect()  => NetworkManager.Singleton.Shutdown();
 
     private void OnClientConnected(ulong clientId)  => Debug.Log($"<color=green>[Network] 접속: {clientId}</color>");
     private void OnClientDisconnect(ulong clientId) => Debug.Log($"<color=red>[Network] 해제: {clientId}</color>");
     private void OnServerStarted()                  => Debug.Log("<color=green>[Network] 서버 시작</color>");
 
     // 닉네임 설정
-    private void OnNaming()
+    private async void OnNaming()
     {
-        if(!string.IsNullOrEmpty(_nicknameInput.text))
-            _isNaming = true;
-        
-        else Debug.LogError("닉네임을 입력해주세요!");
-        // 중복체크 기능 추가 가능성
+        try
+        {
+            // 초기화/로그인 상태체크
+            if(UnityServices.State != ServicesInitializationState.Initialized ||
+               AuthenticationService.Instance.IsSignedIn == false)
+                await AuthService.Instance.InitializeAsync();
+            
+            if(!string.IsNullOrEmpty(_nicknameInput.text))
+                _isNaming = true;
+            
+            else Debug.LogError("사용할 수 없는 닉네임입니다.");
+            
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"닉네임 설정 실패 : {e.Message}");
+            throw;
+        }
     }
 }
