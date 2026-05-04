@@ -120,6 +120,11 @@ public class SceneLoader : NetworkBehaviour
     private void Result(GamePhase prev, GamePhase next)
     {
         if (!IsServer) return;
-        if (next == GamePhase.GameOver) LoadResultScene();
+        if (next == GamePhase.GameOver)
+        {
+            MapLoader mapLoader = FindObjectOfType<MapLoader>();
+            mapLoader.DestroyMap();
+            LoadResultScene();
+        }
     }
 }

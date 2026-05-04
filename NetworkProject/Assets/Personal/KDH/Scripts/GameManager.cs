@@ -88,6 +88,8 @@ public class GameManager : NetworkBehaviour
             StartCoroutine(ShootingPhase());
             yield return new WaitUntil(() => CurrentPhase.Value != GamePhase.Shooting);
         }
+        foreach (var ai in _aiList) ai.AIDestroy();
+        _aiList = null;
         CurrentPhase.Value = GamePhase.GameOver;
     }
 }

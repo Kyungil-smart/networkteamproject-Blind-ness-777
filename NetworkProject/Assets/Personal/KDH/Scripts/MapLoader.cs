@@ -20,7 +20,7 @@ public class MapLoader : NetworkBehaviour
     
     public void DestroyMap()
     {
-        if (!IsServer) return;
+        // if (!IsServer) return;
         if (_currentMap == null) return;
         _currentMap.Despawn(true); 
         _currentMap = null;
