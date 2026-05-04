@@ -3,11 +3,14 @@ using Unity.Behavior;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
+using System.Collections.Generic;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "FindAgent", story: "[Self] find [other] Agent around [Radius] set [CanMove] while [RestTime]", category: "Action", id: "6a822467a8b78bb9abd7185509c99c13")]
 public partial class FindAgentAction : Action
 {
+    public static List<FindAgentAction> RestingActions = new List<FindAgentAction>();
+
     [SerializeReference] public BlackboardVariable<GameObject> Self;
     [SerializeReference] public BlackboardVariable<GameObject> Other;
     [SerializeReference] public BlackboardVariable<float>      Radius;
@@ -15,7 +18,7 @@ public partial class FindAgentAction : Action
     [SerializeReference] public BlackboardVariable<float>      RestTime;
 
     private float _restTimer;
-    private BehaviorGraphAgent _targetBehavior;
+    private BehaviorGraphAgent _myBehavior;
 
     protected override Status OnStart()
     {
@@ -23,10 +26,13 @@ public partial class FindAgentAction : Action
             return Status.Failure;
 
         _restTimer = 0;
-        _targetBehavior = null;
         Other.Value = null;
-
         CanMove.Value = false;
+
+        _myBehavior = Self.Value.GetComponentInParent<BehaviorGraphAgent>();
+
+        if (!RestingActions.Contains(this))
+            RestingActions.Add(this);
 
         PerformScan();
 
@@ -35,32 +41,35 @@ public partial class FindAgentAction : Action
 
     private void PerformScan()
     {
-        Collider[] colliders = Physics.OverlapSphere(Self.Value.transform.position, Radius.Value, 1 << 7);
+        float sqrRadius = Radius.Value * Radius.Value;
+        Vector3 myPos = Self.Value.transform.position;
 
-        foreach (var col in colliders)
+        for(int i=0;i<RestingActions.Count;i++)
         {
-            var otherAgent = col.GetComponentInParent<BehaviorGraphAgent>();
-            if (otherAgent == null || otherAgent.gameObject == Self.Value) continue;
+            var otherAction = RestingActions[i];
 
-            if (otherAgent.BlackboardReference.GetVariableValue("CanMove", out bool otherCanMove))
+            if (otherAction == this || otherAction.Self.Value == null) continue;
+
+            float distSq = (otherAction.Self.Value.transform.position - myPos).sqrMagnitude;
+
+            if(distSq <= sqrRadius)
             {
-                if (otherCanMove == false)
-                {
-                    _targetBehavior = otherAgent;
-                    Other.Value = _targetBehavior.gameObject;
+                Other.Value = otherAction.Self.Value;
+                var otherBehavior = otherAction._myBehavior;
 
+                if(otherBehavior != null)
+                {
                     SetGreetingAnimation(Self.Value, true);
                     FaceTarget(Self.Value, Other.Value);
-
                     _restTimer = 0;
 
-                    _targetBehavior.BlackboardReference.SetVariableValue("RestTime", RestTime.Value);
-                    _targetBehavior.BlackboardReference.SetVariableValue("CanMove", false);
+                    otherBehavior.BlackboardReference.SetVariableValue("RestTime", RestTime.Value);
+                    otherBehavior.BlackboardReference.SetVariableValue("CanMove", false);
+                    otherAction._restTimer = 0; // 상대방 타이머도 리셋 (동기화)
 
                     SetGreetingAnimation(Other.Value, true);
                     FaceTarget(Other.Value, Self.Value);
 
-                    Debug.Log($"[FindAgent] {Other.Value.name}을 만나 대기 시간을 리셋합니다. 처음부터 다시 인사!");
                     return;
                 }
             }
@@ -73,18 +82,26 @@ public partial class FindAgentAction : Action
 
         if(_restTimer >= RestTime.Value)
         {
-            SetGreetingAnimation(Self.Value, false);
-            if (Other.Value != null) { SetGreetingAnimation(Other.Value, false); }
+            Cleanup();
 
             CanMove.Value = true;
+
+            SetGreetingAnimation(Self.Value, false);
+            if (Other.Value != null) 
+                SetGreetingAnimation(Other.Value, false);
+
             Other.Value = null;
 
             Debug.Log("[FindAgent] 휴식 종료. 다시 이동합니다.");
             return Status.Success;
         }
 
-
         return Status.Running;
+    }
+
+    private void Cleanup()
+    {
+        if (RestingActions.Contains(this)) RestingActions.Remove(this);
     }
 
     private void SetGreetingAnimation(GameObject target, bool isGreeting)
@@ -115,5 +132,6 @@ public partial class FindAgentAction : Action
 
     protected override void OnEnd()
     {
+        Cleanup();
     }
 }
