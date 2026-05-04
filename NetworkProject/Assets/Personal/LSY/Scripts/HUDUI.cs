@@ -3,7 +3,7 @@ using TMPro;
 
 public class HUDUI : MonoBehaviour
 {
-    [Header("HUD 요소")]
+    [Header("HUD")]
     [SerializeField] private TextMeshProUGUI _timerText;
     [SerializeField] private TextMeshProUGUI _remainingPlayersText;
 
