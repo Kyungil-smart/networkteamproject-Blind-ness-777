@@ -3,15 +3,17 @@ using Unity.Behavior;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
+using TMPro;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "MoveToDestination", story: "[Agent] navigates to [Location]", category: "Action", id: "c487a527e4b7936041a36a189c086be5")]
+[NodeDescription(name: "MoveToDestination", story: "[Agent] navigates to [Location] and make [CanMove] false", category: "Action", id: "c487a527e4b7936041a36a189c086be5")]
 public partial class MoveToDestinationAction : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
     [SerializeReference] public BlackboardVariable<Vector3> Location;
+    [SerializeReference] public BlackboardVariable<bool> CanMove;
     public float Speed = 3.5f;
-    public float DistanceThreshold = 1f;
+    public float DistanceThreshold = 2.0f;
 
     private Animator _animator;
 
@@ -37,7 +39,10 @@ public partial class MoveToDestinationAction : Action
 
         float distance = Vector3.Distance(currentPos, targetPos);
 
-        if (distance <= DistanceThreshold) return Status.Success;
+        if (distance <= DistanceThreshold)
+        {
+            return Status.Success;
+        }
 
         Agent.Value.transform.position = Vector3.MoveTowards(currentPos, targetPos, Speed * Time.deltaTime);
 
@@ -59,6 +64,8 @@ public partial class MoveToDestinationAction : Action
 
     protected override void OnEnd()
     {
+        CanMove.Value = false;
+
         if (_animator != null)
         {
             _animator.SetFloat(SpeedParameter, 0f);
