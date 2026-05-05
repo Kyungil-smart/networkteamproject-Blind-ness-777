@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.Netcode;
@@ -16,7 +17,11 @@ public class LobbyManager : MonoBehaviour
     
     private string _playerName = "Player";
     
+    private bool _isStartingGame;
     private bool _isQuitting;
+    
+    private float _lastGameEndRealtime = float.NegativeInfinity;
+    private Coroutine _restartCooldownRoutine;
     
     private const int JOIN_MAX_RETRY = 1;
     private const int JOIN_RETRY_DELAY_MS = 500;
@@ -31,9 +36,18 @@ public class LobbyManager : MonoBehaviour
     
     public ISession CurrentSession => _session;
     
+    /// 게임 시작 시점에 확정된 세션 인원수. 게임 씬 합류 판정용
+    /// </summary>
+    public int ExpectedPlayerCount { get; private set; }
+    
     public event Action<ISession> OnSessionUpdated;
     public event Action OnSessionLeft;
     public event Action OnGameStarting;
+    
+    /// <summary>
+    /// 게임 재시작 쿨다운이 끝난 시점에 1회 발화. 시간 기반 조건 변화를 이벤트로 전파
+    /// </summary>
+    public event Action OnRestartCooldownEnded;
     
     private void Awake()
     {
@@ -163,6 +177,64 @@ public class LobbyManager : MonoBehaviour
         return false;
     }
     
+    /// <summary>
+    /// 호스트가 현재 세션 기준으로 게임을 시작할 수 있는 상태인지 여부
+    /// </summary>
+    public bool CanHostStartGame
+    {
+        get
+        {
+            if (!IsHost || _session == null || _isStartingGame) return false;
+            if (Time.realtimeSinceStartup - _lastGameEndRealtime < _settings.GameRestartCooldownSec) return false;
+            if (_session.PlayerCount < _settings.MinPlayersToStart) return false;
+            return AreNonHostPlayersReady();
+        }
+    }
+    
+    /// <summary>
+    /// 현재 세션에서 퇴장
+    /// </summary>
+    public async Task LeaveSessionAsync()
+    {
+        if (_session == null) return;
+        ISession session = _session;
+        UnbindSessionEvents(session);
+        _session = null;
+        try
+        {
+            await session.LeaveAsync();
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"LobbyManager: 퇴장 중 예외: {e.Message}");
+        }
+        OnSessionLeft?.Invoke();
+    }
+    
+    /// <summary>
+    /// 임의 플레이어의 PlayerProperty 값을 읽는 헬퍼
+    /// </summary>
+    public static string GetPlayerProperty(IReadOnlyPlayer player, string key)
+    {
+        if (player == null || player.Properties == null) return null;
+        return player.Properties.TryGetValue(key, out PlayerProperty prop) ? prop.Value : null;
+    }
+    
+    private bool AreNonHostPlayersReady()
+    {
+        if (_session == null || _session.Players.Count == 0) return false;
+        bool hasNonHost = false;
+        for (int i = 0; i < _session.Players.Count; i++)
+        {
+            IReadOnlyPlayer player = _session.Players[i];
+            if (player.Id == _session.Host) continue;
+            hasNonHost = true;
+            string ready = GetPlayerProperty(player, LobbyConstants.KEY_PLAYER_READY);
+            if (ready != LobbyConstants.VALUE_TRUE) return false;
+        }
+        return hasNonHost;
+    }
+    
 
     public async Task SetReadyAsync(bool isReady)
     {
@@ -171,6 +243,46 @@ public class LobbyManager : MonoBehaviour
             LobbyConstants.KEY_PLAYER_READY,
             new PlayerProperty(value, VisibilityPropertyOptions.Member));
         await _session.SaveCurrentPlayerDataAsync();
+    }
+    
+    /// <summary>
+    /// 호스트가 직접 호출하는 게임 시작.
+    /// 세션 잠금 후 NGO 씬 로드 (이 시점엔 모든 멤버는 이미 NGO에 연결되어 있음)
+    /// </summary>
+    /// <returns>실제 시작에 성공했으면 true</returns>
+    public async Task<bool> TryStartGameAsHostAsync()
+    {
+        if (!IsHost || _session == null || _isStartingGame) return false;
+        if (Time.realtimeSinceStartup - _lastGameEndRealtime < _settings.GameRestartCooldownSec) return false;
+        if (_session.PlayerCount < _settings.MinPlayersToStart || !AreNonHostPlayersReady()) return false;
+
+        _isStartingGame = true;
+        ExpectedPlayerCount = _session.PlayerCount;
+
+        try
+        {
+            IHostSession host = _session.AsHost();
+            host.IsLocked = true;
+            await host.SavePropertiesAsync();
+            OnGameStarting?.Invoke();
+            
+            NetworkManager networkManager = NetworkManager.Singleton;
+            if (networkManager == null || !networkManager.IsServer || networkManager.SceneManager == null)
+            {
+                Debug.LogError($"Host가 아니거나 SceneManager 없음 (scene='')");
+                _isStartingGame = false;
+                return false;
+            }
+            // 로드 게임씬
+            //networkManager.SceneManager.LoadScene()
+            return true;
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"LobbyManager: 호스트 게임 시작 실패: {e.Message}");
+            _isStartingGame = false;
+            return false;
+        }
     }
     
     private bool OnWantsToQuit()
@@ -253,6 +365,21 @@ public class LobbyManager : MonoBehaviour
             await Task.Yield();
             if (!networkManager.IsListening && !networkManager.IsClient && !networkManager.IsServer) break;
         }
+    }
+    
+    // 재시작/시작 쿨다운
+    private void StartRestartCooldownWatch()
+    {
+        if (_restartCooldownRoutine != null) StopCoroutine(_restartCooldownRoutine);
+        _restartCooldownRoutine = StartCoroutine(WaitForRestartCooldownThenNotify());
+    }
+    
+    // 재시작 코루틴 조건
+    private IEnumerator WaitForRestartCooldownThenNotify()
+    {
+        yield return new WaitForSeconds(_settings.GameRestartCooldownSec);
+        _restartCooldownRoutine = null;
+        OnRestartCooldownEnded?.Invoke();
     }
 
     private void SetSingleton()

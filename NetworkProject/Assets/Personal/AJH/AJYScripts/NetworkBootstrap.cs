@@ -104,9 +104,10 @@ public class NetworkBootstrap : MonoBehaviour
         string joincode = _joincodeInput.text.Trim();
         if (_isNaming && !string.IsNullOrEmpty(joincode))
         {
-            await LobbyManager.Instance.JoinSessionByCodeAsync(joincode, _nicknameInput.text);
-
-            SceneLoader.Instance.IndividualLobby();
+            bool issucess = await LobbyManager.Instance.JoinSessionByCodeAsync(joincode, _nicknameInput.text);
+            
+            if(issucess)
+                SceneLoader.Instance.IndividualLobby();
         }
 
         else
