@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Unity.Netcode;
 using Unity.Services.Multiplayer;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LobbyManager : MonoBehaviour
 {
@@ -274,7 +275,7 @@ public class LobbyManager : MonoBehaviour
                 return false;
             }
             // 로드 게임씬
-            //networkManager.SceneManager.LoadScene()
+            networkManager.SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
             return true;
         }
         catch (Exception e)
