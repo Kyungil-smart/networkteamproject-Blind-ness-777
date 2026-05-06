@@ -470,14 +470,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 628293683585508450, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
-      propertyPath: m_GlobalFontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 58096143b658b4941af7258cd5f2f897, type: 2}
-    - target: {fileID: 4758707118478558008, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
-      propertyPath: m_GlobalFontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 58096143b658b4941af7258cd5f2f897, type: 2}
     - target: {fileID: 5800018386782507062, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -558,38 +550,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7136912719663837247, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 58096143b658b4941af7258cd5f2f897, type: 2}
-    - target: {fileID: 7136912719663837247, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8573998378184797840, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
       propertyPath: m_Name
       value: TitleUI
       objectReference: {fileID: 0}
-    - target: {fileID: 9030224804763280479, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
-      propertyPath: _joincodeInput
-      value: 
-      objectReference: {fileID: 1978233490}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
---- !u!114 &1978233490 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4758707118478558008, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
-  m_PrefabInstance: {fileID: 1978233489}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TMP_InputField
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
