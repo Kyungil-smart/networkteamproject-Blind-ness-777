@@ -1,17 +1,8 @@
 using UnityEngine;
 using Unity.Netcode;
+using System.Collections.Generic;
 
 public class AI_List : NetworkBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private float AI_Num;
 }

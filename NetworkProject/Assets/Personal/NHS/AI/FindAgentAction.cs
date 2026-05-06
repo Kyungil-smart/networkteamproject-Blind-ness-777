@@ -20,8 +20,6 @@ public partial class FindAgentAction : Action
 
     private BehaviorGraphAgent _myBehavior;
 
-    private Agent _othersAgent;
-
     protected override Status OnStart()
     {
         if (Self.Value == null) 
@@ -53,6 +51,14 @@ public partial class FindAgentAction : Action
 
             if (otherAction == this || otherAction.Self.Value == null) continue;
 
+            Agent targetAgent = otherAction.Self.Value.GetComponent<Agent>();
+
+            if (targetAgent.isGreet == true) { Debug.Log("isGreet가 true 입니다."); }
+
+            if (targetAgent == null || targetAgent.isGreet == true) return;
+
+            Agent selfAgent = Self.Value.GetComponent<Agent>();
+
             float distSq = (otherAction.Self.Value.transform.position - myPos).sqrMagnitude;
 
             if(distSq <= sqrRadius)
@@ -66,9 +72,13 @@ public partial class FindAgentAction : Action
                     FaceTarget(Self.Value, Other.Value);
                     _restTimer = 0;
 
+                    selfAgent.isGreet = true;
+
                     otherBehavior.BlackboardReference.SetVariableValue("RestTime", RestTime.Value);
                     otherBehavior.BlackboardReference.SetVariableValue("CanMove", false);
                     otherAction._restTimer = 0; // 상대방 타이머도 리셋 (동기화)
+                    
+                    targetAgent.isGreet = true;
 
                     SetGreetingAnimation(Other.Value, true);
                     FaceTarget(Other.Value, Self.Value);

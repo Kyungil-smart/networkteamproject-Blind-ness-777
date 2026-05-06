@@ -4,57 +4,58 @@ using Unity.Netcode;
 
 public class RagdollChanger : NetworkBehaviour
 {
-    [SerializeField] public List<GameObject>    charObj;
-    [SerializeField] public List<GameObject> ragdollObj;
+    [SerializeField] public GameObject charObj;
+    [SerializeField] public GameObject ragdollObj;
 
-    [SerializeField] public List<Rigidbody> spine;
+    [SerializeField] public Rigidbody spineRigidbody;
 
     private void Start()
     {
-        SetupSpines();
+        SetupSpine();
     }
 
-    private void SetupSpines()
+    private void Update()
     {
-        spine = new List<Rigidbody>();
-
-        foreach (GameObject ragdoll in ragdollObj)
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            Rigidbody foundSpine = null;
-
-            //if (foundSpine == null) Debug.Log("foundSpine이 null입니다");
-
-            Rigidbody[] allRigidbodies = ragdoll.GetComponentsInChildren<Rigidbody>(true);
-
-            foreach (Rigidbody rb in allRigidbodies)
-            {
-                if (rb.name.Contains("spine"))
-                {
-                    foundSpine = rb;
-                    break;
-                }
-            }
-
-            if (foundSpine != null)
-            {
-                spine.Add(foundSpine);
-            }
-            else
-            {
-                Debug.LogWarning($"{ragdoll.name}에서 Spine을 찾을 수 없습니다!");
-                spine.Add(null);
-            }
+            ChangeRagdoll();
         }
     }
 
-    public void ChangeRagdoll(int index)
+    private void SetupSpine()
     {
-        CopyCharacterTransformToRagdoll(charObj[index].transform, ragdollObj[index].transform);
+        if (ragdollObj == null) return;
 
-           charObj[index].SetActive(false);
-        ragdollObj[index].SetActive(true);
+        Rigidbody[] allRigidbodies = ragdollObj.GetComponentsInChildren<Rigidbody>(true);
 
-        spine[index].AddForce(new Vector3(0f, 0f, -300f), ForceMode.Impulse);
+        foreach (Rigidbody rb in allRigidbodies)
+        {
+            if (rb.name.ToLower().Contains("spine"))
+            {
+                spineRigidbody = rb;
+                break;
+            }
+        }
+
+        if (spineRigidbody == null)
+        {
+            Debug.LogWarning($"{ragdollObj.name}에서 Spine을 찾을 수 없습니다!");
+        }
+    }
+
+    public void ChangeRagdoll()
+    {
+        if (charObj == null || ragdollObj == null) return;
+
+        CopyCharacterTransformToRagdoll(charObj.transform, ragdollObj.transform);
+
+        charObj.SetActive(false);
+        ragdollObj.SetActive(true);
+
+        if (spineRigidbody != null)
+        {
+            spineRigidbody.AddForce(new Vector3(0f, -1.0f, 0f), ForceMode.Impulse);
+        }
     }
 
     private void CopyCharacterTransformToRagdoll(Transform origin, Transform ragdoll)
