@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.Netcode;
 
-public class RagdollChanger : MonoBehaviour
+public class RagdollChanger : NetworkBehaviour
 {
     [SerializeField] public List<GameObject> charObj;
     [SerializeField] public List<GameObject> ragdollObj;

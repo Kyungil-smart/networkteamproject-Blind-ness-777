@@ -1,11 +1,15 @@
 using Unity.Behavior;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Agent : MonoBehaviour
+public class Agent : NetworkBehaviour
 {
     private Animator _animator;
     private BehaviorGraphAgent _behaviorAgent;
 
+    private float _greetTime  = 10;
+    private float _greetTimer = 0;
+    public bool isGreet = false;
 
     void Awake()
     {
