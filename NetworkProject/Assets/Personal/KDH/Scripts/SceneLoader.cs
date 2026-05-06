@@ -111,7 +111,13 @@ public class SceneLoader : NetworkBehaviour
     private IEnumerator Loading()
     {
         yield return new WaitForSeconds(1f);
-        NetworkManager.Singleton.SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+
+        LoadingUI loadingUI = FindObjectOfType<LoadingUI>();
+        if (loadingUI != null)
+            loadingUI.OnLoadingComplete += () =>
+                NetworkManager.Singleton.SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+        else
+            NetworkManager.Singleton.SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
     }
     // 결과창으로 이동
     private void Result(GamePhase prev, GamePhase next)

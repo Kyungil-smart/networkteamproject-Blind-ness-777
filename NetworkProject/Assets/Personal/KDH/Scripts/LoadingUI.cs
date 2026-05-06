@@ -12,6 +12,8 @@ public class LoadingUI : MonoBehaviour
 
     private bool _isReady = false;
 
+    public event Action OnLoadingComplete;
+
     private void Start()
     {
         StartCoroutine(LoadingProgress());
@@ -21,6 +23,7 @@ public class LoadingUI : MonoBehaviour
     {
         float progress = 0f;
         _loadingText.text = "로딩 중....";
+
         while (progress < 0.9f)
         {
             progress += Time.deltaTime * 0.8f;
@@ -37,9 +40,11 @@ public class LoadingUI : MonoBehaviour
             UpdateUI(progress);
             yield return null;
         }
-        
+
         UpdateUI(1f);
         _loadingText.text = "완료!";
+        yield return new WaitForSeconds(0.5f);
+        OnLoadingComplete?.Invoke();
     }
 
     private void UpdateUI(float progress)
