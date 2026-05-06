@@ -4,7 +4,7 @@ using Unity.Netcode;
 
 public class RagdollChanger : NetworkBehaviour
 {
-    [SerializeField] public List<GameObject> charObj;
+    [SerializeField] public List<GameObject>    charObj;
     [SerializeField] public List<GameObject> ragdollObj;
 
     [SerializeField] public List<Rigidbody> spine;

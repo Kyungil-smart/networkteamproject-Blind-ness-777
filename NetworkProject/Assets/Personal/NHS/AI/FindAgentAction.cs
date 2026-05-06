@@ -16,9 +16,11 @@ public partial class FindAgentAction : Action
     [SerializeReference] public BlackboardVariable<float>      Radius;
     [SerializeReference] public BlackboardVariable<bool>       CanMove;
     [SerializeReference] public BlackboardVariable<float>      RestTime;
-
     private float _restTimer;
+
     private BehaviorGraphAgent _myBehavior;
+
+    private Agent _othersAgent;
 
     protected override Status OnStart()
     {
@@ -29,7 +31,8 @@ public partial class FindAgentAction : Action
         Other.Value = null;
         CanMove.Value = false;
 
-        _myBehavior = Self.Value.GetComponentInParent<BehaviorGraphAgent>();
+        _myBehavior = Self.Value.GetComponent<BehaviorGraphAgent>();
+        
 
         if (!RestingActions.Contains(this))
             RestingActions.Add(this);
