@@ -69,7 +69,10 @@ public class AudioManager : MonoBehaviour, IPhaseChangeable
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (GameManager.Instance != null)
+        {
+            GameManager.Instance.CurrentPhase.OnValueChanged -= OnPhaseValueChanged;
             GameManager.Instance.CurrentPhase.OnValueChanged += OnPhaseValueChanged;
+        }
     }
 
     private void OnPhaseValueChanged(GamePhase previous, GamePhase current)

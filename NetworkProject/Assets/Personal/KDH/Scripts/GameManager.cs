@@ -12,9 +12,10 @@ public class GameManager : NetworkBehaviour
     public NetworkVariable<int> AlivePlayer = new(0);                           // 플레이 인원수 변수
     public MapLoader _mapSpawn;
     [SerializeField] public float _movingTime = 10f;                            // 숨는 시간 변수
-    private AISetActive[] _aiList;
+    
     public GameObject _aiPrefab;
     public GameObject _playerPrefab;
+    private AISetActive[] _aiList;
     
     private void Awake()
     {
@@ -72,7 +73,7 @@ public class GameManager : NetworkBehaviour
             _ai.GetComponent<NetworkObject>().Spawn();
         } 
     }
-    
+
     // 플레이어가 총 맞았을 때 호출
     public void OnPlayerDead()
     {
@@ -102,11 +103,7 @@ public class GameManager : NetworkBehaviour
         CurrentPhase.Value = GamePhase.HideAndSeek;
         while (AlivePlayer.Value > 1)
         {
-            yield return new WaitForSeconds(_movingTime);
-            
-            CurrentPhase.Value = GamePhase.Shooting;
-            Debug.Log(CurrentPhase.Value);
-            StartCoroutine(ShootingPhase());
+            yield return new WaitUntil(() => CurrentPhase.Value == GamePhase.Shooting);
             yield return new WaitUntil(() => CurrentPhase.Value != GamePhase.Shooting);
         }
         foreach (var ai in _aiList) ai.AIDestroy();
