@@ -8,9 +8,11 @@ public class HUDUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _remainingPlayersText;
 
     private float _remainingTime;
+    private PhaseChangeTimer _phaseChangeTimer;
 
     private void OnEnable()
     {
+        _phaseChangeTimer = GameManager.Instance.GetComponent<PhaseChangeTimer>();
         GameManager.Instance.AlivePlayer.OnValueChanged += OnAlivePlayerChanged;
         GameManager.Instance.CurrentPhase.OnValueChanged += OnPhaseChanged;
     }
@@ -40,9 +42,7 @@ public class HUDUI : MonoBehaviour
     private void OnPhaseChanged(GamePhase previous, GamePhase current)
     {
         if (current == GamePhase.HideAndSeek)
-        {
-            _remainingTime = GameManager.Instance._movingTime;
-        }
+            _remainingTime = _phaseChangeTimer.HideAndSeekTime;
     }
 
     private void UpdateTimerText(float time)
