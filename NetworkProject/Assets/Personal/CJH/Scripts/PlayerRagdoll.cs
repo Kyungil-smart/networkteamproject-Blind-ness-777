@@ -49,7 +49,7 @@ public class PlayerRagdoll : MonoBehaviour
 
         foreach (Collider col in _ragdollColliders)
         {
-            if (col is not CapsuleCollider || col.GetComponent<CharacterController>() == null)
+            if (col is not CapsuleCollider)
                 col.enabled = false;
         }
     }
