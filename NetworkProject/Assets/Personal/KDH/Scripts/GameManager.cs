@@ -42,6 +42,7 @@ public class GameManager : NetworkBehaviour
         SpawnPlayer();
         // ai저장
         _aiList = FindObjectsOfType<AISetActive>();
+        Debug.Log(_aiList.Length);
         StartCoroutine(GamePlay());
     }
 
