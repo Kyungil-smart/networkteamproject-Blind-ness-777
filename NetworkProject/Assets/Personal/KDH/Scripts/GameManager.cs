@@ -49,7 +49,8 @@ public class GameManager : NetworkBehaviour
         for (int i = 0; i < 10; i++)
         {
             Transform _aiSpawn = spawnPoints[i % spawnPoints.Length];
-            Instantiate(_aiPrefab, _aiSpawn.position, _aiSpawn.rotation);
+            GameObject _ai = Instantiate(_aiPrefab, _aiSpawn.position, _aiSpawn.rotation);
+            _ai.GetComponent<NetworkObject>().Spawn();
         }
     }
     
