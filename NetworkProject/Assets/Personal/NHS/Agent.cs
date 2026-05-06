@@ -6,6 +6,7 @@ public class Agent : MonoBehaviour
     private Animator _animator;
     private BehaviorGraphAgent _behaviorAgent;
 
+
     void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
@@ -27,10 +28,5 @@ public class Agent : MonoBehaviour
                 Debug.Log("Value 바뀜");
             }
         }
-    }
-
-    void SetDie()
-    {
-        //gameObject.
     }
 }

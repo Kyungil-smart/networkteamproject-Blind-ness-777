@@ -45,14 +45,14 @@ public class SceneLoader : NetworkBehaviour
         NetworkManager.Singleton.SceneManager.LoadScene("ResultScene", LoadSceneMode.Single);
     }
     
-    // 로비 이동 씬
+    // 로비 이동 씬(게임이 끝나고)
     public void LoadLobbyScene()
     {
         if (!IsServer) return;
         NetworkManager.Singleton.SceneManager.LoadScene("LobbyScene", LoadSceneMode.Single);
     }
     
-    // 개인 로비 이동 씬
+    // 로비 이동 씬(처음 방 입장할 때)
     public void IndividualLobby()
     {
         if (!IsOwner) return;
@@ -120,6 +120,11 @@ public class SceneLoader : NetworkBehaviour
     private void Result(GamePhase prev, GamePhase next)
     {
         if (!IsServer) return;
-        if (next == GamePhase.GameOver) LoadResultScene();
+        if (next == GamePhase.GameOver)
+        {
+            MapLoader mapLoader = FindObjectOfType<MapLoader>();
+            mapLoader.DestroyMap();
+            LoadResultScene();
+        }
     }
 }

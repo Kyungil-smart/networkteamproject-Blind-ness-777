@@ -19,6 +19,13 @@ public class PlayerAnimator : NetworkBehaviour, IPhaseChangeable
     private static readonly int _hashDrawGun = Animator.StringToHash("DrawGun");
     private static readonly int _hashShoot   = Animator.StringToHash("Shoot");
 
+    private PlayerController _playerController;
+
+    private void Awake()
+    {
+        _playerController = GetComponent<PlayerController>();
+    }
+
     public override void OnNetworkSpawn()
     {
         if (_gunObject != null) _gunObject.SetActive(false);
@@ -69,6 +76,7 @@ public class PlayerAnimator : NetworkBehaviour, IPhaseChangeable
         yield return new WaitForSeconds(drawGunLength);
 
         if (_animator != null) _animator.SetTrigger(_hashShoot);
+        _playerController?.ShootServerRpc(_playerController.GetComponent<PlayerAim>().AimDirection, _playerController.FireOrigin.position);
 
         // Shoot 애니메이션 길이만큼 대기 후 총 비활성화 + Idle 복귀
         float shootLength = GetClipLength("Shoot");
