@@ -20,6 +20,12 @@ public class PlayerRagdoll : MonoBehaviour
 
         DisableRagdoll();
     }
+    
+    private void Update()
+    {
+        if (!_characterController.enabled)
+            Debug.LogWarning("[PlayerRagdoll] CharacterController 비활성화 감지");
+    }
 
     /// <summary>
     /// PlayerController에서 사망 시 호출. attackerPosition은 공격자 위치.
