@@ -24,11 +24,6 @@ public class SceneLoader : NetworkBehaviour
         }
     }
 
-    private void Start()
-    {
-        SceneManager.LoadScene("Mains/Scenes/TitleScene");
-    }
-
     // 게임 시작 씬
     public void LoadGameScene()
     {
@@ -45,18 +40,20 @@ public class SceneLoader : NetworkBehaviour
         NetworkManager.Singleton.SceneManager.LoadScene("ResultScene", LoadSceneMode.Single);
     }
     
-    // 로비 이동 씬(게임이 끝나고)
+    // 로비 이동 씬
     public void LoadLobbyScene()
     {
         if (!IsServer) return;
         NetworkManager.Singleton.SceneManager.LoadScene("LobbyScene", LoadSceneMode.Single);
+        AudioManager.Instance?.PlayLobbyBGM();
     }
     
-    // 로비 이동 씬(처음 방 입장할 때)
+    // 개인 로비 이동 씬
     public void IndividualLobby()
     {
         if (!IsOwner) return;
         SceneManager.LoadScene("LobbyScene");
+        AudioManager.Instance?.PlayLobbyBGM();
     }
     
     public override void OnNetworkSpawn()
@@ -120,11 +117,6 @@ public class SceneLoader : NetworkBehaviour
     private void Result(GamePhase prev, GamePhase next)
     {
         if (!IsServer) return;
-        if (next == GamePhase.GameOver)
-        {
-            MapLoader mapLoader = FindObjectOfType<MapLoader>();
-            mapLoader.DestroyMap();
-            LoadResultScene();
-        }
+        if (next == GamePhase.GameOver) LoadResultScene();
     }
 }
