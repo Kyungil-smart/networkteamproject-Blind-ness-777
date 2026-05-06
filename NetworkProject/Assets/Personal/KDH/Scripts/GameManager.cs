@@ -14,6 +14,7 @@ public class GameManager : NetworkBehaviour
     [SerializeField] public float _movingTime = 10f;                            // 숨는 시간 변수
     private AISetActive[] _aiList;
     public GameObject _aiPrefab;
+    public GameObject _playerPrefab;
     
     private void Awake()
     {
@@ -38,11 +39,29 @@ public class GameManager : NetworkBehaviour
         if (_mapSpawn != null) _mapSpawn.LoadMap();
         // ai소환
         SpawnAI();
+        SpawnPlayer();
         // ai저장
         _aiList = FindObjectsOfType<AISetActive>();
+        Debug.Log(_aiList.Length);
         StartCoroutine(GamePlay());
     }
 
+    public void SpawnPlayer()
+    {
+        Transform[] spawnPoints = _mapSpawn.PlayerSpawnPoints;
+        List<Transform> playerSpawnPoints = new List<Transform>(spawnPoints);
+
+        foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, playerSpawnPoints.Count);
+            Transform PSP = playerSpawnPoints[randomIndex];
+            playerSpawnPoints.RemoveAt(randomIndex);
+            
+            GameObject _player = Instantiate(_playerPrefab, PSP.position, PSP.rotation);
+            _player.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId);
+        }
+    }
+    
     public void SpawnAI()
     {
         Transform[] spawnPoints = _mapSpawn.AISpawnPoints;
@@ -51,7 +70,7 @@ public class GameManager : NetworkBehaviour
             Transform _aiSpawn = spawnPoints[i % spawnPoints.Length];
             GameObject _ai = Instantiate(_aiPrefab, _aiSpawn.position, _aiSpawn.rotation);
             _ai.GetComponent<NetworkObject>().Spawn();
-        }
+        } 
     }
     
     // 플레이어가 총 맞았을 때 호출
@@ -86,6 +105,7 @@ public class GameManager : NetworkBehaviour
             yield return new WaitForSeconds(_movingTime);
             
             CurrentPhase.Value = GamePhase.Shooting;
+            Debug.Log(CurrentPhase.Value);
             StartCoroutine(ShootingPhase());
             yield return new WaitUntil(() => CurrentPhase.Value != GamePhase.Shooting);
         }

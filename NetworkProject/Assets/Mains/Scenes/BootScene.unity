@@ -899,6 +899,7 @@ MonoBehaviour:
   _mapSpawn: {fileID: 0}
   _movingTime: 10
   _aiPrefab: {fileID: 4644231057869415932, guid: 271da764b1591794d9a63591b1c5be1a, type: 3}
+  _playerPrefab: {fileID: 1690921060548546625, guid: 0d34a0534dab0e741a8768d5a57e26bc, type: 3}
 --- !u!4 &2008424385
 Transform:
   m_ObjectHideFlags: 0
