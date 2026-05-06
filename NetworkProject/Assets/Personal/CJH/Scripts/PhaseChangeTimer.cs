@@ -70,4 +70,6 @@ public class PhaseChangeTimer : NetworkBehaviour
         else
             GameManager.Instance.CurrentPhase.Value = GamePhase.GameOver;
     }
+
+    public float HideAndSeekTime => _hideAndSeekTime;
 }
