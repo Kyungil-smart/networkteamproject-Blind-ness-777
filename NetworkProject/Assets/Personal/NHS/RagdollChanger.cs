@@ -49,7 +49,7 @@ public class RagdollChanger : NetworkBehaviour
 
         CopyCharacterTransformToRagdoll(charObj.transform, ragdollObj.transform);
 
-        charObj.SetActive(false);
+           charObj.SetActive(false);
         ragdollObj.SetActive(true);
 
         if (spineRigidbody != null)

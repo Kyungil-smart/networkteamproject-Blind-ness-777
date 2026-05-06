@@ -26,11 +26,11 @@ public partial class FindAgentAction : Action
             return Status.Failure;
 
         _restTimer = 0;
-        Other.Value = null;
+
+          Other.Value = null;
         CanMove.Value = false;
 
         _myBehavior = Self.Value.GetComponent<BehaviorGraphAgent>();
-        
 
         if (!RestingActions.Contains(this))
             RestingActions.Add(this);
@@ -48,13 +48,9 @@ public partial class FindAgentAction : Action
         for(int i=0;i<RestingActions.Count;i++)
         {
             var otherAction = RestingActions[i];
-
             if (otherAction == this || otherAction.Self.Value == null) continue;
 
             Agent targetAgent = otherAction.Self.Value.GetComponent<Agent>();
-
-            if (targetAgent.isGreet == true) { Debug.Log("isGreet가 true 입니다."); }
-
             if (targetAgent == null || targetAgent.isGreet == true) return;
 
             Agent selfAgent = Self.Value.GetComponent<Agent>();
@@ -105,7 +101,6 @@ public partial class FindAgentAction : Action
 
             Other.Value = null;
 
-            //Debug.Log("[FindAgent] 휴식 종료. 다시 이동합니다.");
             return Status.Success;
         }
 
@@ -119,8 +114,7 @@ public partial class FindAgentAction : Action
 
     private void SetGreetingAnimation(GameObject target, bool isGreeting)
     {
-        if (target == null) 
-            return;
+        if (target == null) return;
 
         Animator anim = target.GetComponentInChildren<Animator>();
         if (anim != null)

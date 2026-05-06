@@ -38,9 +38,4 @@ public partial class SetRandomDestinationAction : Action
     {
         return Status.Success;
     }
-
-    protected override void OnEnd()
-    {
-    }
 }
-

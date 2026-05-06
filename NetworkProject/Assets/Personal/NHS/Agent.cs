@@ -8,13 +8,6 @@ public class Agent : NetworkBehaviour
     private bool  _isGreet        = false;
     public  bool  isGreet { get => _isGreet; set => _isGreet = value; }
 
-    void Awake()
-    {
-    }
-
-    void Start()
-    {
-    }
 
     void Update()
     {
@@ -29,6 +22,5 @@ public class Agent : NetworkBehaviour
             _greetTimer = 0;
             isGreet = false;
         }
-
     }
 }

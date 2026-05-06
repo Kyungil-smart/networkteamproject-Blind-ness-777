@@ -35,4 +35,3 @@ public partial class WaitForRandomSecondsAction : Action
         return Status.Running;
     }
 }
-
