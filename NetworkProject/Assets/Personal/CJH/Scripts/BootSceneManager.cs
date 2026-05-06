@@ -30,17 +30,24 @@ public class BootSceneManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         
         AudioManager.Instance?.PlayBootSFX();
+        
         yield return StartCoroutine(ShowLogo(_logo1));
         yield return StartCoroutine(ShowLogo(_logo2));
-
+        
+        AudioManager.Instance?.PlayTitleBGM();
+        
         SceneManager.LoadScene(_nextSceneName);
     }
 
     private IEnumerator ShowLogo(Image logo)
     {
+        Debug.Log($"[Boot] {logo.name} 페이드인 시작");
         yield return StartCoroutine(Fade(logo, 0f, 1f, _fadeInDuration));
+        Debug.Log($"[Boot] {logo.name} 홀드 시작");
         yield return new WaitForSeconds(_holdDuration);
+        Debug.Log($"[Boot] {logo.name} 페이드아웃 시작");
         yield return StartCoroutine(Fade(logo, 1f, 0f, _fadeOutDuration));
+        Debug.Log($"[Boot] {logo.name} 완료");
     }
 
     private IEnumerator Fade(Image logo, float from, float to, float duration)

@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
-/// GameSystem 담당자 — 실제 게임 연동 시 OnPhaseChanged, OnTimerTick을 직접 호출할 것.
-/// 테스트용 OnGUI 버튼은 연동 완료 후 제거.
+/// GameSystem 담당자 — OnPhaseChanged, OnTimerTick 호출 시점은 summary 참고.
 /// </summary>
 public class AudioManager : MonoBehaviour, IPhaseChangeable
 {
@@ -37,9 +37,7 @@ public class AudioManager : MonoBehaviour, IPhaseChangeable
     [SerializeField] private float _fadeOutDuration = 2f;
     [SerializeField] private float _fadeInDuration  = 1f;
 
-    private bool _transitioned = false;
-    private bool _tickPlayed   = false;
-    private bool _isFading     = false;
+    private bool _isFading = false;
 
     private int _lastTitleIndex = -1;
     private int _lastLobbyIndex = -1;
@@ -58,34 +56,33 @@ public class AudioManager : MonoBehaviour, IPhaseChangeable
         _sfxSource.volume = _sfxVolume;
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (GameManager.Instance != null)
+            GameManager.Instance.CurrentPhase.OnValueChanged += OnPhaseValueChanged;
+    }
+
+    private void OnPhaseValueChanged(GamePhase previous, GamePhase current)
+    {
+        OnPhaseChanged(current);
+    }
+
     private void Update()
     {
         _sfxSource.volume = _sfxVolume;
 
         if (!_isFading)
             _bgmSource.volume = _bgmVolume;
-    }
-
-    private void OnGUI()
-    {
-        GUILayout.BeginArea(new Rect(10, 10, 220, 180));
-
-        if (!_tickPlayed && GUILayout.Button("타이머 틱 (8초 전)", GUILayout.Height(40)))
-        {
-            OnTimerTick();
-            _tickPlayed = true;
-        }
-
-        if (!_transitioned && GUILayout.Button("탑뷰 전환", GUILayout.Height(40)))
-        {
-            _transitioned = true;
-            OnTopViewTransition();
-        }
-
-        if (GUILayout.Button("처음부터", GUILayout.Height(40)))
-            ResetDemo();
-
-        GUILayout.EndArea();
     }
 
     /// <summary>
@@ -151,7 +148,6 @@ public class AudioManager : MonoBehaviour, IPhaseChangeable
                 break;
 
             case GamePhase.Shooting:
-                _transitioned = true;
                 OnTopViewTransition();
                 break;
 
@@ -241,14 +237,4 @@ public class AudioManager : MonoBehaviour, IPhaseChangeable
             _bgmSource.Stop();
     }
 
-    private void ResetDemo()
-    {
-        StopAllCoroutines();
-        CancelInvoke();
-        _isFading     = false;
-        _transitioned = false;
-        _tickPlayed   = false;
-        _sfxSource.Stop();
-        PlayHideAndSeekBGM();
-    }
 }

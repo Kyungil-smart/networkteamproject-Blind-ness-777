@@ -472,7 +472,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1199927124
+--- !u!1 &1118542424
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -480,8 +480,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1199927126}
-  - component: {fileID: 1199927125}
+  - component: {fileID: 1118542426}
+  - component: {fileID: 1118542425}
   m_Layer: 0
   m_Name: BootSceneManager
   m_TagString: Untagged
@@ -489,13 +489,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1199927125
+--- !u!114 &1118542425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199927124}
+  m_GameObject: {fileID: 1118542424}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee8d59bb7be41fe4eadcd853a22ff2d5, type: 3}
@@ -504,19 +504,19 @@ MonoBehaviour:
   _logo1: {fileID: 2499829120162361939}
   _logo2: {fileID: 4070806755158240529}
   _fadeInDuration: 0.5
-  _holdDuration: 1
+  _holdDuration: 2
   _fadeOutDuration: 0.5
   _nextSceneName: TitleScene
---- !u!4 &1199927126
+--- !u!4 &1118542426
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199927124}
+  m_GameObject: {fileID: 1118542424}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07754, y: -0, z: 0.85767}
+  m_LocalPosition: {x: -12.83092, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1181,5 +1181,5 @@ SceneRoots:
   - {fileID: 1350364756}
   - {fileID: 667054244}
   - {fileID: 1909513785313951434}
-  - {fileID: 1199927126}
   - {fileID: 40883118}
+  - {fileID: 1118542426}
