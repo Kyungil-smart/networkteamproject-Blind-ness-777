@@ -20,7 +20,7 @@ public class LoadingUI : MonoBehaviour
     private IEnumerator LoadingProgress()
     {
         float progress = 0f;
-
+        _loadingText.text = "로딩 중....";
         while (progress < 0.9f)
         {
             progress += Time.deltaTime * 0.8f;

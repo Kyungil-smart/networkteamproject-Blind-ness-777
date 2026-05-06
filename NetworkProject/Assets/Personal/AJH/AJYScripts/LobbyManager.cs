@@ -275,7 +275,7 @@ public class LobbyManager : MonoBehaviour
                 return false;
             }
             // 로드 게임씬
-            networkManager.SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+            networkManager.SceneManager.LoadScene("LoadingScene", LoadSceneMode.Single);
             return true;
         }
         catch (Exception e)

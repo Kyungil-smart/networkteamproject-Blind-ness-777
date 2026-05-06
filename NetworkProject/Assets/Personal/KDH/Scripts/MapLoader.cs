@@ -15,7 +15,11 @@ public class MapLoader : NetworkBehaviour
         GameObject _mapPrefab = Instantiate(_mapPrefabs[_random]);
         _currentMap = _mapPrefab.GetComponent<NetworkObject>();
         _currentMap.Spawn();
-        AISpawnPoints = _mapPrefab.GetComponentsInChildren<Transform>();
+        
+        Transform aiSpawnPoint = _currentMap.transform.Find("AiSpawnPoint");
+        AISpawnPoints = new Transform[aiSpawnPoint.childCount];
+        for (int i = 0; i < aiSpawnPoint.childCount; i++)
+            AISpawnPoints[i] = aiSpawnPoint.GetChild(i);
     }
     
     public void DestroyMap()
