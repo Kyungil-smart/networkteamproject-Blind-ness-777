@@ -841,6 +841,7 @@ GameObject:
   - component: {fileID: 2008424385}
   - component: {fileID: 2008424383}
   - component: {fileID: 2008424384}
+  - component: {fileID: 2008424386}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -914,6 +915,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2008424386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008424382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30bd23a61e0cb9346aff8ad336a9ba80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhaseChangeTimer
+  ShowTopMostFoldoutHeaderGroup: 1
+  _hideAndSeekTime: 90
+  _shootingTime: 30
+  _tickTockOffset: 8
 --- !u!223 &244047102950785635
 Canvas:
   m_ObjectHideFlags: 0
