@@ -16,8 +16,8 @@ public partial class FindAgentAction : Action
     [SerializeReference] public BlackboardVariable<float>      Radius;
     [SerializeReference] public BlackboardVariable<bool>       CanMove;
     [SerializeReference] public BlackboardVariable<float>      RestTime;
-
     private float _restTimer;
+
     private BehaviorGraphAgent _myBehavior;
 
     protected override Status OnStart()
@@ -26,10 +26,11 @@ public partial class FindAgentAction : Action
             return Status.Failure;
 
         _restTimer = 0;
-        Other.Value = null;
+
+          Other.Value = null;
         CanMove.Value = false;
 
-        _myBehavior = Self.Value.GetComponentInParent<BehaviorGraphAgent>();
+        _myBehavior = Self.Value.GetComponent<BehaviorGraphAgent>();
 
         if (!RestingActions.Contains(this))
             RestingActions.Add(this);
@@ -47,8 +48,12 @@ public partial class FindAgentAction : Action
         for(int i=0;i<RestingActions.Count;i++)
         {
             var otherAction = RestingActions[i];
-
             if (otherAction == this || otherAction.Self.Value == null) continue;
+
+            Agent targetAgent = otherAction.Self.Value.GetComponent<Agent>();
+            if (targetAgent == null || targetAgent.isGreet == true) return;
+
+            Agent selfAgent = Self.Value.GetComponent<Agent>();
 
             float distSq = (otherAction.Self.Value.transform.position - myPos).sqrMagnitude;
 
@@ -63,9 +68,13 @@ public partial class FindAgentAction : Action
                     FaceTarget(Self.Value, Other.Value);
                     _restTimer = 0;
 
+                    selfAgent.isGreet = true;
+
                     otherBehavior.BlackboardReference.SetVariableValue("RestTime", RestTime.Value);
                     otherBehavior.BlackboardReference.SetVariableValue("CanMove", false);
                     otherAction._restTimer = 0; // 상대방 타이머도 리셋 (동기화)
+                    
+                    targetAgent.isGreet = true;
 
                     SetGreetingAnimation(Other.Value, true);
                     FaceTarget(Other.Value, Self.Value);
@@ -92,7 +101,6 @@ public partial class FindAgentAction : Action
 
             Other.Value = null;
 
-            //Debug.Log("[FindAgent] 휴식 종료. 다시 이동합니다.");
             return Status.Success;
         }
 
@@ -106,8 +114,7 @@ public partial class FindAgentAction : Action
 
     private void SetGreetingAnimation(GameObject target, bool isGreeting)
     {
-        if (target == null) 
-            return;
+        if (target == null) return;
 
         Animator anim = target.GetComponentInChildren<Animator>();
         if (anim != null)

@@ -1,36 +1,26 @@
-using Unity.Behavior;
 using Unity.Netcode;
 using UnityEngine;
 
 public class Agent : NetworkBehaviour
 {
-    private Animator _animator;
-    private BehaviorGraphAgent _behaviorAgent;
+    private float _greetCoolTime  = 10;
+    private float _greetTimer     = 0;
+    private bool  _isGreet        = false;
+    public  bool  isGreet { get => _isGreet; set => _isGreet = value; }
 
-    private float _greetTime  = 10;
-    private float _greetTimer = 0;
-    public bool isGreet = false;
-
-    void Awake()
-    {
-        _animator = GetComponentInChildren<Animator>();
-
-        _behaviorAgent = GetComponentInParent<BehaviorGraphAgent>();
-    }
-
-    void Start()
-    {
-    }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (isGreet == false) return;
+
+        if(_greetTimer < _greetCoolTime)
         {
-            if (_behaviorAgent != null && _behaviorAgent.BlackboardReference != null)
-            {
-                _behaviorAgent.BlackboardReference.SetVariableValue("CanMove", true);
-                Debug.Log("Value 바뀜");
-            }
+            _greetTimer += Time.deltaTime;
+        }
+        else
+        {
+            _greetTimer = 0;
+            isGreet = false;
         }
     }
 }
