@@ -42,6 +42,14 @@ public class OptionUI : MonoBehaviour
         UpdateBGMText(bgm);
         UpdateSFXText(sfx);
     }
+    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameObject.SetActive(false);
+        }
+    }
  
     private void OnBGMVolumeChanged(float value)
     {
