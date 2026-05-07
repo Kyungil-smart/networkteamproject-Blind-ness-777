@@ -1,3 +1,4 @@
+using Unity.AI.Navigation;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -5,8 +6,6 @@ public class MapLoader : NetworkBehaviour
 {
     [SerializeField] private GameObject[] _mapPrefabs;
     private NetworkObject _currentMap;
-    public Transform[] PlayerSpawnPoints { get; private set; }
-    public Transform[] AISpawnPoints { get; private set; }
 
     public void LoadMap()
     {
@@ -17,14 +16,8 @@ public class MapLoader : NetworkBehaviour
         _currentMap = _mapPrefab.GetComponent<NetworkObject>();
         _currentMap.Spawn();
         
-        Transform aiSpawnPoint = _currentMap.transform.Find("AiSpawnPoint");
-        AISpawnPoints = new Transform[aiSpawnPoint.childCount];
-        for (int i = 0; i < aiSpawnPoint.childCount; i++)
-            AISpawnPoints[i] = aiSpawnPoint.GetChild(i);
-        Transform playerSpawnPoint = _currentMap.transform.Find("PlayerSpawnPoint");
-        PlayerSpawnPoints = new Transform[playerSpawnPoint.childCount];
-        for (int i = 0; i < playerSpawnPoint.childCount; i++)
-            PlayerSpawnPoints[i] = playerSpawnPoint.GetChild(i);
+        NavMeshSurface _nms = _mapPrefab.GetComponent<NavMeshSurface>();
+        _nms.BuildNavMesh();
     }
     
     public void DestroyMap()
