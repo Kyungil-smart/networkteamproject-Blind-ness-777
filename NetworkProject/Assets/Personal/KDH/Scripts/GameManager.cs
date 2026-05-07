@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class GameManager : NetworkBehaviour
 {
@@ -49,31 +51,33 @@ public class GameManager : NetworkBehaviour
 
     public void SpawnPlayer()
     {
-        Transform[] spawnPoints = _mapSpawn.PlayerSpawnPoints;
-        List<Transform> playerSpawnPoints = new List<Transform>(spawnPoints);
-
         foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
         {
-            int randomIndex = UnityEngine.Random.Range(0, playerSpawnPoints.Count);
-            Transform PSP = playerSpawnPoints[randomIndex];
-            playerSpawnPoints.RemoveAt(randomIndex);
-            
-            GameObject _player = Instantiate(_playerPrefab, PSP.position, PSP.rotation);
+            Vector3 _randomPoint = GetNavMeshPoint();
+            GameObject _player = Instantiate(_playerPrefab, _randomPoint, Quaternion.identity);
             _player.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId);
         }
     }
     
     public void SpawnAI()
     {
-        Transform[] spawnPoints = _mapSpawn.AISpawnPoints;
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 30; i++)
         {
-            Transform _aiSpawn = spawnPoints[i % spawnPoints.Length];
-            GameObject _ai = Instantiate(_aiPrefab, _aiSpawn.position, _aiSpawn.rotation);
+            Vector3 _randomPoint = GetNavMeshPoint();
+            GameObject _ai = Instantiate(_aiPrefab, _randomPoint, Quaternion.identity);
             _ai.GetComponent<NetworkObject>().Spawn();
         } 
     }
 
+    private Vector3 GetNavMeshPoint()
+    {
+        Vector3 _randomPoint = new Vector3(Random.Range(-20f, 20f), 0, Random.Range(-20f, 20f));
+        
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(_randomPoint, out hit, 5f, NavMesh.AllAreas)) return  hit.position;
+        return GetNavMeshPoint();
+    }
+    
     // 플레이어가 총 맞았을 때 호출
     public void OnPlayerDead()
     {
