@@ -236,9 +236,27 @@ public class LobbyManager : MonoBehaviour
         return hasNonHost;
     }
     
-
+    /// <summary>
+    /// 자신의 레디 상태 토글/설정
+    /// </summary>
+    /// <param name="isReady">레디 여부</param>
     public async Task SetReadyAsync(bool isReady)
     {
+        try
+        {
+            await UpdateLocalReadyPropertyAsync(isReady);
+            OnSessionUpdated?.Invoke(_session);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"LobbyManager: 레디 갱신 실패: {e.Message}");
+        }
+    }
+    
+    // 레디 상태 변경
+    private async Task UpdateLocalReadyPropertyAsync(bool isReady)
+    {
+        if (_session == null) return;
         string value = isReady ? LobbyConstants.VALUE_TRUE : LobbyConstants.VALUE_FALSE;
         _session.CurrentPlayer.SetProperty(
             LobbyConstants.KEY_PLAYER_READY,
@@ -283,6 +301,48 @@ public class LobbyManager : MonoBehaviour
             Debug.LogError($"LobbyManager: 호스트 게임 시작 실패: {e.Message}");
             _isStartingGame = false;
             return false;
+        }
+    }
+    
+    /// <summary>
+    /// 게임 종료 후 현재 세션을 유지한 채 룸 화면으로 복귀
+    /// </summary>
+    public async Task ReturnToRoomAsync()
+    {
+        _isStartingGame = false;
+        _lastGameEndRealtime = Time.realtimeSinceStartup;
+        StartRestartCooldownWatch();
+
+        if (IsHost && _session != null)
+        {
+            try
+            {
+                IHostSession host = _session.AsHost();
+                host.IsLocked = false;
+                await host.SavePropertiesAsync();
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning($"LobbyManager: 게임 종료 후 잠금 해제 실패: {e.Message}");
+            }
+        }
+
+        // 모든 멤버: 자기 ready 해제. 다른 플레이어 PlayerProperty는 host도 직접 못 바꾸므로 각자 해제
+        try
+        {
+            await UpdateLocalReadyPropertyAsync(false);
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"LobbyManager: 레디 해제 실패: {e.Message}");
+        }
+
+        OnSessionUpdated?.Invoke(_session);
+
+        // 로비로 씬전환
+        if (IsHost)
+        {
+            //SceneLoader.LoadNetworked(SceneId.Lobby);
         }
     }
     
