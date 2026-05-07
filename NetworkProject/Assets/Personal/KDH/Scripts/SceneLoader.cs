@@ -88,6 +88,7 @@ public class SceneLoader : NetworkBehaviour
         switch (sceneName)
         {
             case "GameScene":
+                Debug.Log("Start game");
                 if (clientCompletes.Count <= 1)
                 {
                     LoadLobbyScene();

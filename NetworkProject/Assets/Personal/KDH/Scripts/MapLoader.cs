@@ -10,7 +10,7 @@ public class MapLoader : NetworkBehaviour
     public void LoadMap()
     {
         if (!IsServer) return;
-        
+        Debug.Log("Loading map");
         int _random = Random.Range(0, _mapPrefabs.Length);
         GameObject _mapPrefab = Instantiate(_mapPrefabs[_random]);
         _currentMap = _mapPrefab.GetComponent<NetworkObject>();
