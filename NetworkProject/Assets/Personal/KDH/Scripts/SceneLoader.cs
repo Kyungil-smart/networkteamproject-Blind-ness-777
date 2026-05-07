@@ -10,6 +10,7 @@ public class SceneLoader : NetworkBehaviour
     public static SceneLoader Instance { get; private set; }
     private int _retryCount = 0;
     private const int MaxRetry = 2;
+    private bool _isGame = false;
     private void Awake()
     {
         if (Instance == null)
@@ -46,6 +47,7 @@ public class SceneLoader : NetworkBehaviour
         if (!IsServer) return;
         NetworkManager.Singleton.SceneManager.LoadScene("LobbyScene", LoadSceneMode.Single);
         AudioManager.Instance?.PlayLobbyBGM();
+        _isGame = false;
     }
     
     // 개인 로비 이동 씬
@@ -89,6 +91,8 @@ public class SceneLoader : NetworkBehaviour
         {
             case "GameScene":
                 Debug.Log("Start game");
+                if (_isGame) return;
+                _isGame = true;
                 if (clientCompletes.Count <= 1)
                 {
                     LoadLobbyScene();
@@ -97,6 +101,7 @@ public class SceneLoader : NetworkBehaviour
                 GameManager.Instance.StartGame();
                 break;
             case "LoadingScene":
+                Debug.Log("Start loading");
                 SetReadyClientRPC();
                 StartCoroutine(Loading());
                 break;
@@ -120,6 +125,7 @@ public class SceneLoader : NetworkBehaviour
         else
             NetworkManager.Singleton.SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
     }
+    
     // 결과창으로 이동
     private void Result(GamePhase prev, GamePhase next)
     {
