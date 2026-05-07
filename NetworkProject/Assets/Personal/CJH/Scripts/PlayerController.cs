@@ -104,8 +104,6 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
             if (target != null)
                 target.Die(attackerPosition);
         }
-
-        // 총구 이펙트는 확장 기능 — 여기에 추가 예정
     }
 
     [ClientRpc]
@@ -126,6 +124,9 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
 
         _playerGuideLine?.DisableGuideLine();
         _playerRagdoll?.ActivateRagdoll(attackerPosition);
+
+        if (IsServer)
+            GameManager.Instance.OnPlayerDead();
 
         Debug.Log($"[PlayerController] {OwnerClientId}번 플레이어 사망");
     }
