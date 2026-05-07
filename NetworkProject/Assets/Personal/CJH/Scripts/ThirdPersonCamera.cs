@@ -82,7 +82,7 @@ public class ThirdPersonCamera : MonoBehaviour
         Vector3 camPos = GetCameraPosition(_currentDistance);
 
         transform.position = Vector3.Lerp(transform.position, camPos, _smoothing * Time.deltaTime);
-        transform.LookAt(_target.position);
+        transform.rotation = Quaternion.Euler(_pitch, _yaw, 0f);
     }
 
     private Vector3 GetCameraPosition(float dist)

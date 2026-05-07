@@ -15,16 +15,12 @@ public class PlayerRagdoll : MonoBehaviour
     {
         _playerAnimator      = GetComponent<PlayerAnimator>();
         _characterController = GetComponent<CharacterController>();
-        _ragdollRigidbodies  = GetComponentsInChildren<Rigidbody>();
-        _ragdollColliders    = GetComponentsInChildren<Collider>();
+
+        Transform root = transform.root;
+        _ragdollRigidbodies = root.GetComponentsInChildren<Rigidbody>();
+        _ragdollColliders   = root.GetComponentsInChildren<Collider>();
 
         DisableRagdoll();
-    }
-    
-    private void Update()
-    {
-        if (!_characterController.enabled)
-            Debug.LogWarning("[PlayerRagdoll] CharacterController 비활성화 감지");
     }
 
     /// <summary>
@@ -55,6 +51,7 @@ public class PlayerRagdoll : MonoBehaviour
 
         foreach (Collider col in _ragdollColliders)
         {
+            if (col is CharacterController) continue;
             if (col is not CapsuleCollider)
                 col.enabled = false;
         }
@@ -73,7 +70,8 @@ public class PlayerRagdoll : MonoBehaviour
 
         foreach (Collider col in _ragdollColliders)
         {
-            if (col is not CapsuleCollider || col.GetComponent<CharacterController>() == null)
+            if (col is CharacterController) continue;
+            if (col is not CapsuleCollider)
                 col.enabled = true;
         }
     }
