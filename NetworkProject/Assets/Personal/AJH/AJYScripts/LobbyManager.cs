@@ -148,6 +148,15 @@ public class LobbyManager : MonoBehaviour
         for (int attempt = 0; attempt <= JOIN_MAX_RETRY; attempt++)
         {
             await EnsureCleanNetworkStateAsync();
+            
+            // 이전 세션 잔재 정리
+            if (_session != null)
+            {
+                try { await _session.LeaveAsync(); }
+                catch { }
+                _session = null;
+            }
+            
             try
             {
                 JoinSessionOptions options = new JoinSessionOptions
