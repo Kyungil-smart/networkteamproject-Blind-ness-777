@@ -51,6 +51,10 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
             _characterController.enabled = false;
             return;
         }
+
+        // 오너: CharacterController 잠깐 끄고 초기 위치 설정 후 다시 켜기
+        _characterController.enabled = false;
+        _characterController.enabled = true;
     }
 
     private void Update()
@@ -77,7 +81,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         }
 
         float speed = _isSprinting ? _sprintSpeed : _moveSpeed;
-        _characterController.SimpleMove(moveDir * speed);
+        transform.position += moveDir * speed * Time.deltaTime;
 
         if (_playerAnimator != null)
         {
