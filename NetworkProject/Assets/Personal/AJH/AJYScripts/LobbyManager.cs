@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.Netcode;
 using Unity.Services.Multiplayer;
-using Unity.Services.Authentication;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -145,27 +144,10 @@ public class LobbyManager : MonoBehaviour
     public async Task<bool> JoinSessionByCodeAsync(string sessionCode, string playerName)
     {
         _playerName = playerName;
-        
-        try
-        {
-            if (_session != null)
-            {
-                await _session.LeaveAsync();
-            }
-            else
-            {
-                AuthenticationService.Instance.SignOut();
-                await AuthService.Instance.InitializeAsync();
-            }
-        }
-        catch { }
-
         _session = null;
-        
+
         for (int attempt = 0; attempt <= JOIN_MAX_RETRY; attempt++)
         {
-            await EnsureCleanNetworkStateAsync();
-            
             try
             {
                 JoinSessionOptions options = new JoinSessionOptions
@@ -396,7 +378,7 @@ public class LobbyManager : MonoBehaviour
     
     // 세션 진입 직후 NGO Network.State 가 Started 인지 검증. 비정상이면 강제 leave 후 false.
     // 클라이언트 race로 즉시 체크 시 Stopped 로 보이는 false negative 사유는
-    private const float NGO_START_WAIT_SEC = 6f;
+    private const float NGO_START_WAIT_SEC = 15f;
     private async Task<bool> VerifyNgoStartedOrCleanupAsync()
     {
         if (_session == null) return false;
