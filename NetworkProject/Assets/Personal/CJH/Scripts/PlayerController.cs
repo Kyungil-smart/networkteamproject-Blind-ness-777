@@ -48,6 +48,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
             _virtualCamera.SetActive(false);
             PlayerInput playerInput = GetComponent<PlayerInput>();
             if (playerInput != null) playerInput.enabled = false;
+            _characterController.enabled = false;
             return;
         }
     }
