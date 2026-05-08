@@ -71,11 +71,15 @@ public class GameManager : NetworkBehaviour
 
     private Vector3 GetNavMeshPoint()
     {
-        Vector3 _randomPoint = new Vector3(Random.Range(-20f, 20f), 0, Random.Range(-20f, 20f));
+        for (int i = 0; i < 30; i++)
+        {
+            Vector3 randomPoint = new Vector3(
+                Random.Range(-20f, 20f), 0, Random.Range(-20f, 20f));
         
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(_randomPoint, out hit, 5f, NavMesh.AllAreas)) return  hit.position;
-        return GetNavMeshPoint();
+            if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 5f, NavMesh.AllAreas))
+                return hit.position;
+        }
+        return Vector3.zero;
     }
     
     // 플레이어가 총 맞았을 때 호출
