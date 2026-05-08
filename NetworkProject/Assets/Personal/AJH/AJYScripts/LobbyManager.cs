@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.Netcode;
 using Unity.Services.Multiplayer;
+using Unity.Services.Authentication;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -145,17 +146,25 @@ public class LobbyManager : MonoBehaviour
     {
         _playerName = playerName;
         
+        try
+        {
+            if (_session != null)
+            {
+                await _session.LeaveAsync();
+            }
+            else
+            {
+                AuthenticationService.Instance.SignOut();
+                await AuthService.Instance.InitializeAsync();
+            }
+        }
+        catch { }
+
+        _session = null;
+        
         for (int attempt = 0; attempt <= JOIN_MAX_RETRY; attempt++)
         {
             await EnsureCleanNetworkStateAsync();
-            
-            // 이전 세션 잔재 정리
-            if (_session != null)
-            {
-                try { await _session.LeaveAsync(); }
-                catch { }
-                _session = null;
-            }
             
             try
             {
