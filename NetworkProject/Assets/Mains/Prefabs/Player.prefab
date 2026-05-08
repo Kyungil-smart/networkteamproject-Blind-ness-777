@@ -183,7 +183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6462180658056740267}
   - component: {fileID: 208357771574671729}
-  - component: {fileID: 1059287752923277842}
+  - component: {fileID: 924091300727287600}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -233,7 +233,7 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
---- !u!114 &1059287752923277842
+--- !u!114 &924091300727287600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,9 +242,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2447764407441275665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Script: {fileID: 11500000, guid: da52bf8bbc1de48cfb221a6ff30f7972, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.Components.NetworkTransform
+  m_EditorClassIdentifier: Unity.Multiplayer.Center.NetcodeForGameObjectsExample::Unity.Multiplayer.Center.NetcodeForGameObjectsExample.ClientNetworkTransform
   ShowTopMostFoldoutHeaderGroup: 1
   NetworkTransformExpanded: 0
   AutoOwnerAuthorityTickOffset: 1
