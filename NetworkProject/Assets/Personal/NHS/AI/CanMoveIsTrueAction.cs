@@ -12,14 +12,8 @@ public partial class CanMoveIsTrueAction : Action
 
     protected override Status OnStart()
     {
-        if (CanMove.Value == true)
-        {
-            return Status.Success;
-        }
-        else
-        {
-            return Status.Failure;
-        }
+        if (CanMove.Value == true) return Status.Success;
+        else                       return Status.Failure;
     }
 
     protected override Status OnUpdate()

@@ -50,8 +50,6 @@ public class AI_List : NetworkBehaviour
 
     private void Start()
     {
-        Debug.Log("싱글 플레이어 테스트 시작: AI 소환 시도");
-
         if (_AI_Prefab == null || _ragdoll_Prefab == null)
         {
             Debug.LogError("프리팹이 할당되지 않았습니다! 인스펙터를 확인하세요.");
