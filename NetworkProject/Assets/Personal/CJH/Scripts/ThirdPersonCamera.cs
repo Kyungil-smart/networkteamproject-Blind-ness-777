@@ -9,7 +9,8 @@ using Unity.Netcode;
 public class ThirdPersonCamera : MonoBehaviour
 {
     [Header("Target")]
-    [SerializeField] private Transform _target; // TargetPoint
+    [SerializeField] private Transform _target;
+    [SerializeField] private float     _heightOffset = 1.5f;
 
     [Header("Distance")]
     [SerializeField] private float _distance    = 4f;
@@ -64,9 +65,10 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void HandleOcclusion()
     {
+        Vector3 targetPos    = _target.position + Vector3.up * _heightOffset;
         Vector3 desiredCamPos = GetCameraPosition(_distance);
 
-        if (Physics.Linecast(_target.position, desiredCamPos, out RaycastHit hit, _obstacleMask))
+        if (Physics.Linecast(targetPos, desiredCamPos, out RaycastHit hit, _obstacleMask))
         {
             float safeDistance = Mathf.Max(hit.distance - 0.2f, _minDistance);
             _currentDistance = Mathf.Lerp(_currentDistance, safeDistance, _occlusionPullSpeed * Time.deltaTime);
@@ -82,13 +84,14 @@ public class ThirdPersonCamera : MonoBehaviour
         Vector3 camPos = GetCameraPosition(_currentDistance);
 
         transform.position = Vector3.Lerp(transform.position, camPos, _smoothing * Time.deltaTime);
-        transform.rotation = Quaternion.Euler(_pitch, _yaw, 0f);
+        transform.LookAt(_target.position);
     }
 
     private Vector3 GetCameraPosition(float dist)
     {
+        Vector3 targetPos = _target.position + Vector3.up * _heightOffset;
         Quaternion rotation = Quaternion.Euler(_pitch, _yaw, 0f);
-        return _target.position + rotation * new Vector3(0f, 0f, -dist);
+        return targetPos + rotation * new Vector3(0f, 0f, -dist);
     }
 
     // PlayerController에서 호출 — 오너 아닌 플레이어 카메라 비활성화
