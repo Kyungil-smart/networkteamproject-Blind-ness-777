@@ -1,35 +1,78 @@
+using System.Collections;
 using UnityEngine;
-using Unity.Cinemachine;
 
-/// <summary>
-/// 탑뷰 CinemachineCamera 오브젝트에 부착.
-/// 페이즈 전환에 따라 Priority를 조절해 카메라 블렌딩을 제어.
-/// </summary>
 public class TopViewCamera : MonoBehaviour, IPhaseChangeable
 {
-    [SerializeField] private CinemachineCamera _cinemachineCamera;
-    [SerializeField] private int _topViewPriority    = 20;
-    [SerializeField] private int _defaultPriority    = 0;
+    [Header("전환")]
+    [SerializeField] private float _blendDuration = 1.5f;
+
+    private Vector3           _initPosition;
+    private Quaternion        _initRotation;
+    private Camera            _camera;
+    private ThirdPersonCamera _thirdPersonCamera;
 
     private void Awake()
     {
-        if (_cinemachineCamera == null)
-            _cinemachineCamera = GetComponent<CinemachineCamera>();
+        _camera = GetComponent<Camera>();
+        _camera.enabled = false;
 
-        _cinemachineCamera.Priority = _defaultPriority;
+        _initPosition = transform.position;
+        _initRotation = transform.rotation;
     }
+
+    /// <summary>
+    /// PlayerController에서 오너 플레이어 카메라 스폰 시 연결.
+    /// </summary>
+    public void SetThirdPersonCamera(ThirdPersonCamera cam) => _thirdPersonCamera = cam;
 
     public void OnPhaseChanged(GamePhase phase)
     {
         switch (phase)
         {
             case GamePhase.Shooting:
-                _cinemachineCamera.Priority = _topViewPriority;
+                StartCoroutine(BlendToTopView());
                 break;
 
-            default:
-                _cinemachineCamera.Priority = _defaultPriority;
+            case GamePhase.HideAndSeek:
+                _camera.enabled = false;
+                _thirdPersonCamera?.SetActive(true);
+                _thirdPersonCamera?.gameObject.SetActive(true);
                 break;
         }
+    }
+
+    private IEnumerator BlendToTopView()
+    {
+        _camera.enabled = true;
+
+        if (_thirdPersonCamera == null)
+        {
+            transform.position = _initPosition;
+            transform.rotation = _initRotation;
+            yield break;
+        }
+
+        Vector3    startPos = _thirdPersonCamera.transform.position;
+        Quaternion startRot = _thirdPersonCamera.transform.rotation;
+        Vector3    endPos = _initPosition;
+        Quaternion endRot = _initRotation;
+
+        float elapsed = 0f;
+        while (elapsed < _blendDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t  = Mathf.SmoothStep(0f, 1f, elapsed / _blendDuration);
+
+            transform.position = Vector3.Lerp(startPos, endPos, t);
+            transform.rotation = Quaternion.Lerp(startRot, endRot, t);
+
+            yield return null;
+        }
+
+        transform.position = endPos;
+        transform.rotation = endRot;
+
+        _thirdPersonCamera.SetActive(false);
+        _thirdPersonCamera.gameObject.SetActive(false);
     }
 }

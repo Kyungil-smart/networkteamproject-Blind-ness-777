@@ -10,7 +10,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     [SerializeField] private float _rotationSpeed = 10f;
 
     [Header("Camera")]
-    [SerializeField] private GameObject _virtualCamera;
+    [SerializeField] private GameObject _cameraPrefab;
 
     [Header("Raycast")]
     [SerializeField] private Transform _fireOrigin;
@@ -22,6 +22,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     private PlayerRagdoll       _playerRagdoll;
     private PlayerAnimator      _playerAnimator;
     private PlayerGuideLine     _playerGuideLine;
+    private ThirdPersonCamera   _thirdPersonCamera;
 
     private bool _canShoot = false;
     private bool _isDead   = false;
@@ -45,16 +46,21 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     {
         if (!IsOwner)
         {
-            _virtualCamera.SetActive(false);
+            _characterController.enabled = false;
             PlayerInput playerInput = GetComponent<PlayerInput>();
             if (playerInput != null) playerInput.enabled = false;
-            _characterController.enabled = false;
             return;
         }
 
-        // 오너: CharacterController 잠깐 끄고 초기 위치 설정 후 다시 켜기
-        _characterController.enabled = false;
-        _characterController.enabled = true;
+        // 카메라 로컬 생성
+        GameObject camObj = Instantiate(_cameraPrefab);
+        _thirdPersonCamera = camObj.GetComponentInChildren<ThirdPersonCamera>();
+        _thirdPersonCamera.SetTarget(transform);
+
+        // 탑뷰 카메라 연결
+        TopViewCamera topViewCam = FindObjectOfType<TopViewCamera>();
+        if (topViewCam != null)
+            topViewCam.SetThirdPersonCamera(_thirdPersonCamera);
     }
 
     private void Update()
@@ -142,8 +148,13 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     {
         switch (phase)
         {
+            case GamePhase.HideAndSeek:
+                _thirdPersonCamera?.OnPhaseChanged(phase);
+                break;
+            
             case GamePhase.Shooting:
                 _canShoot = true;
+                _thirdPersonCamera?.OnPhaseChanged(phase);
                 break;
 
             case GamePhase.GameOver:

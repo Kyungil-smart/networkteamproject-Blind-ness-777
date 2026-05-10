@@ -1,16 +1,10 @@
 using UnityEngine;
-using Unity.Netcode;
 
-/// <summary>
-/// FreeLook Camera 오브젝트에 부착.
-/// Cinemachine 제거 후 이 스크립트 단독으로 카메라 제어.
-/// PlayerController에서 IsOwner 아닐 시 이 컴포넌트 비활성화할 것.
-/// </summary>
-public class ThirdPersonCamera : MonoBehaviour
+public class ThirdPersonCamera : MonoBehaviour, IPhaseChangeable
 {
     [Header("Target")]
     [SerializeField] private Transform _target;
-    [SerializeField] private float     _heightOffset = 1.5f;
+    [SerializeField] private float _heightOffset = 1.5f;
 
     [Header("Distance")]
     [SerializeField] private float _distance    = 4f;
@@ -19,7 +13,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
     [Header("Vertical Angle")]
     [SerializeField] private float _defaultPitch = 20f;
-    [SerializeField] private float _minPitch     = 5f;  // 발밑 안 보이게
+    [SerializeField] private float _minPitch     = 5f;
     [SerializeField] private float _maxPitch     = 70f;
 
     [Header("Sensitivity")]
@@ -34,6 +28,7 @@ public class ThirdPersonCamera : MonoBehaviour
     private float _yaw;
     private float _pitch;
     private float _currentDistance;
+    private bool  _isActive = true;
 
     private void Start()
     {
@@ -47,13 +42,13 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (_target == null) return;
-        
+        if (_target == null || !_isActive) return;
+
         HandleRotation();
         HandleOcclusion();
         ApplyTransform();
     }
-    
+
     private void HandleRotation()
     {
         float mouseX = Input.GetAxis("Mouse X") * _sensitivityX;
@@ -84,20 +79,35 @@ public class ThirdPersonCamera : MonoBehaviour
         Vector3 camPos = GetCameraPosition(_currentDistance);
 
         transform.position = Vector3.Lerp(transform.position, camPos, _smoothing * Time.deltaTime);
-        transform.LookAt(_target.position);
+        transform.LookAt(_target.position + Vector3.up * _heightOffset);
     }
 
     private Vector3 GetCameraPosition(float dist)
     {
-        Vector3 targetPos = _target.position + Vector3.up * _heightOffset;
-        Quaternion rotation = Quaternion.Euler(_pitch, _yaw, 0f);
+        Vector3    targetPos = _target.position + Vector3.up * _heightOffset;
+        Quaternion rotation  = Quaternion.Euler(_pitch, _yaw, 0f);
         return targetPos + rotation * new Vector3(0f, 0f, -dist);
     }
 
-    // PlayerController에서 호출 — 오너 아닌 플레이어 카메라 비활성화
-    public void SetActive(bool active)
+    public void SetTarget(Transform target) => _target = target;
+
+    public void SetActive(bool active) => _isActive = active;
+
+    public void OnPhaseChanged(GamePhase phase)
     {
-        enabled = active;
-        GetComponent<Camera>()?.gameObject.SetActive(active);
+        switch (phase)
+        {
+            case GamePhase.HideAndSeek:
+                _isActive            = true;
+                gameObject.SetActive(true);
+                Cursor.lockState     = CursorLockMode.Locked;
+                Cursor.visible       = false;
+                break;
+
+            case GamePhase.Shooting:
+                _isActive = false;
+                // 탑뷰 전환 완료 후 TopViewCamera에서 비활성화 호출
+                break;
+        }
     }
 }
