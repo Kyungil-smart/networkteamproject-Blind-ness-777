@@ -924,11 +924,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: cbfc7a6c-a8ce-4140-bc8f-4a770b361792
+  cloudProjectId: 6163516a-ba70-4791-9476-ecc9de642834
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: NetworkProject
-  organizationId: urumuru
+  organizationId: unity4awol
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
