@@ -15,10 +15,8 @@ public class GameManager : NetworkBehaviour
     public MapLoader _mapSpawn;
     [SerializeField] public float _movingTime = 10f;                            // 숨는 시간 변수
     
-    public GameObject _aiPrefab;
-    public GameObject _playerPrefab;
     private AISetActive[] _aiList;
-    
+
     private void Awake()
     {
         if (Instance == null)
@@ -41,45 +39,11 @@ public class GameManager : NetworkBehaviour
         _mapSpawn = FindObjectOfType<MapLoader>();
         if (_mapSpawn != null) _mapSpawn.LoadMap();
         // ai소환
-        SpawnAI();
-        SpawnPlayer();
+        FindObjectOfType<SpawnManager>().SpawnAll();
         // ai저장
         _aiList = FindObjectsOfType<AISetActive>();
         Debug.Log(_aiList.Length);
         StartCoroutine(GamePlay());
-    }
-
-    public void SpawnPlayer()
-    {
-        foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
-        {
-            Vector3 _randomPoint = GetNavMeshPoint();
-            GameObject _player = Instantiate(_playerPrefab, _randomPoint, Quaternion.identity);
-            _player.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId);
-        }
-    }
-    
-    public void SpawnAI()
-    {
-        for (int i = 0; i < 30; i++)
-        {
-            Vector3 _randomPoint = GetNavMeshPoint();
-            GameObject _ai = Instantiate(_aiPrefab, _randomPoint, Quaternion.identity);
-            _ai.GetComponent<NetworkObject>().Spawn();
-        } 
-    }
-
-    private Vector3 GetNavMeshPoint()
-    {
-        for (int i = 0; i < 30; i++)
-        {
-            Vector3 randomPoint = new Vector3(
-                Random.Range(-20f, 20f), 0, Random.Range(-20f, 20f));
-        
-            if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 5f, NavMesh.AllAreas))
-                return hit.position;
-        }
-        return Vector3.zero;
     }
     
     // 플레이어가 총 맞았을 때 호출
