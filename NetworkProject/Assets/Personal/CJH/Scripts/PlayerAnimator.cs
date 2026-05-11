@@ -76,7 +76,11 @@ public class PlayerAnimator : NetworkBehaviour, IPhaseChangeable
         yield return new WaitForSeconds(drawGunLength);
 
         if (_animator != null) _animator.SetTrigger(_hashShoot);
-        _playerController?.ShootServerRpc(_playerController.GetComponent<PlayerAim>().AimDirection, _playerController.FireOrigin.position);
+        
+        if (_playerController != null && _playerController.IsOwner)
+            _playerController.ShootServerRpc(
+                _playerController.GetComponent<PlayerAim>().AimDirection,
+                _playerController.FireOrigin.position);
 
         // Shoot 애니메이션 길이만큼 대기 후 총 비활성화 + Idle 복귀
         float shootLength = GetClipLength("Shoot");
