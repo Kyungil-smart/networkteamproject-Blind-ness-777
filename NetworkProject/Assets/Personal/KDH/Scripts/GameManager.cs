@@ -55,12 +55,12 @@ public class GameManager : NetworkBehaviour
         {
             case GamePhase.Shooting:
                 if (_aiList != null)
-                    foreach (var ai in _aiList) ai.Hide();
+                    foreach (var ai in _aiList) ai.HideClientRPC();
                 break;
 
             case GamePhase.HideAndSeek:
                 if (_aiList != null)
-                    foreach (var ai in _aiList) ai.Show();
+                    foreach (var ai in _aiList) ai.ShowClientRPC();
                 break;
         }
 
