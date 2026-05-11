@@ -1,10 +1,12 @@
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SpawnManager : MonoBehaviour
 {
     public GameObject _aiPrefab;
     public GameObject _playerPrefab;
+
     
     public void SpawnAll()
     {
@@ -39,7 +41,7 @@ public class SpawnManager : MonoBehaviour
             Vector3 randomPoint = new Vector3(
                 Random.Range(-20f, 20f), 0, Random.Range(-20f, 20f));
         
-            if (UnityEngine.AI.NavMesh.SamplePosition(randomPoint, out UnityEngine.AI.NavMeshHit hit, 5f, UnityEngine.AI.NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 5f, NavMesh.AllAreas))
                 return hit.position;
         }
         return Vector3.zero;

@@ -75,7 +75,7 @@ public class GameManager : NetworkBehaviour
         AlivePlayer.Value = NetworkManager.Singleton.ConnectedClientsIds.Count;
         _mapSpawn = FindObjectOfType<MapLoader>();
         if (_mapSpawn != null) _mapSpawn.LoadMap();
-        // ai소환
+        // ai및 플레이어 소환
         FindObjectOfType<SpawnManager>().SpawnAll();
         // ai저장
         _aiList = FindObjectsOfType<AISetActive>();
@@ -98,9 +98,10 @@ public class GameManager : NetworkBehaviour
         while (AlivePlayer.Value > 1)
         {
             yield return new WaitUntil(() => CurrentPhase.Value == GamePhase.Shooting);
+            // 슈팅 페이즈
             yield return new WaitUntil(() => CurrentPhase.Value != GamePhase.Shooting);
         }
-        foreach (var ai in _aiList) ai.AIDestroy();
+        foreach (var ai in _aiList) ai.AIDestroyClientRPC();
         _aiList = null;
         CurrentPhase.Value = GamePhase.GameOver;
     }
