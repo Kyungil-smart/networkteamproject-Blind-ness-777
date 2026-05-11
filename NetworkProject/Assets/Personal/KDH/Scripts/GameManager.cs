@@ -78,12 +78,12 @@ public class GameManager : NetworkBehaviour
         if (CurrentPhase.Value != GamePhase.Shooting) yield break;
         
         // ai비활성화
-        foreach (var ai in _aiList) ai.Hide();
+        foreach (var ai in _aiList) ai.HideClientRPC();
         yield return null;
         // 탑뷰 전환, 애니메이션 재생
         CurrentPhase.Value = GamePhase.HideAndSeek;
         // ai활성화
-        foreach (var ai in _aiList) ai.Show();
+        foreach (var ai in _aiList) ai.ShowClientRPC();
     }
 
     // 게임 플레이 루틴
@@ -96,7 +96,7 @@ public class GameManager : NetworkBehaviour
             // 슈팅 페이즈
             yield return new WaitUntil(() => CurrentPhase.Value != GamePhase.Shooting);
         }
-        foreach (var ai in _aiList) ai.AIDestroy();
+        foreach (var ai in _aiList) ai.AIDestroyClientRPC();
         _aiList = null;
         CurrentPhase.Value = GamePhase.GameOver;
     }
