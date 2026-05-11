@@ -44,6 +44,26 @@ public class GameManager : NetworkBehaviour
 
     private void OnPhaseValueChanged(GamePhase previous, GamePhase current)
     {
+        if (!IsServer) 
+        {
+            foreach (var obj in FindObjectsOfType<MonoBehaviour>().OfType<IPhaseChangeable>())
+                obj.OnPhaseChanged(current);
+            return;
+        }
+
+        switch (current)
+        {
+            case GamePhase.Shooting:
+                if (_aiList != null)
+                    foreach (var ai in _aiList) ai.Hide();
+                break;
+
+            case GamePhase.HideAndSeek:
+                if (_aiList != null)
+                    foreach (var ai in _aiList) ai.Show();
+                break;
+        }
+
         foreach (var obj in FindObjectsOfType<MonoBehaviour>().OfType<IPhaseChangeable>())
             obj.OnPhaseChanged(current);
     }
@@ -69,21 +89,6 @@ public class GameManager : NetworkBehaviour
         if (!IsServer) return;
         
         AlivePlayer.Value--;
-    }
-
-    // 슈팅 페이즈
-    public IEnumerator ShootingPhase()
-    {
-        if (!IsServer) yield break;
-        if (CurrentPhase.Value != GamePhase.Shooting) yield break;
-        
-        // ai비활성화
-        foreach (var ai in _aiList) ai.HideClientRPC();
-        yield return null;
-        // 탑뷰 전환, 애니메이션 재생
-        CurrentPhase.Value = GamePhase.HideAndSeek;
-        // ai활성화
-        foreach (var ai in _aiList) ai.ShowClientRPC();
     }
 
     // 게임 플레이 루틴
