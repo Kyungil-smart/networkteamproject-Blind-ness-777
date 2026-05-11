@@ -29,6 +29,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
 
     private Vector2 _moveInput;
     private bool    _isSprinting;
+    private Camera  _mainCamera;
 
     private void Awake()
     {
@@ -52,12 +53,11 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
             return;
         }
 
-        // 카메라 로컬 생성
         GameObject camObj = Instantiate(_cameraPrefab);
         _thirdPersonCamera = camObj.GetComponentInChildren<ThirdPersonCamera>();
         _thirdPersonCamera.SetTarget(transform);
+        _mainCamera = camObj.GetComponentInChildren<Camera>();
 
-        // 탑뷰 카메라 연결
         TopViewCamera topViewCam = FindObjectOfType<TopViewCamera>();
         if (topViewCam != null)
             topViewCam.SetThirdPersonCamera(_thirdPersonCamera);
@@ -75,8 +75,10 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
 
     private void HandleMovement()
     {
-        Vector3 camForward = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up).normalized;
-        Vector3 camRight   = Vector3.ProjectOnPlane(Camera.main.transform.right,   Vector3.up).normalized;
+        if (_mainCamera == null) return;
+        
+        Vector3 camForward = Vector3.ProjectOnPlane(_mainCamera.transform.forward, Vector3.up).normalized;
+        Vector3 camRight   = Vector3.ProjectOnPlane(_mainCamera.transform.right,   Vector3.up).normalized;
 
         Vector3 moveDir = (camForward * _moveInput.y + camRight * _moveInput.x).normalized;
 
