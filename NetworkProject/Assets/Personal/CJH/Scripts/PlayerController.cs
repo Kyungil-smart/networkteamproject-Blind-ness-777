@@ -156,6 +156,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
             
             case GamePhase.Shooting:
                 _canShoot = true;
+                _moveInput = Vector2.zero;
                 _thirdPersonCamera?.OnPhaseChanged(phase);
                 break;
 
