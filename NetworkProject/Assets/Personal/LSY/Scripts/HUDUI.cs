@@ -35,6 +35,8 @@ public class HUDUI : MonoBehaviour
         {
             bool isOpen = _escPopup.activeSelf;
             _escPopup.SetActive(!isOpen);
+            Cursor.lockState = isOpen ? CursorLockMode.Locked : CursorLockMode.None;
+            Cursor.visible   = !isOpen ? true : false;
         }
 
         if (GameManager.Instance.CurrentPhase.Value != GamePhase.HideAndSeek) return;

@@ -29,6 +29,8 @@ public class EscUI : MonoBehaviour
     private void OnOptionClicked()
     {
         _optionPopup.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible   = false;
     }
 
     private async void OnQuitClicked()

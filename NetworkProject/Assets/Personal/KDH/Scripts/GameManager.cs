@@ -6,6 +6,7 @@ using Unity.Netcode;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
+using System.Linq;
 
 public class GameManager : NetworkBehaviour
 {
@@ -29,6 +30,22 @@ public class GameManager : NetworkBehaviour
             Destroy(gameObject);
             return;
         }
+    }
+    
+    public override void OnNetworkSpawn()
+    {
+        CurrentPhase.OnValueChanged += OnPhaseValueChanged;
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        CurrentPhase.OnValueChanged -= OnPhaseValueChanged;
+    }
+
+    private void OnPhaseValueChanged(GamePhase previous, GamePhase current)
+    {
+        foreach (var obj in FindObjectsOfType<MonoBehaviour>().OfType<IPhaseChangeable>())
+            obj.OnPhaseChanged(current);
     }
     
     // 게임 시작 함수
