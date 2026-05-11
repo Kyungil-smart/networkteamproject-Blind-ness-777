@@ -130,6 +130,7 @@ public class SceneLoader : NetworkBehaviour
     private void Result(GamePhase prev, GamePhase next)
     {
         if (!IsServer) return;
+        // 결과씬말고 UI로 할거면 여기에 팝업 띄우기
         if (next == GamePhase.GameOver) LoadResultScene();
     }
 }
