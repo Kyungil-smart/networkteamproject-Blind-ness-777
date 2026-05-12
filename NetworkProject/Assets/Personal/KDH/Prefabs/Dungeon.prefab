@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 2119338476
+  GlobalObjectIdHash: 1425065969
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -495,13 +495,64 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7227861862466613623}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7283233807509588333}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
 --- !u!4 &8247764650045046709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
   m_PrefabInstance: {fileID: 292702831332614679}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8736458727210951951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 292702831332614679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7227861862466613623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8736458727210951951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &7283233807509588333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8736458727210951951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &305342137241097402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -561,6 +612,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 639854658236623319}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8388840432506644471}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6738009362880998409}
   m_SourcePrefab: {fileID: 100100000, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
 --- !u!4 &267527066785395537 stripped
 Transform:
@@ -593,6 +650,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6392003, y: 0.085, z: 0.6375}
   m_Center: {x: 0.00085018575, y: 0.0425, z: 0}
+--- !u!114 &8388840432506644471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647853003247446507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &6738009362880998409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647853003247446507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &316424765637573373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -652,6 +749,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 606637936863455708}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4663866175445398580}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 230359372141219291}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!4 &283326385299905814 stripped
 Transform:
@@ -684,6 +787,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &4663866175445398580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622978289995843500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &230359372141219291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622978289995843500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &500676610188932757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -743,6 +886,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 50771996793506429}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3938861542079902825}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6451334839537183547}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!4 &105970673374269822 stripped
 Transform:
@@ -775,6 +924,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &3938861542079902825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735119629732891588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &6451334839537183547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735119629732891588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &540159829387101597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -834,6 +1023,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 782403888060911491}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 708289942029197261}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4169089098120884836}
   m_SourcePrefab: {fileID: 100100000, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
 --- !u!4 &69157072669811318 stripped
 Transform:
@@ -866,6 +1061,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6392003, y: 0.085, z: 0.6375}
   m_Center: {x: 0.00085018575, y: 0.0425, z: 0}
+--- !u!114 &708289942029197261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846220781124909260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &4169089098120884836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846220781124909260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &644994348887309393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -925,6 +1160,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2995935818786827101}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7084949124793670034}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6093901484685540066}
   m_SourcePrefab: {fileID: 100100000, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
 --- !u!1 &302325155353510144 stripped
 GameObject:
@@ -952,6 +1193,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6392003, y: 0.085, z: 0.6375}
   m_Center: {x: 0.00085018575, y: 0.0425, z: 0}
+--- !u!114 &7084949124793670034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302325155353510144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &6093901484685540066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302325155353510144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &1115137389236493242 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
@@ -1016,6 +1297,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2237939485195138796}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5792597915083746115}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2304693449564895321}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!1 &395902509940488072 stripped
 GameObject:
@@ -1043,6 +1330,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &5792597915083746115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395902509940488072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &2304693449564895321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395902509940488072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &1023820769169272114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
@@ -1103,8 +1430,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5293326317647449833}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2467623426423049452}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+--- !u!1 &8588614166621181922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 720895162385305850}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5293326317647449833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8588614166621181922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &2467623426423049452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8588614166621181922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &8969819948623301976 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
@@ -1169,6 +1547,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2661447930451832791}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7691022991996232142}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5015476944200626934}
   m_SourcePrefab: {fileID: 100100000, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
 --- !u!1 &434054203587501206 stripped
 GameObject:
@@ -1196,6 +1580,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6392003, y: 0.085, z: 0.6375}
   m_Center: {x: 0.00085018575, y: 0.0425, z: 0}
+--- !u!114 &7691022991996232142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434054203587501206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &5015476944200626934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434054203587501206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &958634857937323564 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
@@ -1260,6 +1684,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2668142889821606484}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 806359184171331746}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2757419579804149205}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!1 &220908463798977586 stripped
 GameObject:
@@ -1287,6 +1717,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &806359184171331746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220908463798977586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &2757419579804149205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220908463798977586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &602079095302250120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
@@ -1351,6 +1821,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6900702828632365318}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 672460340466175906}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3073177998949353351}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!4 &1625484901095567130 stripped
 Transform:
@@ -1383,6 +1859,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &672460340466175906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145174997302228384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &3073177998949353351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145174997302228384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &1248188969809085082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1442,6 +1958,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1129956303394634668}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3694816212340489553}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5132560804310442884}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!4 &1646290222959650161 stripped
 Transform:
@@ -1474,6 +1996,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &3694816212340489553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131078457135022027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &5132560804310442884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131078457135022027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &1523213554461893186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1533,6 +2095,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5674845070069462823}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4248275642410109424}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2421829659612155407}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!4 &1344662954481517993 stripped
 Transform:
@@ -1565,6 +2133,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &4248275642410109424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865303307381104403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &2421829659612155407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865303307381104403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &1609970276683641562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1620,8 +2228,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2495474272218809430, guid: ebd15fccde90a574eadbd7b9b4ba1773, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1324759599193103337}
+    - targetCorrespondingSourceObject: {fileID: 2495474272218809430, guid: ebd15fccde90a574eadbd7b9b4ba1773, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 541929532010156490}
   m_SourcePrefab: {fileID: 100100000, guid: ebd15fccde90a574eadbd7b9b4ba1773, type: 3}
+--- !u!1 &3816369464330483340 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2495474272218809430, guid: ebd15fccde90a574eadbd7b9b4ba1773, type: 3}
+  m_PrefabInstance: {fileID: 1609970276683641562}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1324759599193103337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3816369464330483340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &541929532010156490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3816369464330483340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &4593011235806555190 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3020336509770981100, guid: ebd15fccde90a574eadbd7b9b4ba1773, type: 3}
@@ -1686,6 +2345,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6455474028992073938}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5461138115540830080}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7260144164963508360}
   m_SourcePrefab: {fileID: 100100000, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
 --- !u!4 &1154808046241859632 stripped
 Transform:
@@ -1718,6 +2383,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6392003, y: 0.085, z: 0.6375}
   m_Center: {x: 0.00085018575, y: 0.0425, z: 0}
+--- !u!114 &5461138115540830080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967337876982207114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &7260144164963508360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967337876982207114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &1711398320559668077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1777,6 +2482,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1821769265005479244}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2450397899206133749}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6096468142999754492}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!4 &1173929641226132614 stripped
 Transform:
@@ -1809,6 +2520,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &2450397899206133749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945962293764654652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &6096468142999754492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945962293764654652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &1770607618871954190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1872,13 +2623,41 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4625402477005816332, guid: f0da3008acb3e1f4d882f8085952c1f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7409632694201283515}
   m_SourcePrefab: {fileID: 100100000, guid: f0da3008acb3e1f4d882f8085952c1f0, type: 3}
 --- !u!4 &6046396517502292920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5439059342057052342, guid: f0da3008acb3e1f4d882f8085952c1f0, type: 3}
   m_PrefabInstance: {fileID: 1770607618871954190}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6386892846637664514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4625402477005816332, guid: f0da3008acb3e1f4d882f8085952c1f0, type: 3}
+  m_PrefabInstance: {fileID: 1770607618871954190}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7409632694201283515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6386892846637664514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &1864822990451725472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1938,6 +2717,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2538395758939197486}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5073693653832221018}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1220103142697694187}
   m_SourcePrefab: {fileID: 100100000, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
 --- !u!1 &1522295223883295217 stripped
 GameObject:
@@ -1965,6 +2750,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6392003, y: 0.085, z: 0.6375}
   m_Center: {x: 0.00085018575, y: 0.0425, z: 0}
+--- !u!114 &5073693653832221018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522295223883295217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &1220103142697694187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522295223883295217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &2192012616210461515 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
@@ -2029,6 +2854,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8683731648918466501}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5648848231657301838}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3133808194741772382}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!1 &1589196508705895269 stripped
 GameObject:
@@ -2056,6 +2887,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &5648848231657301838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589196508705895269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &3133808194741772382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589196508705895269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &2109414580873914847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
@@ -2120,6 +2991,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1566561301170001900}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5257145500739064848}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4781233877669156673}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!1 &1223187119343179956 stripped
 GameObject:
@@ -2147,6 +3024,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &5257145500739064848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223187119343179956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &4781233877669156673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223187119343179956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &1995783585612218894 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
@@ -2211,6 +3128,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 646414365132396308}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3908357981867943945}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8365646008819841282}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!1 &1173928639864223503 stripped
 GameObject:
@@ -2238,6 +3161,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &3908357981867943945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173928639864223503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &8365646008819841282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173928639864223503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &1945961086447775157 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
@@ -2302,6 +3265,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3304079911284873173}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1746437826445947792}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2091563225741324747}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!1 &1358068903883201906 stripped
 GameObject:
@@ -2329,6 +3298,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &1746437826445947792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358068903883201906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &2091563225741324747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358068903883201906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &1842821988062988232 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
@@ -2393,6 +3402,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2776411543226373211}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5226110419213690979}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5500625275044755533}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!4 &2840963927179899716 stripped
 Transform:
@@ -2425,6 +3440,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &5226110419213690979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3181495235019663870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &5500625275044755533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3181495235019663870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &2449858952164747370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2480,13 +3535,64 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8665546870558945744}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3456114521873982871}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
 --- !u!4 &6306645108946548168 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
   m_PrefabInstance: {fileID: 2449858952164747370}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6687393532762058610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 2449858952164747370}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8665546870558945744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6687393532762058610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &3456114521873982871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6687393532762058610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &2535743064087653694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2550,8 +3656,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4625402477005816332, guid: f0da3008acb3e1f4d882f8085952c1f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2251589226296500511}
   m_SourcePrefab: {fileID: 100100000, guid: f0da3008acb3e1f4d882f8085952c1f0, type: 3}
+--- !u!1 &7133842453320052530 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4625402477005816332, guid: f0da3008acb3e1f4d882f8085952c1f0, type: 3}
+  m_PrefabInstance: {fileID: 2535743064087653694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2251589226296500511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7133842453320052530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &7515293121518663048 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5439059342057052342, guid: f0da3008acb3e1f4d882f8085952c1f0, type: 3}
@@ -2616,6 +3750,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5646056195558804580}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1024319653692540752}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1384791126482959133}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!4 &2499577329957188313 stripped
 Transform:
@@ -2648,6 +3788,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &1024319653692540752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3025179774252738659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &1384791126482959133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3025179774252738659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &2942020751055378677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2703,8 +3883,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6194335673178876179}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6280262770234337442}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+--- !u!1 &6189609488633962477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 2942020751055378677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6194335673178876179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6189609488633962477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &6280262770234337442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6189609488633962477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &6822453869278807383 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
@@ -2769,6 +4000,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5274136715558482649}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 956317012262126042}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1747201044022216191}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!1 &2745343130626358458 stripped
 GameObject:
@@ -2796,6 +4033,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &956317012262126042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745343130626358458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &1747201044022216191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745343130626358458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &3265878996020798976 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
@@ -2856,8 +4133,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2838031240889268442}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7178454887017445674}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+--- !u!1 &5839601086633004649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 3187334123550083441}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2838031240889268442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5839601086633004649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &7178454887017445674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5839601086633004649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &6503688876342547667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
@@ -2922,6 +4250,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1109528430793306755}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4948881668542396765}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5034158210370479949}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!1 &2329889700645719275 stripped
 GameObject:
@@ -2949,6 +4283,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &4948881668542396765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329889700645719275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &5034158210370479949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329889700645719275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &3107130774930069073 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
@@ -3013,6 +4387,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8771774066958921543}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1102128394359439609}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2842987082454073712}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!4 &4029612937857385212 stripped
 Transform:
@@ -3045,6 +4425,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &1102128394359439609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4370707366643931206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &2842987082454073712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4370707366643931206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &3641745798553084783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3104,6 +4524,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6656037370503015360}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7243702582641661448}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1018057729849719846}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!4 &3819243795606291588 stripped
 Transform:
@@ -3136,6 +4562,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &7243702582641661448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4488819251876601406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &1018057729849719846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4488819251876601406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &3684975509667495601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3195,6 +4661,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6072822388991348630}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 648608697392679317}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3609696154844534556}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!4 &3794582641156807002 stripped
 Transform:
@@ -3227,6 +4699,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &648608697392679317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603453296931472352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &3609696154844534556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603453296931472352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &3750128689673971741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3286,6 +4798,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2523375905532946679}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7531030570022366476}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6902072011079888291}
   m_SourcePrefab: {fileID: 100100000, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
 --- !u!4 &3711418343962038262 stripped
 Transform:
@@ -3318,6 +4836,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6392003, y: 0.085, z: 0.6375}
   m_Center: {x: 0.00085018575, y: 0.0425, z: 0}
+--- !u!114 &7531030570022366476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4092166763532883276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &6902072011079888291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4092166763532883276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &3841249270151912298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3377,6 +4935,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6441606854280073484}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8466111579425851517}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3779614191573461447}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!4 &3658157243102100609 stripped
 Transform:
@@ -3409,6 +4973,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &8466111579425851517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4147729554580907579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &3779614191573461447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4147729554580907579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &4008719795055967000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3468,6 +5072,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2716085882267964022}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6895581223448707960}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2589413075510229242}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!4 &3470986785517886707 stripped
 Transform:
@@ -3500,6 +5110,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &6895581223448707960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278627161514837577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &2589413075510229242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278627161514837577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &4204667237791028049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3559,6 +5209,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9045327661468677678}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2270190844742109528}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7044314603255139787}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!1 &3934056189260525056 stripped
 GameObject:
@@ -3586,6 +5242,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &2270190844742109528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3934056189260525056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &7044314603255139787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3934056189260525056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &4454979146652366010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
@@ -3650,6 +5346,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7754445705779471445}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3953740301217395031}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1877790955712641379}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!1 &3920569284211182943 stripped
 GameObject:
@@ -3677,6 +5379,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &3953740301217395031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3920569284211182943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &1877790955712641379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3920569284211182943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &4405497151732799461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
@@ -3741,6 +5483,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2513856503501563592}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4917239755856858989}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6351512209298985604}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!1 &4032620086586486266 stripped
 GameObject:
@@ -3768,6 +5516,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &4917239755856858989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4032620086586486266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &6351512209298985604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4032620086586486266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &4376775594397398848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
@@ -3828,8 +5616,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3919532628196522496}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5038616358314208127}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+--- !u!1 &4724569961692377001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 4368713847326271665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3919532628196522496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4724569961692377001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &5038616358314208127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4724569961692377001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &5393865352022586643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
@@ -3894,6 +5733,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3169351228791421260}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3765489081741100903}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 797205558737114792}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!1 &3614016725070910534 stripped
 GameObject:
@@ -3921,6 +5766,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &3765489081741100903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3614016725070910534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &797205558737114792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3614016725070910534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &4137754437057531644 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
@@ -3985,6 +5870,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3045228122303770080}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1745387287494780665}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3390566659915391869}
   m_SourcePrefab: {fileID: 100100000, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
 --- !u!1 &3736778984296899587 stripped
 GameObject:
@@ -4012,6 +5903,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6392003, y: 0.085, z: 0.6375}
   m_Center: {x: 0.00085018575, y: 0.0425, z: 0}
+--- !u!114 &1745387287494780665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3736778984296899587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &3390566659915391869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3736778984296899587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &4075867736366464697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
@@ -4076,6 +6007,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6055737823626649926}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 948783254942139056}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2950330194978682152}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!4 &5082538191644647930 stripped
 Transform:
@@ -4108,6 +6045,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &948783254942139056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603354393595722560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &2950330194978682152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603354393595722560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &4716119394834020420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4163,13 +6140,64 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2696463876439016260}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4991389743522108717}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
 --- !u!4 &3965723446293882342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
   m_PrefabInstance: {fileID: 4716119394834020420}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4342249431714283356 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 4716119394834020420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2696463876439016260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4342249431714283356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &4991389743522108717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4342249431714283356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &4986729248642519353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4225,13 +6253,64 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7232833266898098303}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3855491734619102436}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
 --- !u!4 &3697026725100833947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
   m_PrefabInstance: {fileID: 4986729248642519353}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4036820196197045793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 4986729248642519353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7232833266898098303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4036820196197045793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &3855491734619102436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4036820196197045793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &5088619515873465514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4287,13 +6366,64 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2009818521945024188}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3249103610012437896}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
 --- !u!4 &3523074474375350536 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
   m_PrefabInstance: {fileID: 5088619515873465514}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4300842249036747698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 5088619515873465514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2009818521945024188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4300842249036747698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &3249103610012437896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4300842249036747698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &5164513412408345917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4353,6 +6483,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5546623158230259733}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7738919662798870531}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2207996680611540746}
   m_SourcePrefab: {fileID: 100100000, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
 --- !u!4 &4622576580284801750 stripped
 Transform:
@@ -4385,6 +6521,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6392003, y: 0.085, z: 0.6375}
   m_Center: {x: 0.00085018575, y: 0.0425, z: 0}
+--- !u!114 &7738919662798870531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5435106170955774060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &2207996680611540746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5435106170955774060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &5225350812888376827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4444,6 +6620,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3394609757327896249}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2563398248687874115}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4311444192359145922}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!1 &4919414244477212842 stripped
 GameObject:
@@ -4471,6 +6653,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &2563398248687874115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4919414244477212842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &4311444192359145922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4919414244477212842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &5696655077725422096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
@@ -4535,6 +6757,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1549770426881978313}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1657630968186374793}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2270879450806482760}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!1 &4991168237568114553 stripped
 GameObject:
@@ -4562,6 +6790,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &1657630968186374793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4991168237568114553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &2270879450806482760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4991168237568114553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &5624962664909628867 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
@@ -4626,6 +6894,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3077819192039939683}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2860428121251161477}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3696396105435920954}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!1 &4982321375977354418 stripped
 GameObject:
@@ -4653,6 +6927,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &2860428121251161477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4982321375977354418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &3696396105435920954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4982321375977354418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &5651756158915407368 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
@@ -4717,6 +7031,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5965092518454329444}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1181841445940558324}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2106017178463260281}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!1 &4712348996926489693 stripped
 GameObject:
@@ -4744,6 +7064,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &1181841445940558324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4712348996926489693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &2106017178463260281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4712348996926489693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &5345333908832034535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
@@ -4808,6 +7168,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 933781574499270089}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1641905115278581792}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2520930993549580103}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!4 &6306065170049094395 stripped
 Transform:
@@ -4840,6 +7206,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &1641905115278581792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685721675202103361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &2520930993549580103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685721675202103361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &6033147363043772637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4899,6 +7305,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4866269267559086752}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7807720176923920946}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8187673024105049792}
   m_SourcePrefab: {fileID: 100100000, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
 --- !u!4 &6066545453564063542 stripped
 Transform:
@@ -4931,6 +7343,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6392003, y: 0.085, z: 0.6375}
   m_Center: {x: 0.00085018575, y: 0.0425, z: 0}
+--- !u!114 &7807720176923920946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6880201012406269324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &8187673024105049792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6880201012406269324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &6044811186742052847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4986,13 +7438,64 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9007251136768406344}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4854510380470060475}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
 --- !u!4 &2709313559089699405 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
   m_PrefabInstance: {fileID: 6044811186742052847}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3373964676441342199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 6044811186742052847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9007251136768406344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3373964676441342199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &4854510380470060475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3373964676441342199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &6053583375055911861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5052,6 +7555,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8462415425107089684}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6841507296398440611}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6378800401074369361}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!4 &6019095523155745886 stripped
 Transform:
@@ -5084,6 +7593,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &6841507296398440611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6396184389204035300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &6378800401074369361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6396184389204035300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &6068095091581108735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5147,8 +7696,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4625402477005816332, guid: f0da3008acb3e1f4d882f8085952c1f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 622977774547643886}
   m_SourcePrefab: {fileID: 100100000, guid: f0da3008acb3e1f4d882f8085952c1f0, type: 3}
+--- !u!1 &1442998364741239795 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4625402477005816332, guid: f0da3008acb3e1f4d882f8085952c1f0, type: 3}
+  m_PrefabInstance: {fileID: 6068095091581108735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &622977774547643886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442998364741239795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &2255564483909867849 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5439059342057052342, guid: f0da3008acb3e1f4d882f8085952c1f0, type: 3}
@@ -5209,8 +7786,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 87232164755016693}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 699342324285210895}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+--- !u!1 &2637187315923417612 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 6460671656025537812}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &87232164755016693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637187315923417612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &699342324285210895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637187315923417612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &3446092954391257270 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
@@ -5275,6 +7903,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8545884178606139748}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8418499578525860194}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5703860577431409102}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!1 &6127598173209462088 stripped
 GameObject:
@@ -5302,6 +7936,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &8418499578525860194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6127598173209462088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &5703860577431409102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6127598173209462088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &6792073368516157426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
@@ -5362,8 +8036,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3438019716716739078}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2188607939693398724}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+--- !u!1 &2846988657507256642 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 6535647034326158938}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3438019716716739078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2846988657507256642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &2188607939693398724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2846988657507256642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &3227209241927947256 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
@@ -5424,8 +8149,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7507443752075705753}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7276052403880618187}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+--- !u!1 &2870956181966803810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 6550043858745824378}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7507443752075705753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2870956181966803810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &7276052403880618187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2870956181966803810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &3214584710158584280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
@@ -5486,8 +8262,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9149615167928696014, guid: 64a206da79bd0314fa2ff2443ba3f1ac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3747995992341707292}
+    - targetCorrespondingSourceObject: {fileID: 9149615167928696014, guid: 64a206da79bd0314fa2ff2443ba3f1ac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6878283831651694975}
   m_SourcePrefab: {fileID: 100100000, guid: 64a206da79bd0314fa2ff2443ba3f1ac, type: 3}
+--- !u!1 &2728124078560335649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9149615167928696014, guid: 64a206da79bd0314fa2ff2443ba3f1ac, type: 3}
+  m_PrefabInstance: {fileID: 6567876502802476015}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3747995992341707292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2728124078560335649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &6878283831651694975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2728124078560335649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &3357414597361864091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8480883002092168820, guid: 64a206da79bd0314fa2ff2443ba3f1ac, type: 3}
@@ -5548,8 +8375,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3286769553881353505}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 247053884806311589}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+--- !u!1 &2394779546958777128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 6632172841385626672}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3286769553881353505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2394779546958777128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &247053884806311589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2394779546958777128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &3057988006274732434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
@@ -5610,8 +8488,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5492289130977843451}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5695220003144571520}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+--- !u!1 &2452560118541553603 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 6861514608954591451}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5492289130977843451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2452560118541553603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &5695220003144571520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2452560118541553603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &2973201222708090233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
@@ -5672,8 +8601,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 123721823216461082}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4827063104882202920}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+--- !u!1 &2486403701118695040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 6895217455119249816}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &123721823216461082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2486403701118695040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &4827063104882202920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2486403701118695040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &3011406572293532730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
@@ -5738,6 +8718,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 443155604840160225}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 781690932637444442}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7008271798511761363}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!4 &7405516908557142077 stripped
 Transform:
@@ -5770,6 +8756,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &781690932637444442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894386598345888391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &7008271798511761363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894386598345888391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &7089340677946642337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5829,6 +8855,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6363148479874551711}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4522801804910281462}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3383508930239256903}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!4 &7343361859657001034 stripped
 Transform:
@@ -5861,6 +8893,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &4522801804910281462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7972229065894638320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &3383508930239256903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7972229065894638320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &7333982366264353226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5920,6 +8992,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6216824545354270762}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8767872510150565481}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9023217202320132676}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!4 &7083374309025449505 stripped
 Transform:
@@ -5952,6 +9030,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &8767872510150565481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7567986684963806363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &9023217202320132676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7567986684963806363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &7436160912785393203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6011,6 +9129,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3845457601274176838}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7234663787937428970}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3804059986160702552}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!4 &6969379311074320856 stripped
 Transform:
@@ -6043,6 +9167,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &7234663787937428970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778812916785675106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &3804059986160702552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778812916785675106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &7481448552158640350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6106,8 +9270,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4625402477005816332, guid: f0da3008acb3e1f4d882f8085952c1f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9123648782300799865}
   m_SourcePrefab: {fileID: 100100000, guid: f0da3008acb3e1f4d882f8085952c1f0, type: 3}
+--- !u!1 &2874364025882442450 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4625402477005816332, guid: f0da3008acb3e1f4d882f8085952c1f0, type: 3}
+  m_PrefabInstance: {fileID: 7481448552158640350}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9123648782300799865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2874364025882442450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &3217851030671859816 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5439059342057052342, guid: f0da3008acb3e1f4d882f8085952c1f0, type: 3}
@@ -6172,6 +9364,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6833430007224268512}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5442155020388121363}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3492062798578334547}
   m_SourcePrefab: {fileID: 100100000, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
 --- !u!1 &7247067374842589727 stripped
 GameObject:
@@ -6199,6 +9397,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6392003, y: 0.085, z: 0.6375}
   m_Center: {x: 0.00085018575, y: 0.0425, z: 0}
+--- !u!114 &5442155020388121363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7247067374842589727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &3492062798578334547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7247067374842589727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &8059492584187291813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
@@ -6259,8 +9497,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8981755668945844084}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1542605285139278785}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+--- !u!1 &1489961432035017423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 7610143593116403159}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8981755668945844084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489961432035017423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &1542605285139278785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489961432035017423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &2298727707213207669 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
@@ -6325,6 +9614,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8812786594860015100}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6270176272289022604}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9093289082279832322}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!1 &6928469789548512017 stripped
 GameObject:
@@ -6352,6 +9647,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &6270176272289022604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6928469789548512017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &9093289082279832322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6928469789548512017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &7740858986347420075 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
@@ -6412,8 +9747,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7928684572851456935}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3925354432949108012}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+--- !u!1 &1161754416068225488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 7867401780197142216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7928684572851456935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161754416068225488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &3925354432949108012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161754416068225488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &1969394447993844586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
@@ -6474,8 +9860,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1887103011863395784}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 992555687306352151}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+--- !u!1 &1383545260376736448 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 7927063587409855960}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1887103011863395784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383545260376736448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &992555687306352151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383545260376736448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &1763308486610786426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
@@ -6540,6 +9977,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4247021955989609215}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5905784530306231982}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6247715656871191004}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!1 &7189386316389988954 stripped
 GameObject:
@@ -6567,6 +10010,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &5905784530306231982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189386316389988954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &6247715656871191004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189386316389988954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &7533964101958688992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
@@ -6631,6 +10114,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1649248999974138640}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7598535691210578919}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5368079523308993382}
   m_SourcePrefab: {fileID: 100100000, guid: 32f6823a9cd033e43a07e82158960ebc, type: 3}
 --- !u!4 &8527725551594033121 stripped
 Transform:
@@ -6663,6 +10152,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6392003, y: 0.085, z: 0.6375}
   m_Center: {x: 0.00085018575, y: 0.0425, z: 0}
+--- !u!114 &7598535691210578919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9012619407074563419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &5368079523308993382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9012619407074563419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &8286030843438017562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6722,6 +10251,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1680642041441286468}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2798716917450773541}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5020452474404980334}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!4 &8464335574397930481 stripped
 Transform:
@@ -6754,6 +10289,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &2798716917450773541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9096300341896450379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &5020452474404980334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9096300341896450379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &8304796031936062089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6809,13 +10384,64 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6959804264038188655}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5265415829522659198}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
 --- !u!4 &376787315583811371 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
   m_PrefabInstance: {fileID: 8304796031936062089}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1040699565500442001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 8304796031936062089}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6959804264038188655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040699565500442001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &5265415829522659198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040699565500442001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &8507167519271464349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6875,6 +10501,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7563916256922528080}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7976140075234255960}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4706205699091668208}
   m_SourcePrefab: {fileID: 100100000, guid: e59287f302fa86f4eaa5ba6d7b0db2a2, type: 3}
 --- !u!4 &8180013242351340150 stripped
 Transform:
@@ -6907,6 +10539,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 1.1, z: 0.5}
   m_Center: {x: 0, y: 0.55, z: 0}
+--- !u!114 &7976140075234255960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8849272108080402636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &4706205699091668208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8849272108080402636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &8674978639355892403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6966,6 +10638,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4942096952532480564}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2093072298624233980}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8372178685875461223}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!1 &8404524829577179106 stripped
 GameObject:
@@ -6993,6 +10671,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &2093072298624233980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8404524829577179106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &8372178685875461223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8404524829577179106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &9216913923076633944 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
@@ -7053,8 +10771,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3360252255037616916}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2736083645960173555}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+--- !u!1 &560340973266588035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 8860685367439201947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3360252255037616916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560340973266588035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &2736083645960173555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560340973266588035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &904497340119157561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
@@ -7119,6 +10888,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7930228448507577592}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5922573974749296759}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4170450368488771172}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!1 &8646296345474071587 stripped
 GameObject:
@@ -7146,6 +10921,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &5922573974749296759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8646296345474071587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &4170450368488771172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8646296345474071587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &8986370225851934361 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
@@ -7206,8 +11021,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 872474180303303864}
+    - targetCorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7142898400663951376}
   m_SourcePrefab: {fileID: 100100000, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+--- !u!1 &484693218544116509 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021204009894135576, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
+  m_PrefabInstance: {fileID: 8901426966902416389}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &872474180303303864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484693218544116509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &7142898400663951376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484693218544116509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &1004911050013587879 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8537155751941086626, guid: 580efebf419d9fc439f7231f5875fc1e, type: 3}
@@ -7272,6 +11138,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 446776560002345689}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2566132659134206884}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4312119342375057093}
   m_SourcePrefab: {fileID: 100100000, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}
 --- !u!1 &8336509139129632656 stripped
 GameObject:
@@ -7299,6 +11171,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &2566132659134206884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8336509139129632656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &4312119342375057093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8336509139129632656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &8717537624395275562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8186fbda1b2ecbc4b80161dfc4a8facf, type: 3}

@@ -127,7 +127,9 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         }
 
         float speed = _isSprinting ? _sprintSpeed : _moveSpeed;
-        transform.position += moveDir * speed * Time.deltaTime;
+        if (_characterController != null) _characterController.Move(moveDir * speed * Time.deltaTime);
+            
+        // transform.position += moveDir * speed * Time.deltaTime;
 
         if (_playerAnimator != null)
         {
