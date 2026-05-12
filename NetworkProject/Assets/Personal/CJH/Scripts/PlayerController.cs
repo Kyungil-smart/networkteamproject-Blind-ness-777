@@ -145,7 +145,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
 
         PlayShootAnimClientRpc();
 
-        if (Physics.Raycast(_fireOrigin.position, aimDir, out RaycastHit hit, _aimRayLength, _shootLayerMask))
+        if (Physics.SphereCast(_fireOrigin.position, 0.5f, aimDir, out RaycastHit hit, _aimRayLength, _shootLayerMask))
         {
             IDamageable target = hit.collider.GetComponent<IDamageable>();
             if (target != null)
