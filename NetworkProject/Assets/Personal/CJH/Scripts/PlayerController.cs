@@ -18,6 +18,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     [SerializeField] private LayerMask _shootLayerMask;
 
     private CharacterController _characterController;
+    private PlayerInput         _playerInput;
     private PlayerAim           _playerAim;
     private PlayerRagdoll       _playerRagdoll;
     private PlayerAnimator      _playerAnimator;
@@ -34,6 +35,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
+        _playerInput         = GetComponent<PlayerInput>();
         _playerAim           = GetComponent<PlayerAim>();
         _playerRagdoll       = GetComponent<PlayerRagdoll>();
         _playerAnimator      = GetComponent<PlayerAnimator>();
@@ -42,14 +44,35 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         if (_fireOrigin == null)
             Debug.LogWarning("[PlayerController] _fireOrigin이 연결되지 않았습니다.", this);
     }
+    
+    private void OnEnable()
+    {
+        if (_playerInput == null) return;
+
+        _playerInput.actions["Move"].performed += OnMove;
+        _playerInput.actions["Move"].canceled  += OnMove;
+
+        _playerInput.actions["Sprint"].performed += OnSprint;
+        _playerInput.actions["Sprint"].canceled  += OnSprint;
+    }
+
+    private void OnDisable()
+    {
+        if (_playerInput == null) return;
+
+        _playerInput.actions["Move"].performed -= OnMove;
+        _playerInput.actions["Move"].canceled  -= OnMove;
+
+        _playerInput.actions["Sprint"].performed -= OnSprint;
+        _playerInput.actions["Sprint"].canceled  -= OnSprint;
+    }
 
     public override void OnNetworkSpawn()
     {
         if (!IsOwner)
         {
             _characterController.enabled = false;
-            PlayerInput playerInput = GetComponent<PlayerInput>();
-            if (playerInput != null) playerInput.enabled = false;
+            if (_playerInput != null) _playerInput.enabled = false;
             return;
         }
 
@@ -71,8 +94,22 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         HandleMovement();
     }
 
-    private void OnMove(InputValue value)   => _moveInput   = value.Get<Vector2>();
-    private void OnSprint(InputValue value) => _isSprinting = value.isPressed;
+    private bool CanMove()
+    {
+        return IsOwner &&
+               !_isDead &&
+               GameManager.Instance.CurrentPhase.Value != GamePhase.Shooting;
+    }
+
+    private void OnMove(InputAction.CallbackContext context)
+    {
+        _moveInput = context.ReadValue<Vector2>();
+    }
+
+    private void OnSprint(InputAction.CallbackContext context)
+    {
+        _isSprinting = context.ReadValue<float>() > 0.1f;
+    }
 
     private void HandleMovement()
     {
@@ -101,10 +138,6 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         }
     }
 
-    /// <summary>
-    /// 안정연님 담당 파트.
-    /// 여기서는 서버에 발사 의도 + 방향을 전달하는 것까지만 구현.
-    /// </summary>
     [ServerRpc]
     public void ShootServerRpc(Vector3 aimDir, Vector3 attackerPosition)
     {
@@ -126,10 +159,6 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         _playerAnimator?.PlayShoot();
     }
 
-    /// <summary>
-    /// 안정연님 — ClientRpc로 모든 클라이언트에 동시 호출할 것.
-    /// attackerPosition은 공격자 위치, 래그돌 방향 계산에 사용.
-    /// </summary>
     [ClientRpc]
     public void DieClientRpc(Vector3 attackerPosition)
     {
@@ -169,13 +198,6 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
                 _canShoot = false;
                 break;
         }
-    }
-    
-    private bool CanMove()
-    {
-        return IsOwner &&
-               !_isDead &&
-               GameManager.Instance.CurrentPhase.Value != GamePhase.Shooting;
     }
 
     public bool      IsDead     => _isDead;
