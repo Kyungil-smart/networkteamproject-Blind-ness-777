@@ -65,7 +65,8 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
 
     private void Update()
     {
-        if (!IsOwner || _isDead) return;
+        if (!CanMove())
+            return;
 
         HandleMovement();
     }
@@ -157,6 +158,9 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
             case GamePhase.Shooting:
                 _canShoot = true;
                 _moveInput = Vector2.zero;
+                _isSprinting = false;
+                if (_playerAnimator != null)
+                    _playerAnimator.SetMoveSpeed(0f);
                 _thirdPersonCamera?.OnPhaseChanged(phase);
                 break;
 
@@ -165,6 +169,13 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
                 _canShoot = false;
                 break;
         }
+    }
+    
+    private bool CanMove()
+    {
+        return IsOwner &&
+               !_isDead &&
+               GameManager.Instance.CurrentPhase.Value != GamePhase.Shooting;
     }
 
     public bool      IsDead     => _isDead;
