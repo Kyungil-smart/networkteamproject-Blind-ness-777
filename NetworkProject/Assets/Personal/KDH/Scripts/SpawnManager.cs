@@ -39,7 +39,7 @@ public class SpawnManager : MonoBehaviour
         for (int i = 0; i < 30; i++)
         {
             Vector3 randomPoint = new Vector3(
-                Random.Range(-20f, 20f), 0, Random.Range(-20f, 20f));
+                Random.Range(-20f, 20f), 0f, Random.Range(-20f, 20f));
         
             if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 5f, NavMesh.AllAreas))
                 return hit.position;
