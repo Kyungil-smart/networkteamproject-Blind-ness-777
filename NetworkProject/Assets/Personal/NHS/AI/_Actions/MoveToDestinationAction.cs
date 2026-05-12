@@ -27,7 +27,7 @@ public partial class MoveToDestinationAction : Action
 
         if (_animator == null)
             _animator = Agent.Value.GetComponentInChildren<Animator>();
-
+            
         if (_navAgent == null)
             _navAgent = Agent.Value.GetComponent<NavMeshAgent>();
 
