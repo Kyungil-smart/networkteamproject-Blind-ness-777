@@ -4,6 +4,7 @@ using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
 using UnityEngine.AI;
+using Unity.Netcode;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "MoveToDestination", story: "[Agent] navigates to [Location] and make [CanMove] false", category: "Action", id: "c487a527e4b7936041a36a189c086be5")]
@@ -36,6 +37,14 @@ public partial class MoveToDestinationAction : Action
             _navAgent.speed = speed;
             _navAgent.stoppingDistance = distanceThreshold;
             _navAgent.SetDestination(Location.Value);
+
+            Vector3 direction = (Location.Value - Agent.Value.transform.position).normalized;
+            direction.y = 0;
+
+            if (direction != Vector3.zero)
+            {
+                Agent.Value.transform.rotation = Quaternion.LookRotation(direction);
+            }
         }
 
         return Status.Running;
@@ -48,30 +57,7 @@ public partial class MoveToDestinationAction : Action
 
         if (!_navAgent.pathPending && _navAgent.remainingDistance <= distanceThreshold) return Status.Success;
 
-        /// 기존 이동 로직
-        /*
-        Vector3 currentPos = Agent.Value.transform.position;
-        Vector3  targetPos = Location.Value;
-        
-        float distance = Vector3.Distance(currentPos, targetPos);
-        
-        if (distance <= distanceThreshold)
-        {
-            return Status.Success;
-        }
-        
-        Agent.Value.transform.position = Vector3.MoveTowards(currentPos, targetPos, speed * Time.deltaTime);
-        
-        Vector3 direction = (targetPos - currentPos).normalized;
-        direction.y = 0;
-        if (direction != Vector3.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            Agent.Value.transform.rotation = Quaternion.RotateTowards(Agent.Value.transform.rotation, targetRotation, 720f * Time.deltaTime);
-        }
-        */
-
-        if (_animator != null)
+        if (_animator != null && NetworkManager.Singleton != null && NetworkManager.Singleton.IsServer)
         {
             _animator.SetFloat(SpeedParameter, _navAgent.velocity.magnitude);
         }
@@ -86,7 +72,7 @@ public partial class MoveToDestinationAction : Action
 
         CanMove.Value = false;
 
-        if (_animator != null)
+        if (_animator != null && NetworkManager.Singleton != null && NetworkManager.Singleton.IsServer)
             _animator.SetFloat(SpeedParameter, 0f);
     }
 }

@@ -89,7 +89,12 @@ public partial class FindAgentAction : Action
     {
         _restTimer += Time.deltaTime;
 
-        if(_restTimer >= RestTime.Value)
+        if (Other.Value != null)
+        {
+            FaceTarget(Self.Value, Other.Value);
+        }
+
+        if (_restTimer >= RestTime.Value)
         {
             Cleanup();
 

@@ -25,10 +25,10 @@ public class StageBuilder : MonoBehaviour
             float pos = -halfSize + (i * _fenceSpacing);
             if (pos > halfSize + 0.01f) break;
 
-            CreateObject(_fencePrefab, new Vector3(pos, 0, halfSize), Quaternion.identity);
+            CreateObject(_fencePrefab, new Vector3(pos, 0, +halfSize), Quaternion.identity);
             CreateObject(_fencePrefab, new Vector3(pos, 0, -halfSize), Quaternion.identity);
             CreateObject(_fencePrefab, new Vector3(-halfSize, 0, pos), Quaternion.Euler(0, 90, 0));
-            CreateObject(_fencePrefab, new Vector3(halfSize, 0, pos), Quaternion.Euler(0, 90, 0));
+            CreateObject(_fencePrefab, new Vector3(+halfSize, 0, pos), Quaternion.Euler(0, 90, 0));
         }
 
         // 2. 벽 설치 (펜스 바로 뒤쪽)
