@@ -9,6 +9,7 @@ public class HUDUI : MonoBehaviour
 
     [Header("팝업")]
     [SerializeField] private GameObject _escPopup;
+    [SerializeField] private GameObject _resultPopup;
 
     private float _remainingTime;
     private PhaseChangeTimer _phaseChangeTimer;
@@ -39,7 +40,7 @@ public class HUDUI : MonoBehaviour
             Cursor.visible   = !isOpen ? true : false;
         }
 
-        if (GameManager.Instance.CurrentPhase.Value != GamePhase.HideAndSeek) return;
+        if (GameManager.Instance.CurrentPhase.Value == GamePhase.GameOver) return;
 
         _remainingTime -= Time.deltaTime;
         _remainingTime = Mathf.Max(0f, _remainingTime);
@@ -53,13 +54,27 @@ public class HUDUI : MonoBehaviour
 
     private void OnPhaseChanged(GamePhase previous, GamePhase current)
     {
-        if (current == GamePhase.HideAndSeek)
-            _remainingTime = _phaseChangeTimer.HideAndSeekTime;
+        switch (current)
+        {
+            case GamePhase.HideAndSeek:
+                _remainingTime = _phaseChangeTimer.HideAndSeekTime;
+                break;
+            case GamePhase.Shooting:
+                _remainingTime = _phaseChangeTimer.ShootingTime;
+                break;
+        }
     }
 
     private void UpdateTimerText(float time)
     {
         int seconds = Mathf.CeilToInt(time);
         _timerText.text = seconds.ToString();
+    }
+    
+    public void ShowResultPopup()
+    {
+        _resultPopup.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible   = true;
     }
 }
