@@ -101,7 +101,7 @@ public class GameManager : NetworkBehaviour
             // 슈팅 페이즈
             yield return new WaitUntil(() => CurrentPhase.Value != GamePhase.Shooting);
         }
-        foreach (var ai in _aiList) ai.AIDestroyClientRPC();
+        foreach (var ai in _aiList) ai.OnNetworkDespawn();
         _aiList = null;
         CurrentPhase.Value = GamePhase.GameOver;
     }

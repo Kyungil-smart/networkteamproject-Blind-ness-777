@@ -26,7 +26,4 @@ public class AISetActive : NetworkBehaviour
         foreach (var r in allRenderers) r.enabled = true;
         foreach (var c in allColliders) c.enabled = true;
     }
-
-    [ClientRpc]
-    public void AIDestroyClientRPC() => Destroy(gameObject);
 }
