@@ -10,6 +10,7 @@ public class HUDUI : MonoBehaviour
     [Header("팝업")]
     [SerializeField] private GameObject _escPopup;
     [SerializeField] private GameObject _resultPopup;
+    [SerializeField] private TextMeshProUGUI _winnerText;
 
     private float _remainingTime;
     private PhaseChangeTimer _phaseChangeTimer;
@@ -73,6 +74,7 @@ public class HUDUI : MonoBehaviour
     
     public void ShowResultPopup()
     {
+        _winnerText.text = GameManager.Instance.WinnerName.Value.ToString();
         _resultPopup.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible   = true;

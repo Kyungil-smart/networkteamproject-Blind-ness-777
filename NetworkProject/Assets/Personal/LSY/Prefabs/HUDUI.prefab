@@ -1463,6 +1463,7 @@ MonoBehaviour:
   _remainingPlayersText: {fileID: 7381451514131202529}
   _escPopup: {fileID: 2496100278734621184}
   _resultPopup: {fileID: 533348729209079468}
+  _winnerText: {fileID: 3615533606278305427}
 --- !u!1 &2496100278734621184
 GameObject:
   m_ObjectHideFlags: 0
