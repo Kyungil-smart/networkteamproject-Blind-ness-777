@@ -13,7 +13,7 @@ public class LoadingUI : MonoBehaviour
     private bool _isReady = false;
 
     public event Action OnLoadingComplete;
-
+    
     private void Start()
     {
         StartCoroutine(LoadingProgress());

@@ -10,7 +10,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     [SerializeField] private float _rotationSpeed = 10f;
 
     [Header("Camera")]
-    [SerializeField] private GameObject _virtualCamera;
+    [SerializeField] private GameObject _cameraPrefab;
 
     [Header("Raycast")]
     [SerializeField] private Transform _fireOrigin;
@@ -18,49 +18,105 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     [SerializeField] private LayerMask _shootLayerMask;
 
     private CharacterController _characterController;
+    private PlayerInput         _playerInput;
     private PlayerAim           _playerAim;
     private PlayerRagdoll       _playerRagdoll;
     private PlayerAnimator      _playerAnimator;
+    private PlayerGuideLine     _playerGuideLine;
+    private ThirdPersonCamera   _thirdPersonCamera;
 
     private bool _canShoot = false;
     private bool _isDead   = false;
 
     private Vector2 _moveInput;
     private bool    _isSprinting;
+    private Camera  _mainCamera;
 
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
+        _playerInput         = GetComponent<PlayerInput>();
         _playerAim           = GetComponent<PlayerAim>();
         _playerRagdoll       = GetComponent<PlayerRagdoll>();
         _playerAnimator      = GetComponent<PlayerAnimator>();
+        _playerGuideLine     = GetComponent<PlayerGuideLine>();
+
+        if (_fireOrigin == null)
+            Debug.LogWarning("[PlayerController] _fireOrigin이 연결되지 않았습니다.", this);
+    }
+    
+    private void OnEnable()
+    {
+        if (_playerInput == null) return;
+
+        _playerInput.actions["Move"].performed += OnMove;
+        _playerInput.actions["Move"].canceled  += OnMove;
+
+        _playerInput.actions["Sprint"].performed += OnSprint;
+        _playerInput.actions["Sprint"].canceled  += OnSprint;
+    }
+
+    private void OnDisable()
+    {
+        if (_playerInput == null) return;
+
+        _playerInput.actions["Move"].performed -= OnMove;
+        _playerInput.actions["Move"].canceled  -= OnMove;
+
+        _playerInput.actions["Sprint"].performed -= OnSprint;
+        _playerInput.actions["Sprint"].canceled  -= OnSprint;
     }
 
     public override void OnNetworkSpawn()
     {
         if (!IsOwner)
         {
-            _virtualCamera.SetActive(false);
-            PlayerInput playerInput = GetComponent<PlayerInput>();
-            if (playerInput != null) playerInput.enabled = false;
+            _characterController.enabled = false;
+            if (_playerInput != null) _playerInput.enabled = false;
             return;
         }
+
+        GameObject camObj = Instantiate(_cameraPrefab);
+        _thirdPersonCamera = camObj.GetComponentInChildren<ThirdPersonCamera>();
+        _thirdPersonCamera.SetTarget(transform);
+        _mainCamera = camObj.GetComponentInChildren<Camera>();
+
+        TopViewCamera topViewCam = FindObjectOfType<TopViewCamera>();
+        if (topViewCam != null)
+            topViewCam.SetThirdPersonCamera(_thirdPersonCamera);
     }
 
     private void Update()
     {
-        if (!IsOwner || _isDead) return;
+        if (!CanMove())
+            return;
 
         HandleMovement();
     }
 
-    private void OnMove(InputValue value)   => _moveInput   = value.Get<Vector2>();
-    private void OnSprint(InputValue value) => _isSprinting = value.isPressed;
+    private bool CanMove()
+    {
+        return IsOwner &&
+               !_isDead &&
+               GameManager.Instance.CurrentPhase.Value != GamePhase.Shooting;
+    }
+
+    private void OnMove(InputAction.CallbackContext context)
+    {
+        _moveInput = context.ReadValue<Vector2>();
+    }
+
+    private void OnSprint(InputAction.CallbackContext context)
+    {
+        _isSprinting = context.ReadValue<float>() > 0.1f;
+    }
 
     private void HandleMovement()
     {
-        Vector3 camForward = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up).normalized;
-        Vector3 camRight   = Vector3.ProjectOnPlane(Camera.main.transform.right,   Vector3.up).normalized;
+        if (_mainCamera == null) return;
+        
+        Vector3 camForward = Vector3.ProjectOnPlane(_mainCamera.transform.forward, Vector3.up).normalized;
+        Vector3 camRight   = Vector3.ProjectOnPlane(_mainCamera.transform.right,   Vector3.up).normalized;
 
         Vector3 moveDir = (camForward * _moveInput.y + camRight * _moveInput.x).normalized;
 
@@ -71,7 +127,9 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         }
 
         float speed = _isSprinting ? _sprintSpeed : _moveSpeed;
-        _characterController.SimpleMove(moveDir * speed);
+        if (_characterController != null) _characterController.Move(moveDir * speed * Time.deltaTime);
+            
+        // transform.position += moveDir * speed * Time.deltaTime;
 
         if (_playerAnimator != null)
         {
@@ -82,10 +140,6 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         }
     }
 
-    /// <summary>
-    /// 안정연님 담당 파트.
-    /// 여기서는 서버에 발사 의도 + 방향을 전달하는 것까지만 구현.
-    /// </summary>
     [ServerRpc]
     public void ShootServerRpc(Vector3 aimDir, Vector3 attackerPosition)
     {
@@ -93,14 +147,12 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
 
         PlayShootAnimClientRpc();
 
-        if (Physics.Raycast(_fireOrigin.position, aimDir, out RaycastHit hit, _aimRayLength, _shootLayerMask))
+        if (Physics.SphereCast(_fireOrigin.position, 0.5f, aimDir, out RaycastHit hit, _aimRayLength, _shootLayerMask))
         {
             IDamageable target = hit.collider.GetComponent<IDamageable>();
             if (target != null)
                 target.Die(attackerPosition);
         }
-
-        // 총구 이펙트는 확장 기능 — 여기에 추가 예정
     }
 
     [ClientRpc]
@@ -109,17 +161,17 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         _playerAnimator?.PlayShoot();
     }
 
-    /// <summary>
-    /// 안정연님 — ClientRpc로 모든 클라이언트에 동시 호출할 것.
-    /// attackerPosition은 공격자 위치, 래그돌 방향 계산에 사용.
-    /// </summary>
     [ClientRpc]
     public void DieClientRpc(Vector3 attackerPosition)
     {
         _isDead   = true;
         _canShoot = false;
 
+        _playerGuideLine?.DisableGuideLine();
         _playerRagdoll?.ActivateRagdoll(attackerPosition);
+
+        if (IsServer)
+            GameManager.Instance.OnPlayerDead();
 
         Debug.Log($"[PlayerController] {OwnerClientId}번 플레이어 사망");
     }
@@ -130,8 +182,17 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     {
         switch (phase)
         {
+            case GamePhase.HideAndSeek:
+                _thirdPersonCamera?.OnPhaseChanged(phase);
+                break;
+            
             case GamePhase.Shooting:
                 _canShoot = true;
+                _moveInput = Vector2.zero;
+                _isSprinting = false;
+                if (_playerAnimator != null)
+                    _playerAnimator.SetMoveSpeed(0f);
+                _thirdPersonCamera?.OnPhaseChanged(phase);
                 break;
 
             case GamePhase.GameOver:
@@ -141,6 +202,6 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         }
     }
 
-    public bool IsDead     => _isDead;
+    public bool      IsDead     => _isDead;
     public Transform FireOrigin => _fireOrigin;
 }

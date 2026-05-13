@@ -1,4 +1,5 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
 
 public class AISetActive : MonoBehaviour
@@ -12,17 +13,20 @@ public class AISetActive : MonoBehaviour
         allColliders = GetComponentsInChildren<Collider>();
     }
 
-    public void Hide()
+    [ClientRpc]
+    public void HideClientRPC()
     {
         foreach (var r in allRenderers) r.enabled = false;
         foreach (var c in allColliders) c.enabled = false;
     }
 
-    public void Show()
+    [ClientRpc]
+    public void ShowClientRPC()
     {
         foreach (var r in allRenderers) r.enabled = true;
         foreach (var c in allColliders) c.enabled = true;
     }
 
-    public void AIDestroy() => Destroy(gameObject);
+    [ClientRpc]
+    public void AIDestroyClientRPC() => Destroy(gameObject);
 }

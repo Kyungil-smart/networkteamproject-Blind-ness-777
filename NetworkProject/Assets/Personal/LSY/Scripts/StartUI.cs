@@ -14,7 +14,15 @@ public class StartUI : MonoBehaviour
     {
         _closeButton.onClick.RemoveListener(OnCloseClicked);
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     private void OnCloseClicked()
     {
         gameObject.SetActive(false);

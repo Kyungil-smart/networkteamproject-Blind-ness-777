@@ -38,6 +38,7 @@ public class LobbyUI : MonoBehaviour
     {
         copybutton.onClick.AddListener(OnCopyClick);
         startReadybutton.onClick.AddListener(OnStartReadyButtonClick);
+        _leaveButton.onClick.AddListener(OnLeaveClick);
         BindLobbyManagerEvents();
     }
 
@@ -45,6 +46,7 @@ public class LobbyUI : MonoBehaviour
     {
         copybutton.onClick.RemoveListener(OnCopyClick);
         startReadybutton.onClick.RemoveListener(OnStartReadyButtonClick);
+        _leaveButton.onClick.RemoveListener(OnLeaveClick);
         UnbindLobbyManagerEvents();
     }
     
@@ -134,6 +136,13 @@ public class LobbyUI : MonoBehaviour
     private void OnCopyClick()
     {
         GUIUtility.systemCopyBuffer = _joinCode.text;
+    }
+
+    private async void OnLeaveClick()
+    {
+        _leaveButton.interactable = false;
+        await LobbyManager.Instance.LeaveSessionAsync();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("TitleScene");
     }
 
     private async void OnStartReadyButtonClick()

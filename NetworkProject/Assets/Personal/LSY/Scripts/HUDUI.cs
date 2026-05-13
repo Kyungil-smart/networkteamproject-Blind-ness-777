@@ -7,6 +7,9 @@ public class HUDUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _timerText;
     [SerializeField] private TextMeshProUGUI _remainingPlayersText;
 
+    [Header("팝업")]
+    [SerializeField] private GameObject _escPopup;
+
     private float _remainingTime;
     private PhaseChangeTimer _phaseChangeTimer;
 
@@ -27,6 +30,15 @@ public class HUDUI : MonoBehaviour
     private void Update()
     {
         if (GameManager.Instance == null) return;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            bool isOpen = _escPopup.activeSelf;
+            _escPopup.SetActive(!isOpen);
+            Cursor.lockState = isOpen ? CursorLockMode.Locked : CursorLockMode.None;
+            Cursor.visible   = !isOpen ? true : false;
+        }
+
         if (GameManager.Instance.CurrentPhase.Value != GamePhase.HideAndSeek) return;
 
         _remainingTime -= Time.deltaTime;

@@ -56,30 +56,6 @@ public class AudioManager : MonoBehaviour, IPhaseChangeable
         _sfxSource.volume = _sfxVolume;
     }
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.CurrentPhase.OnValueChanged -= OnPhaseValueChanged;
-            GameManager.Instance.CurrentPhase.OnValueChanged += OnPhaseValueChanged;
-        }
-    }
-
-    private void OnPhaseValueChanged(GamePhase previous, GamePhase current)
-    {
-        OnPhaseChanged(current);
-    }
-
     private void Update()
     {
         _sfxSource.volume = _sfxVolume;
