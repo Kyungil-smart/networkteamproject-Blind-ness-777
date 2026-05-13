@@ -916,8 +916,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PhaseChangeTimer
   ShowTopMostFoldoutHeaderGroup: 1
-  _hideAndSeekTime: 90
-  _shootingTime: 30
+  _hideAndSeekTime: 50
+  _shootingTime: 15
   _tickTockOffset: 8
 --- !u!223 &244047102950785635
 Canvas:
