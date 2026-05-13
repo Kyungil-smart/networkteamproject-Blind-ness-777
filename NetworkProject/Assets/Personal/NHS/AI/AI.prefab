@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 7431877496143884469}
   - component: {fileID: 5676551243254337708}
   - component: {fileID: 4090573299006066214}
-  - component: {fileID: 602649181542700430}
   - component: {fileID: 2346326754409521810}
   - component: {fileID: 3176866685512011731}
   - component: {fileID: 5450658455626331220}
   - component: {fileID: 605956003450931442}
+  - component: {fileID: 5435930255725637531}
   m_Layer: 7
   m_Name: AI
   m_TagString: Untagged
@@ -54,13 +54,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
   GlobalObjectIdHash: 1948642717
-  InScenePlacedSourceGlobalObjectIdHash: 0
+  InScenePlacedSourceGlobalObjectIdHash: 1948642717
   DeferredDespawnTick: 0
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
+  SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
@@ -153,55 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Agent
   ShowTopMostFoldoutHeaderGroup: 1
---- !u!114 &602649181542700430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4644231057869415932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
-  ShowTopMostFoldoutHeaderGroup: 1
-  m_Graph: {fileID: -5102596520046345478, guid: 7b2f4bebe9da45b4abd01b9eff810b02, type: 2}
-  m_BlackboardVariableOverridesList:
-  - rid: 4515130824328740864
-  - rid: 4515130841308070086
-  - rid: 4515130841308070310
-  m_OriginalGraph: {fileID: -5102596520046345478, guid: 7b2f4bebe9da45b4abd01b9eff810b02, type: 2}
-  m_IsInitialised: 0
-  m_IsStarted: 0
-  NetcodeRunOnlyOnOwner: 0
-  references:
-    version: 2
-    RefIds:
-    - rid: 4515130824328740864
-      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 1
-          m_Value1: 0
-        Name: Self
-        m_Value: {fileID: 4644231057869415932}
-    - rid: 4515130841308070086
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 397819842386278255
-          m_Value1: 7053175388925401250
-        Name: WaitTime
-        m_Value: 3
-    - rid: 4515130841308070310
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector3, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 18362380786466426510
-          m_Value1: 10798673612111941841
-        Name: Destination
-        m_Value: {x: 0, y: 0, z: 0}
 --- !u!195 &2346326754409521810
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -305,6 +256,37 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &5435930255725637531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644231057869415932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
+  ShowTopMostFoldoutHeaderGroup: 1
+  m_Graph: {fileID: 8333908759013558231, guid: 7b2f4bebe9da45b4abd01b9eff810b02, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 4281829528624169444
+  m_OriginalGraph: {fileID: 8333908759013558231, guid: 7b2f4bebe9da45b4abd01b9eff810b02, type: 2}
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  NetcodeRunOnlyOnOwner: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4281829528624169444
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 4644231057869415932}
 --- !u!1001 &4114445435210802770
 PrefabInstance:
   m_ObjectHideFlags: 0
