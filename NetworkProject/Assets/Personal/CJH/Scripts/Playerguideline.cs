@@ -82,6 +82,7 @@ public class PlayerGuideLine : NetworkBehaviour, IPhaseChangeable
         if (phase != GamePhase.Shooting) return;
         if (!IsOwner || _guideLine == null) return;
 
+        _guideLine.enabled    = true;
         _isTopView            = true;
         _guideLine.startWidth = _aimStartWidth;
         _guideLine.endWidth   = _aimEndWidth;

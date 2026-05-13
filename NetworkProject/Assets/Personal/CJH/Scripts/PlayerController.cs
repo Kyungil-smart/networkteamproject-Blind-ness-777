@@ -175,13 +175,15 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         _playerGuideLine?.DisableGuideLine();
         _playerRagdoll?.ActivateRagdoll(attackerPosition);
 
-        if (IsServer)
-            GameManager.Instance.OnPlayerDead();
-
         Debug.Log($"[PlayerController] {OwnerClientId}번 플레이어 사망");
     }
 
-    public void Die(Vector3 attackerPosition) => DieClientRpc(attackerPosition);
+    public void Die(Vector3 attackerPosition)
+    {
+        // Die()는 서버에서만 호출되므로 여기서 처리
+        GameManager.Instance.OnPlayerDead();
+        DieClientRpc(attackerPosition);
+    }
 
     public void OnPhaseChanged(GamePhase phase)
     {
