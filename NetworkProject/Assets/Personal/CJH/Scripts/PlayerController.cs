@@ -31,6 +31,9 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     private Vector2 _moveInput;
     private bool    _isSprinting;
     private Camera  _mainCamera;
+    
+    private Vector3 _velocity;
+    private float   _gravity = -9.81f;
 
     private void Awake()
     {
@@ -114,7 +117,7 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     private void HandleMovement()
     {
         if (_mainCamera == null) return;
-        
+
         Vector3 camForward = Vector3.ProjectOnPlane(_mainCamera.transform.forward, Vector3.up).normalized;
         Vector3 camRight   = Vector3.ProjectOnPlane(_mainCamera.transform.right,   Vector3.up).normalized;
 
@@ -126,10 +129,12 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, _rotationSpeed * Time.deltaTime);
         }
 
+        _velocity.y += _gravity * Time.deltaTime;
+        if (_characterController.isGrounded) _velocity.y = -2f;
+
         float speed = _isSprinting ? _sprintSpeed : _moveSpeed;
-        if (_characterController != null) _characterController.Move(moveDir * speed * Time.deltaTime);
-            
-        // transform.position += moveDir * speed * Time.deltaTime;
+        Vector3 move = moveDir * speed + Vector3.up * _velocity.y;
+        _characterController.Move(move * Time.deltaTime);
 
         if (_playerAnimator != null)
         {
