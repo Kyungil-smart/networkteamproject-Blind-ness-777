@@ -50,6 +50,11 @@ public class PlayerAnimator : NetworkBehaviour, IPhaseChangeable
     {
         switch (phase)
         {
+            case GamePhase.HideAndSeek:
+                SetMoveSpeed(0f);
+                if (_gunObject != null) _gunObject.SetActive(false);
+                break;
+            
             case GamePhase.Shooting:
                 StartCoroutine(ShootingSequence());
                 break;
