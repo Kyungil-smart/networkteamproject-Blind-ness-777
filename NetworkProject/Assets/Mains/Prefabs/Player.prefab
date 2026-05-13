@@ -471,7 +471,7 @@ MonoBehaviour:
   _walkAnimSpeed: 0.5
   _runAnimSpeed: 1
   _gunObject: {fileID: 8040920733827268001}
-  _drawGunDelay: 1
+  _drawGunDelay: 6
 --- !u!114 &7877626530277877701
 MonoBehaviour:
   m_ObjectHideFlags: 0

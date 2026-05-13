@@ -67,22 +67,23 @@ public class PlayerAnimator : NetworkBehaviour, IPhaseChangeable
     {
         if (_gunObject != null) _gunObject.SetActive(true);
 
-        yield return new WaitForSeconds(_drawGunDelay);
+        yield return new WaitForSeconds(3f);
+        _playerController?.GetComponent<PlayerGuideLine>()?.OnPhaseChanged(GamePhase.Shooting);
+
+        yield return new WaitForSeconds(5f);
 
         if (_animator != null) _animator.SetTrigger(_hashDrawGun);
 
-        // DrawGun 애니메이션 길이만큼 대기 후 Shoot
         float drawGunLength = GetClipLength("DrawGun");
         yield return new WaitForSeconds(drawGunLength);
 
         if (_animator != null) _animator.SetTrigger(_hashShoot);
-        
+
         if (_playerController != null && _playerController.IsOwner)
             _playerController.ShootServerRpc(
                 _playerController.GetComponent<PlayerAim>().AimDirection,
                 _playerController.FireOrigin.position);
 
-        // Shoot 애니메이션 길이만큼 대기 후 총 비활성화 + Idle 복귀
         float shootLength = GetClipLength("Shoot");
         yield return new WaitForSeconds(shootLength);
 
