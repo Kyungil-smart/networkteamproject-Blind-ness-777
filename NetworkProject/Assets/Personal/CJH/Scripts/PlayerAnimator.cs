@@ -12,9 +12,6 @@ public class PlayerAnimator : NetworkBehaviour, IPhaseChangeable
     [Header("Gun")]
     [SerializeField] private GameObject _gunObject;
 
-    [Header("Timing")]
-    [SerializeField] private float _drawGunDelay = 1f; // 탑뷰 전환 후 총 꺼내기까지 대기 시간
-
     private static readonly int _hashSpeed   = Animator.StringToHash("Speed");
     private static readonly int _hashDrawGun = Animator.StringToHash("DrawGun");
     private static readonly int _hashShoot   = Animator.StringToHash("Shoot");
