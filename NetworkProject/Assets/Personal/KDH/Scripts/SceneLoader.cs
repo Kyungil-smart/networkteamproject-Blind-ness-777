@@ -32,13 +32,11 @@ public class SceneLoader : NetworkBehaviour
         NetworkManager.Singleton.SceneManager.LoadScene("LoadingScene", LoadSceneMode.Single);
     }
     
-    // 결과 씬 전환
-    public void LoadResultScene()
+    // 결과 팝업 표시
+    [ClientRpc]
+    private void ShowResultClientRpc()
     {
-        if (!IsServer) return;
-        MapLoader mapLoader = FindObjectOfType<MapLoader>();
-        mapLoader.DestroyMap();
-        NetworkManager.Singleton.SceneManager.LoadScene("ResultScene", LoadSceneMode.Single);
+        FindObjectOfType<HUDUI>()?.ShowResultPopup();
     }
     
     // 로비 이동 씬
@@ -126,11 +124,14 @@ public class SceneLoader : NetworkBehaviour
             NetworkManager.Singleton.SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
     }
     
-    // 결과창으로 이동
     private void Result(GamePhase prev, GamePhase next)
     {
         if (!IsServer) return;
-        // 결과씬말고 UI로 할거면 여기에 팝업 띄우기
-        if (next == GamePhase.GameOver) LoadResultScene();
+        if (next == GamePhase.GameOver)
+        {
+            MapLoader mapLoader = FindObjectOfType<MapLoader>();
+            mapLoader.DestroyMap();
+            ShowResultClientRpc();
+        }
     }
 }

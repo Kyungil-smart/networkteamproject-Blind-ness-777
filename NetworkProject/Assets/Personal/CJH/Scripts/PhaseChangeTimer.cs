@@ -13,6 +13,8 @@ public class PhaseChangeTimer : NetworkBehaviour
     [SerializeField] private float _tickTockOffset  = 8f;
 
     private Coroutine _timerRoutine;
+    
+    public float ShootingTime => _shootingTime;
 
     public override void OnNetworkSpawn()
     {
