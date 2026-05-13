@@ -69,12 +69,12 @@ public class GameManager : NetworkBehaviour
     }
     
     // 게임 시작 함수
-    public void StartGame()
+    public IEnumerator StartGame()
     {
-        if (!IsServer) return;
+        if (!IsServer) yield break;
         AlivePlayer.Value = NetworkManager.Singleton.ConnectedClientsIds.Count;
         _mapSpawn = FindObjectOfType<MapLoader>();
-        if (_mapSpawn != null) _mapSpawn.LoadMap();
+        if (_mapSpawn != null) yield return StartCoroutine(_mapSpawn.LoadMap());
         // ai및 플레이어 소환
         FindObjectOfType<SpawnManager>().SpawnAll();
         // ai저장

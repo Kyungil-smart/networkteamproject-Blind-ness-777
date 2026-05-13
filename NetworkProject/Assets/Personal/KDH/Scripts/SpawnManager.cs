@@ -36,14 +36,12 @@ public class SpawnManager : MonoBehaviour
     
     private Vector3 GetNavMeshPoint()
     {
-        for (int i = 0; i < 30; i++)
-        {
-            Vector3 randomPoint = new Vector3(
-                Random.Range(-20f, 20f), 0f, Random.Range(-20f, 20f));
+        Vector3 randomPoint = new Vector3(
+            Random.Range(-20f, 20f), 0f, Random.Range(-20f, 20f));
         
-            if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 5f, NavMesh.AllAreas))
-                return hit.position;
-        }
+        if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 5f, NavMesh.AllAreas))
+            return hit.position;
+      
         return Vector3.zero;
     }
 }

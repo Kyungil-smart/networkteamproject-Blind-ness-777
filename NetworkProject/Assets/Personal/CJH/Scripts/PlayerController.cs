@@ -71,16 +71,16 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
     {
         if (!IsOwner)
         {
-            _characterController.enabled = false;
             if (_playerInput != null) _playerInput.enabled = false;
             return;
         }
 
+        _characterController.enabled = false;
         GameObject camObj = Instantiate(_cameraPrefab);
         _thirdPersonCamera = camObj.GetComponentInChildren<ThirdPersonCamera>();
         _thirdPersonCamera.SetTarget(transform);
         _mainCamera = camObj.GetComponentInChildren<Camera>();
-
+        _characterController.enabled = true;
         TopViewCamera topViewCam = FindObjectOfType<TopViewCamera>();
         if (topViewCam != null)
             topViewCam.SetThirdPersonCamera(_thirdPersonCamera);
