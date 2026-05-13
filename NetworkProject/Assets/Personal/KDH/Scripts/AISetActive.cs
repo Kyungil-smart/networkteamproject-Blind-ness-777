@@ -2,7 +2,7 @@ using System;
 using Unity.Netcode;
 using UnityEngine;
 
-public class AISetActive : MonoBehaviour
+public class AISetActive : NetworkBehaviour
 {
     private Renderer[] allRenderers;
     private Collider[] allColliders;
