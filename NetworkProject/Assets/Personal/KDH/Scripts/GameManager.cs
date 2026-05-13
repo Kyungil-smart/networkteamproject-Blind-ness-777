@@ -7,12 +7,14 @@ using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 using System.Linq;
+using Unity.Collections;
 
 public class GameManager : NetworkBehaviour
 {
     public static GameManager Instance {get; private set;}
     public NetworkVariable<GamePhase> CurrentPhase = new(GamePhase.Waiting);    // 게임 페이즈 변수
     public NetworkVariable<int> AlivePlayer = new(0);                           // 플레이 인원수 변수
+    public NetworkVariable<FixedString64Bytes> WinnerName = new(default);
     public MapLoader _mapSpawn;
     [SerializeField] public float _movingTime = 10f;                            // 숨는 시간 변수
     
@@ -87,8 +89,22 @@ public class GameManager : NetworkBehaviour
     public void OnPlayerDead()
     {
         if (!IsServer) return;
-        
+    
         AlivePlayer.Value--;
+    
+        if (AlivePlayer.Value == 1)
+        {
+            foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
+            {
+                PlayerController pc = client.PlayerObject?.GetComponent<PlayerController>();
+                if (pc != null && !pc.IsDead)
+                {
+                    NetworkPlayerData data = client.PlayerObject.GetComponent<NetworkPlayerData>();
+                    WinnerName.Value = new FixedString64Bytes(data.PlayerName);
+                    break;
+                }
+            }
+        }
     }
 
     // 게임 플레이 루틴
