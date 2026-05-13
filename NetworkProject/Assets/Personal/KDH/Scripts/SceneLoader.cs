@@ -98,7 +98,7 @@ public class SceneLoader : NetworkBehaviour
                     LoadLobbyScene();
                     return;
                 }
-                GameManager.Instance.StartGame();
+                StartCoroutine(GameManager.Instance.StartGame());
                 break;
             case "LoadingScene":
                 Debug.Log("Start loading");
