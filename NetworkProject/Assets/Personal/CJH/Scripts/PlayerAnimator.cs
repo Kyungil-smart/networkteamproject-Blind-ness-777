@@ -15,6 +15,7 @@ public class PlayerAnimator : NetworkBehaviour, IPhaseChangeable
     private static readonly int _hashSpeed   = Animator.StringToHash("Speed");
     private static readonly int _hashDrawGun = Animator.StringToHash("DrawGun");
     private static readonly int _hashShoot   = Animator.StringToHash("Shoot");
+    private static readonly int _hashIdle    = Animator.StringToHash("Idle");
 
     private PlayerController _playerController;
 
@@ -34,6 +35,10 @@ public class PlayerAnimator : NetworkBehaviour, IPhaseChangeable
             _animator.SetFloat(_hashSpeed, speed);
     }
 
+    public void Idle()
+    {
+        SetMoveSpeed(0f);
+    }
     public void PlayShoot()
     {
         if (_animator != null)

@@ -86,7 +86,10 @@ public class PlayerController : NetworkBehaviour, IDamageable, IPhaseChangeable
         _characterController.enabled = true;
         TopViewCamera topViewCam = FindObjectOfType<TopViewCamera>();
         if (topViewCam != null)
+        {
             topViewCam.SetThirdPersonCamera(_thirdPersonCamera);
+            topViewCam.SetPlayerAnimator(_playerAnimator);
+        }
     }
 
     private void Update()
