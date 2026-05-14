@@ -35,6 +35,7 @@ public class HUDUI : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (GameManager.Instance.CurrentPhase.Value == GamePhase.GameOver) return;
             bool isOpen = _escPopup.activeSelf;
             _escPopup.SetActive(!isOpen);
             Cursor.lockState = isOpen ? CursorLockMode.Locked : CursorLockMode.None;

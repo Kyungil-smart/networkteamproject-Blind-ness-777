@@ -95,7 +95,6 @@ public class PlayerAnimator : NetworkBehaviour, IPhaseChangeable
         yield return new WaitForSeconds(shootLength);
 
         if (_gunObject != null) _gunObject.SetActive(false);
-        SetMoveSpeed(0f);
     }
 
     private float GetClipLength(string clipName)

@@ -98,10 +98,11 @@ public class ThirdPersonCamera : MonoBehaviour, IPhaseChangeable
         switch (phase)
         {
             case GamePhase.HideAndSeek:
-                _isActive            = true;
+                _isActive        = true;
+                if (gameObject == null) return;
                 gameObject.SetActive(true);
-                Cursor.lockState     = CursorLockMode.Locked;
-                Cursor.visible       = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible   = false;
                 break;
 
             case GamePhase.Shooting:
