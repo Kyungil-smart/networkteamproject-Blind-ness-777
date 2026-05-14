@@ -285,16 +285,18 @@ public class LobbyManager : MonoBehaviour
             await host.SavePropertiesAsync();
             OnGameStarting?.Invoke();
             
-            NetworkManager networkManager = NetworkManager.Singleton;
-            if (networkManager == null || !networkManager.IsServer || networkManager.SceneManager == null)
-            {
-                Debug.LogError($"Host가 아니거나 SceneManager 없음 (scene='')");
-                _isStartingGame = false;
-                return false;
-            }
-            // 로드 게임씬
-            networkManager.SceneManager.LoadScene("LoadingScene", LoadSceneMode.Single);
-            return true;
+            // NetworkManager networkManager = NetworkManager.Singleton;
+            // if (networkManager == null || !networkManager.IsServer || networkManager.SceneManager == null)
+            // {
+            //     Debug.LogError($"Host가 아니거나 SceneManager 없음 (scene='')");
+            //     _isStartingGame = false;
+            //     return false;
+            // }
+            // // 로드 게임씬
+            // networkManager.SceneManager.LoadScene("LoadingScene", LoadSceneMode.Single);
+            // return true;
+            bool _result = SceneLoader.Instance.LoadNetworked("LoadingScene");
+            return _result;
         }
         catch (Exception e)
         {
@@ -342,7 +344,8 @@ public class LobbyManager : MonoBehaviour
         // 로비로 씬전환
         if (IsHost)
         {
-            //SceneLoader.LoadNetworked(SceneId.Lobby);
+            SceneLoader.Instance.LoadNetworked("LobbyScene");
+            // SceneLoader.Instance.LoadLobbyScene();
         }
     }
     
