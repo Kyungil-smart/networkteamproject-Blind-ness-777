@@ -688,11 +688,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MapLoader
   ShowTopMostFoldoutHeaderGroup: 1
   _mapPrefabs:
-  - {fileID: 523309203753973686, guid: 5e0599204cc35a243aba0ad356471164, type: 3}
+  - {fileID: 67075625225876575, guid: 3c3ba0b6fd612604fb8e043a6890b373, type: 3}
+  - {fileID: 7163785816555259310, guid: 1d4bce4ffb34bb54dae8db7b55a7c990, type: 3}
   - {fileID: 3450412692283010327, guid: d5fc36fd950173843a1478254020dc61, type: 3}
   - {fileID: 5122492763481669661, guid: 570d9530e9217af4f97803100c695cbe, type: 3}
-  - {fileID: 7163785816555259310, guid: 1d4bce4ffb34bb54dae8db7b55a7c990, type: 3}
-  - {fileID: 67075625225876575, guid: 3c3ba0b6fd612604fb8e043a6890b373, type: 3}
+  - {fileID: 523309203753973686, guid: 5e0599204cc35a243aba0ad356471164, type: 3}
 --- !u!4 &1998925380
 Transform:
   m_ObjectHideFlags: 0
