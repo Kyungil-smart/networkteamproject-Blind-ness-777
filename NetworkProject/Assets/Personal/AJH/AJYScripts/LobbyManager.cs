@@ -342,7 +342,7 @@ public class LobbyManager : MonoBehaviour
         // 로비로 씬전환
         if (IsHost)
         {
-            //SceneLoader.LoadNetworked(SceneId.Lobby);
+            SceneLoader.Instance.LoadLobbyScene();
         }
     }
     
