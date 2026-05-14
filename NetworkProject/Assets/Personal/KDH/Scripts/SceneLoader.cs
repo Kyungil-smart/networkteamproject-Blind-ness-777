@@ -130,4 +130,16 @@ public class SceneLoader : NetworkBehaviour
         if (next == GamePhase.GameOver)
             ShowResultClientRpc();
     }
+
+    public bool LoadNetworked(string sceneName)
+    {
+        NetworkManager networkManager = NetworkManager.Singleton;
+        if (networkManager == null || !networkManager.IsServer || networkManager.SceneManager == null)
+        {
+            Debug.LogError($"SceneLoader: NGO 동기화 로드 실패 - Host가 아니거나 SceneManager 없음 (scene='{sceneName}')");
+            return false;
+        }
+        networkManager.SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        return true;
+    }
 }

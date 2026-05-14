@@ -10,6 +10,7 @@ public class TopViewCamera : MonoBehaviour, IPhaseChangeable
     private Quaternion        _initRotation;
     private Camera            _camera;
     private ThirdPersonCamera _thirdPersonCamera;
+    private PlayerAnimator    _playerAnimator;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class TopViewCamera : MonoBehaviour, IPhaseChangeable
     /// PlayerController에서 오너 플레이어 카메라 스폰 시 연결.
     /// </summary>
     public void SetThirdPersonCamera(ThirdPersonCamera cam) => _thirdPersonCamera = cam;
+    public void SetPlayerAnimator(PlayerAnimator playerAnimator) => _playerAnimator = playerAnimator;
 
     public void OnPhaseChanged(GamePhase phase)
     {
@@ -37,6 +39,7 @@ public class TopViewCamera : MonoBehaviour, IPhaseChangeable
                 _camera.enabled = false;
                 _thirdPersonCamera?.SetActive(true);
                 _thirdPersonCamera?.gameObject.SetActive(true);
+                _playerAnimator.Idle();
                 break;
         }
     }
