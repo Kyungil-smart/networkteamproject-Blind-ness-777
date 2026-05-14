@@ -128,10 +128,6 @@ public class SceneLoader : NetworkBehaviour
     {
         if (!IsServer) return;
         if (next == GamePhase.GameOver)
-        {
-            MapLoader mapLoader = FindObjectOfType<MapLoader>();
-            mapLoader.DestroyMap();
             ShowResultClientRpc();
-        }
     }
 }

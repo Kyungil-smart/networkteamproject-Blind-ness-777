@@ -13,6 +13,21 @@ public class ResultUI : MonoBehaviour
         _titleButton.onClick.AddListener(OnTitleClicked);
     }
 
+    private void OnEnable()
+    {
+        LobbyManager.Instance.OnSessionLeft += OnSessionLeft;
+    }
+
+    private void OnDisable()
+    {
+        LobbyManager.Instance.OnSessionLeft -= OnSessionLeft;
+    }
+
+    private void OnSessionLeft()
+    {
+        SceneManager.LoadScene("TitleScene");
+    }
+    
     private void OnDestroy()
     {
         _lobbyButton.onClick.RemoveListener(OnLobbyClicked);
@@ -23,6 +38,7 @@ public class ResultUI : MonoBehaviour
     {
         _lobbyButton.interactable = false;
         _titleButton.interactable = false;
+        FindObjectOfType<MapLoader>()?.DestroyMap();
         await LobbyManager.Instance.ReturnToRoomAsync();
     }
 
@@ -30,6 +46,7 @@ public class ResultUI : MonoBehaviour
     {
         _lobbyButton.interactable = false;
         _titleButton.interactable = false;
+        FindObjectOfType<MapLoader>()?.DestroyMap();
 
         if (LobbyManager.Instance != null)
             await LobbyManager.Instance.LeaveSessionAsync();
