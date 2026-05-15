@@ -43,6 +43,7 @@ public class SceneLoader : NetworkBehaviour
     public void LoadLobbyScene()
     {
         if (!IsServer) return;
+        GameManager.Instance.ResetGame();
         NetworkManager.Singleton.SceneManager.LoadScene("LobbyScene", LoadSceneMode.Single);
         AudioManager.Instance?.PlayLobbyBGM();
         _isGame = false;
