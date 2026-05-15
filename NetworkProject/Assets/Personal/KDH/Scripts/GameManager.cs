@@ -121,4 +121,12 @@ public class GameManager : NetworkBehaviour
         _aiList = null;
         CurrentPhase.Value = GamePhase.GameOver;
     }
+    
+    public void ResetGame()
+    {
+        _aiList = null;
+        _mapSpawn = null;
+        AlivePlayer.Value = 0;
+        CurrentPhase.Value = GamePhase.Waiting;
+    }
 }
