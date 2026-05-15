@@ -474,6 +474,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5711678510921744951, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5312806601663138243, guid: 58096143b658b4941af7258cd5f2f897, type: 2}
+    - target: {fileID: 5711678510921744951, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5800018386782507062, guid: 0db63ff394972a34b8e827e143b981c8, type: 3}
       propertyPath: m_Pivot.x
       value: 0

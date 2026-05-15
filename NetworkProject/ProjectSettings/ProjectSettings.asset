@@ -145,7 +145,6 @@ PlayerSettings:
   tvOSBundleVersion: 1.0
   bundleVersion: 0.1.0
   preloadedAssets:
-  - {fileID: 11400000, guid: 99f9c9493070a9d4c979a8fec7c5a8d3, type: 2}
   - {fileID: 11400000, guid: c57a194689b02d5428f304792f55f2b5, type: 2}
   - {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   metroInputSource: 0
@@ -930,11 +929,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 6163516a-ba70-4791-9476-ecc9de642834
+  cloudProjectId: a6ea510e-e4ee-41f3-8e1b-4cc787828909
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: NetworkProject
-  organizationId: unity4awol
+  projectName: NetworkProject (1)
+  organizationId: urumuru
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
