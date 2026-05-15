@@ -34,7 +34,7 @@ public class EscUI : MonoBehaviour
     private async void OnQuitClicked()
     {
         _quitButton.interactable = false;
-        AudioManager.Instance?.StopSFX();
+        AudioManager.Instance?.StopAll();
 
         if (LobbyManager.Instance != null)
             await LobbyManager.Instance.LeaveSessionAsync();
