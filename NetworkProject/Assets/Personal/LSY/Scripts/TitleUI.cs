@@ -6,16 +6,19 @@ public class TitleUI : MonoBehaviour
     [Header("버튼")]
     [SerializeField] private Button _startButton;
     [SerializeField] private Button _optionButton;
+    [SerializeField] private Button _creditButton;
     [SerializeField] private Button _quitButton;
 
     [Header("팝업")]
     [SerializeField] private GameObject _startPopup;
     [SerializeField] private GameObject _soundOptionPopup;
+    [SerializeField] private GameObject _creditPopup;
 
     private void Awake()
     {
         _startButton.onClick.AddListener(OnStartClicked);
         _optionButton.onClick.AddListener(OnOptionClicked);
+        _creditButton.onClick.AddListener(OnCreditClicked);
         _quitButton.onClick.AddListener(OnQuitClicked);
     }
 
@@ -23,6 +26,7 @@ public class TitleUI : MonoBehaviour
     {
         _startButton.onClick.RemoveListener(OnStartClicked);
         _optionButton.onClick.RemoveListener(OnOptionClicked);
+        _creditButton.onClick.RemoveListener(OnCreditClicked);
         _quitButton.onClick.RemoveListener(OnQuitClicked);
     }
 
@@ -34,6 +38,11 @@ public class TitleUI : MonoBehaviour
     private void OnOptionClicked()
     {
         _soundOptionPopup.SetActive(true);
+    }
+    
+    private void OnCreditClicked()
+    {
+        _creditPopup.SetActive(true);
     }
 
     private void OnQuitClicked()
