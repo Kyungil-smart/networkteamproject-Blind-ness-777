@@ -215,5 +215,9 @@ public class AudioManager : MonoBehaviour, IPhaseChangeable
         if (targetVolume == 0f)
             _bgmSource.Stop();
     }
-
+    
+    public void StopSFX()
+    {
+        _sfxSource.Stop();
+    }
 }
