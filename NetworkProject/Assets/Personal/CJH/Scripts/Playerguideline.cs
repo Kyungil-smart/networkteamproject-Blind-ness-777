@@ -79,16 +79,22 @@ public class PlayerGuideLine : NetworkBehaviour, IPhaseChangeable
 
     public void OnPhaseChanged(GamePhase phase)
     {
-        if (phase != GamePhase.Shooting) return;
-        if (!IsOwner || _guideLine == null) return;
+        switch (phase)
+        {
+            case GamePhase.HideAndSeek:
+                _isTopView = false;
+                _guideLine.startWidth = _guideStartWidth;
+                _guideLine.endWidth   = _guideEndWidth;
+                _guideLine.colorGradient = MakeGradient(_guideColor, startAlpha: 0.5f);
+                break;
 
-        _guideLine.enabled    = true;
-        _isTopView            = true;
-        _guideLine.startWidth = _aimStartWidth;
-        _guideLine.endWidth   = _aimEndWidth;
-
-        // 흐릿한 방향 힌트 → 선명한 조준선으로 전환
-        _guideLine.colorGradient = MakeGradient(_aimColor, startAlpha: 1f);
+            case GamePhase.Shooting:
+                _isTopView = true;
+                _guideLine.startWidth = _aimStartWidth;
+                _guideLine.endWidth   = _aimEndWidth;
+                _guideLine.colorGradient = MakeGradient(_aimColor, startAlpha: 1f);
+                break;
+        }
     }
 
     private Gradient MakeGradient(Color color, float startAlpha)
