@@ -1,0 +1,51 @@
+using Unity.Netcode;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class SpawnManager : MonoBehaviour
+{
+    public GameObject _aiPrefab;
+    public GameObject _playerPrefab;
+
+    
+    public void SpawnAll()
+    {
+        SpawnAI();
+        SpawnPlayer();
+    }
+    
+    public void SpawnAI()
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            Vector3 _randomPoint = GetNavMeshPoint();
+            GameObject _ai = Instantiate(_aiPrefab, _randomPoint, Quaternion.identity);
+            _ai.GetComponent<NetworkObject>().Spawn();
+        } 
+    }
+    
+    public void SpawnPlayer()
+    {
+        foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
+        {
+            Vector3 _randomPoint = GetNavMeshPoint();
+            GameObject _player = Instantiate(_playerPrefab, _randomPoint, Quaternion.identity);
+            _player.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId);
+        }
+    }
+    
+    private Vector3 GetNavMeshPoint()
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            Vector3 randomPoint = new Vector3(
+                Random.Range(-50f, 50f), 0f, Random.Range(-50f, 50f));
+        
+            if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 100f, NavMesh.AllAreas))
+                return hit.position;
+        }
+
+        Debug.LogWarning("[SpawnManager] NavMesh 위 유효한 위치를 찾지 못했습니다.");
+        return Vector3.zero;
+    }
+}

@@ -1,0 +1,132 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Unity.Netcode;
+using UnityEngine.AI;
+using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
+using System.Linq;
+using Unity.Collections;
+
+public class GameManager : NetworkBehaviour
+{
+    public static GameManager Instance {get; private set;}
+    public NetworkVariable<GamePhase> CurrentPhase = new(GamePhase.Waiting);    // 게임 페이즈 변수
+    public NetworkVariable<int> AlivePlayer = new(0);                           // 플레이 인원수 변수
+    public NetworkVariable<FixedString64Bytes> WinnerName = new(default);
+    public MapLoader _mapSpawn;
+    [SerializeField] public float _movingTime = 10f;                            // 숨는 시간 변수
+    
+    private AISetActive[] _aiList;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+    
+    public override void OnNetworkSpawn()
+    {
+        CurrentPhase.OnValueChanged += OnPhaseValueChanged;
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        CurrentPhase.OnValueChanged -= OnPhaseValueChanged;
+    }
+
+    private void OnPhaseValueChanged(GamePhase previous, GamePhase current)
+    {
+        if (!IsServer) 
+        {
+            foreach (var obj in FindObjectsOfType<MonoBehaviour>().OfType<IPhaseChangeable>())
+                obj.OnPhaseChanged(current);
+            return;
+        }
+
+        switch (current)
+        {
+            case GamePhase.Shooting:
+                if (_aiList != null)
+                    foreach (var ai in _aiList) ai.HideClientRPC();
+                break;
+
+            case GamePhase.HideAndSeek:
+                if (_aiList != null)
+                    foreach (var ai in _aiList) ai.ShowClientRPC();
+                break;
+        }
+
+        foreach (var obj in FindObjectsOfType<MonoBehaviour>().OfType<IPhaseChangeable>())
+            obj.OnPhaseChanged(current);
+    }
+    
+    // 게임 시작 함수
+    public IEnumerator StartGame()
+    {
+        if (!IsServer) yield break;
+        AlivePlayer.Value = NetworkManager.Singleton.ConnectedClientsIds.Count;
+        _mapSpawn = FindObjectOfType<MapLoader>();
+        if (_mapSpawn != null) yield return StartCoroutine(_mapSpawn.LoadMap());
+        // ai및 플레이어 소환
+        FindObjectOfType<SpawnManager>().SpawnAll();
+        // ai저장
+        _aiList = FindObjectsOfType<AISetActive>();
+        Debug.Log(_aiList.Length);
+        StartCoroutine(GamePlay());
+    }
+    
+    // 플레이어가 총 맞았을 때 호출
+    public void OnPlayerDead()
+    {
+        if (!IsServer) return;
+    
+        AlivePlayer.Value--;
+    
+        if (AlivePlayer.Value == 1)
+        {
+            foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
+            {
+                PlayerController pc = client.PlayerObject?.GetComponent<PlayerController>();
+                if (pc != null && !pc.IsDead)
+                {
+                    NetworkPlayerData data = client.PlayerObject.GetComponent<NetworkPlayerData>();
+                    WinnerName.Value = new FixedString64Bytes(data.PlayerName);
+                    break;
+                }
+            }
+        }
+    }
+
+    // 게임 플레이 루틴
+    public IEnumerator GamePlay()
+    {
+        CurrentPhase.Value = GamePhase.HideAndSeek;
+        while (AlivePlayer.Value > 1)
+        {
+            yield return new WaitUntil(() => CurrentPhase.Value == GamePhase.Shooting);
+            // 슈팅 페이즈
+            yield return new WaitUntil(() => CurrentPhase.Value != GamePhase.Shooting);
+        }
+        foreach (var ai in _aiList) ai.OnNetworkDespawn();
+        _aiList = null;
+        CurrentPhase.Value = GamePhase.GameOver;
+    }
+    
+    public void ResetGame()
+    {
+        _aiList = null;
+        _mapSpawn = null;
+        AlivePlayer.Value = 0;
+        CurrentPhase.Value = GamePhase.Waiting;
+    }
+}
